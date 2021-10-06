@@ -53,15 +53,13 @@ public class RealizarPedido extends javax.swing.JFrame {
         setTitle("Login");
         setBackground(new java.awt.Color(234, 29, 44));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
-        setMaximumSize(new java.awt.Dimension(360, 640));
-        setMinimumSize(new java.awt.Dimension(360, 640));
-        setPreferredSize(new java.awt.Dimension(360, 640));
+        setMaximumSize(null);
         setResizable(false);
         setSize(new java.awt.Dimension(360, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpLogin.setBackground(new java.awt.Color(234, 29, 44));
-        jpLogin.setMaximumSize(new java.awt.Dimension(360, 640));
+        jpLogin.setMaximumSize(new java.awt.Dimension(800, 640));
         jpLogin.setMinimumSize(new java.awt.Dimension(360, 640));
         jpLogin.setPreferredSize(new java.awt.Dimension(360, 640));
 
@@ -131,11 +129,11 @@ public class RealizarPedido extends javax.swing.JFrame {
             .addGroup(jpLoginLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(logo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,7 +141,7 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlErro)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         getContentPane().add(jpLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
@@ -171,6 +169,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         getAccessibleContext().setAccessibleName("Login");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
