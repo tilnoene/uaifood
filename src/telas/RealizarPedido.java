@@ -256,28 +256,10 @@ public class RealizarPedido extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean login(String emailUsuario, String senhaUsuario) throws IOException {
-        String texto = ManipuladorArquivo.leitor("database/clientes.txt");
+        ArrayList<Cliente> clientes = ManipuladorArquivo.carregarClientes();
         
-        String[] linhas = texto.split("\n");
-        ArrayList<Cliente> clientes = new ArrayList();
-        
-        for (int i = 0; i < linhas.length; i++) {
-            if (linhas[i].length() == 0) continue;
-            
-            String[] linha = linhas[i].split(";");
-            
-            String cpf = linha[0];
-            String nome = linha[1];
-            String email = linha[2];
-            String senha = linha[3];
-            String dataDeNascimento = linha[4];
-            String telefone = linha[5];
-            int codCliente = Integer.parseInt(linha[6]);
-            String endereco = linha[7];
-            
-            clientes.add(new Cliente(codCliente, endereco, cpf, nome, email, senha, dataDeNascimento, telefone));
-            
-            if (email.equals(emailUsuario) && senha.equals(senhaUsuario))
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getEmail().equals(emailUsuario) && clientes.get(i).getSenha().equals(senhaUsuario))
                 return true;
         }
         
