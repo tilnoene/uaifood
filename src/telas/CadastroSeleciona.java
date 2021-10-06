@@ -176,6 +176,7 @@ public class CadastroSeleciona extends javax.swing.JFrame {
 
     private void btnProdutoSelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoSelecionaCadastroActionPerformed
         // TODO add your handling code here:
+        new CadastroProduto().setVisible(true);
     }//GEN-LAST:event_btnProdutoSelecionaCadastroActionPerformed
 
     /**
