@@ -256,9 +256,10 @@ public class RealizarPedido extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean login(String emailUsuario, String senhaUsuario) throws IOException {
-        ArrayList<Cliente> clientes = ManipuladorArquivo.carregarClientes();
+        ArrayList<Cliente> clientes = ManipuladorArquivo.carregarClientes(); // carrega clientes do banco de dados
         
         for (int i = 0; i < clientes.size(); i++) {
+            // verifica credenciais
             if (clientes.get(i).getEmail().equals(emailUsuario) && clientes.get(i).getSenha().equals(senhaUsuario))
                 return true;
         }
