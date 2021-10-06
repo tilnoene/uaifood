@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Victor/uaifood/src/classes/Cliente.java</file>
-            <file>file:/C:/Users/Victor/uaifood/src/classes/Motoboy.java</file>
-            <file>file:/C:/Users/Victor/uaifood/src/telas/RealizarPedido.java</file>
-            <file>file:/C:/Users/Victor/uaifood/src/classes/ManipuladorArquivo.java</file>
+            <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/classes/Produto.java</file>
             <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/telas/CadastroProduto.java</file>
+            <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/telas/CadastroCliente.java</file>
         </group>
     </open-files>
 </project-private>

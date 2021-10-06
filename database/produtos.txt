@@ -1,0 +1,11 @@
+
+
+
+0;teste;123123.0;true;Item 1;dfvdsgf;0;
+
+0;teste;123.0;true;Item 1;um mostesngojidoig;3;
+
+0;outro;456.0;false;Item 4;grdfogir dfghkbofdjihj;1;
+
+0;test;1.2312321E7;false;Item 1;testestes;0;
+

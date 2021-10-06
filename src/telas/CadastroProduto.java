@@ -5,6 +5,12 @@
  */
 package telas;
 
+import classes.Produto;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eduardo
@@ -42,10 +48,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaDescricaoProduto = new javax.swing.JTextArea();
         btnNovoProduto = new javax.swing.JButton();
-        btnEditarProduto = new javax.swing.JButton();
-        btnExcluirProduto = new javax.swing.JButton();
-        btnPesquisarProduto = new javax.swing.JButton();
-        btnVoltarProduto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -109,19 +111,10 @@ public class CadastroProduto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtaDescricaoProduto);
 
         btnNovoProduto.setText("NOVO");
-
-        btnEditarProduto.setText("EDITAR");
-
-        btnExcluirProduto.setText("EXCLUIR");
-
-        btnPesquisarProduto.setText("PESQUISAR");
-        btnPesquisarProduto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPesquisarProduto.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        btnVoltarProduto.setText("VOLTAR");
-        btnVoltarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btnNovoProduto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNovoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarProdutoActionPerformed(evt);
+                btnNovoProdutoActionPerformed(evt);
             }
         });
 
@@ -130,33 +123,29 @@ public class CadastroProduto extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPesquisarProduto)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtValorProduto)
-                        .addComponent(txtNomeProduto)
-                        .addComponent(rbtnAlcoolicoProduto)
-                        .addComponent(jlDescricaoProduto)
-                        .addComponent(jlValorProduto)
-                        .addComponent(jlNomeProduto)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jlCategoriaProduto)
-                                .addComponent(cmbCategoriaProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jlDiaDaPromocaoProduto)))
-                        .addComponent(jScrollPane1)
-                        .addComponent(jlTituloProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnNovoProduto)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnEditarProduto)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnExcluirProduto))
-                        .addComponent(btnVoltarProduto, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtValorProduto)
+                            .addComponent(txtNomeProduto)
+                            .addComponent(rbtnAlcoolicoProduto)
+                            .addComponent(jlDescricaoProduto)
+                            .addComponent(jlValorProduto)
+                            .addComponent(jlNomeProduto)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlCategoriaProduto)
+                                    .addComponent(cmbCategoriaProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlDiaDaPromocaoProduto)))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jlTituloProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,16 +175,9 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtnAlcoolicoProduto)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNovoProduto)
-                    .addComponent(btnEditarProduto)
-                    .addComponent(btnExcluirProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPesquisarProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(btnVoltarProduto)
-                .addGap(17, 17, 17))
+                .addGap(53, 53, 53)
+                .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,10 +199,24 @@ public class CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnAlcoolicoProdutoActionPerformed
 
-    private void btnVoltarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProdutoActionPerformed
+    private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-    }//GEN-LAST:event_btnVoltarProdutoActionPerformed
+        String nome = txtNomeProduto.getText();
+        float valor = Float.parseFloat(txtValorProduto.getText());
+        boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
+        String categoria = cmbCategoriaProduto.getSelectedItem().toString();
+        int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex();
+        String descricao = jtaDescricaoProduto.getText();
+        
+        Produto produto = new Produto(0, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
+        try {
+            produto.init();
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+            this.setVisible(false);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Algo deu errado! O produto não foi cadastrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnNovoProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,11 +254,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditarProduto;
-    private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnNovoProduto;
-    private javax.swing.JButton btnPesquisarProduto;
-    private javax.swing.JButton btnVoltarProduto;
     private javax.swing.JComboBox<String> cmbCategoriaProduto;
     private javax.swing.JComboBox<String> cmbjlDiaDaPromocaoProduto;
     private javax.swing.JPanel jPanel1;
