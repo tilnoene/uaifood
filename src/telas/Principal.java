@@ -31,17 +31,22 @@ public class Principal extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        btnPedido1 = new javax.swing.JButton();
+        btnPedido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("uaiFood");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(360, 640));
+        setMinimumSize(new java.awt.Dimension(360, 640));
         setResizable(false);
 
         jpnBackground.setBackground(new java.awt.Color(234, 29, 44));
+        jpnBackground.setMaximumSize(new java.awt.Dimension(360, 640));
+        jpnBackground.setMinimumSize(new java.awt.Dimension(360, 640));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/uaifood_logo.jpg"))); // NOI18N
+        logo.setMinimumSize(new java.awt.Dimension(360, 640));
 
         btnCadastrar.setBackground(new java.awt.Color(234, 29, 44));
         btnCadastrar.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -73,18 +78,18 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnPedido1.setBackground(new java.awt.Color(234, 29, 44));
-        btnPedido1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnPedido1.setForeground(new java.awt.Color(255, 255, 255));
-        btnPedido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
-        btnPedido1.setText("Pedido");
-        btnPedido1.setBorder(null);
-        btnPedido1.setBorderPainted(false);
-        btnPedido1.setContentAreaFilled(false);
-        btnPedido1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPedido1.addActionListener(new java.awt.event.ActionListener() {
+        btnPedido.setBackground(new java.awt.Color(234, 29, 44));
+        btnPedido.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnPedido.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
+        btnPedido.setText("Pedido");
+        btnPedido.setBorder(null);
+        btnPedido.setBorderPainted(false);
+        btnPedido.setContentAreaFilled(false);
+        btnPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPedido1ActionPerformed(evt);
+                btnPedidoActionPerformed(evt);
             }
         });
 
@@ -96,24 +101,24 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnBackgroundLayout.createSequentialGroup()
-                        .addComponent(logo)
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnBackgroundLayout.createSequentialGroup()
                         .addGroup(jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(94, 94, 94))))
         );
         jpnBackgroundLayout.setVerticalGroup(
             jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnBackgroundLayout.createSequentialGroup()
                 .addContainerGap(136, Short.MAX_VALUE)
-                .addComponent(logo)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(161, 161, 161))
@@ -123,11 +128,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpnBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpnBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -144,10 +149,10 @@ public class Principal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedido1ActionPerformed
+    private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
         // TODO add your handling code here:
         new RealizarPedido().setVisible(true);
-    }//GEN-LAST:event_btnPedido1ActionPerformed
+    }//GEN-LAST:event_btnPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +191,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnPedido1;
+    private javax.swing.JButton btnPedido;
     private javax.swing.JButton btnSair;
     private javax.swing.JPanel jpnBackground;
     private javax.swing.JLabel logo;

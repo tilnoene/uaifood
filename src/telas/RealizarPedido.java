@@ -16,6 +16,10 @@ public class RealizarPedido extends javax.swing.JFrame {
      */
     public RealizarPedido() {
         initComponents();
+        
+        // exibe somente a tela de Login
+        jpLogin.setVisible(true);
+        jspSelecionarProdutos.setVisible(false);
     }
 
     /**
@@ -27,46 +31,148 @@ public class RealizarPedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jpLogin = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        btnEntrar = new javax.swing.JButton();
+        jlEmail = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jlSenha = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
+        jspSelecionarProdutos = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
 
+        jLabel1.setText("lagrimas de crocodilo do WIU");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Selecionar Produtos");
+        setTitle("Login");
         setBackground(new java.awt.Color(234, 29, 44));
+        setMaximumSize(new java.awt.Dimension(360, 640));
+        setMinimumSize(new java.awt.Dimension(360, 640));
         setPreferredSize(new java.awt.Dimension(360, 640));
         setResizable(false);
         setSize(new java.awt.Dimension(360, 640));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(234, 29, 44));
-        jPanel1.setPreferredSize(new java.awt.Dimension(360, 640));
+        jpLogin.setBackground(new java.awt.Color(234, 29, 44));
+        jpLogin.setMaximumSize(new java.awt.Dimension(360, 640));
+        jpLogin.setMinimumSize(new java.awt.Dimension(360, 640));
+        jpLogin.setPreferredSize(new java.awt.Dimension(360, 640));
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/uaifood_logo.jpg"))); // NOI18N
+
+        btnEntrar.setBackground(new java.awt.Color(234, 29, 44));
+        btnEntrar.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_entrar_branco.png"))); // NOI18N
+        btnEntrar.setText("Entrar");
+        btnEntrar.setBorder(null);
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.setContentAreaFilled(false);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+
+        jlEmail.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jlEmail.setText("Email:");
+
+        txtEmail.setBackground(new java.awt.Color(234, 29, 44));
+        txtEmail.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        jlSenha.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jlSenha.setText("Senha:");
+
+        txtSenha.setBackground(new java.awt.Color(234, 29, 44));
+        txtSenha.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtSenha.setPreferredSize(new java.awt.Dimension(7, 24));
+        txtSenha.setSelectionColor(new java.awt.Color(160, 35, 49));
+
+        javax.swing.GroupLayout jpLoginLayout = new javax.swing.GroupLayout(jpLogin);
+        jpLogin.setLayout(jpLoginLayout);
+        jpLoginLayout.setHorizontalGroup(
+            jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpLoginLayout.createSequentialGroup()
+                .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpLoginLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlSenha)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpLoginLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(logo)))
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jpLoginLayout.setVerticalGroup(
+            jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpLoginLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(logo)
+                .addGap(18, 18, 18)
+                .addComponent(jlEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jpLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
+
+        jspSelecionarProdutos.setBackground(new java.awt.Color(234, 29, 44));
+        jspSelecionarProdutos.setPreferredSize(new java.awt.Dimension(360, 640));
+
+        jPanel1.setBackground(new java.awt.Color(240, 0, 240));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGap(0, 501, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
-        );
+        jspSelecionarProdutos.setViewportView(jPanel1);
+
+        getContentPane().add(jspSelecionarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 600));
+
+        getAccessibleContext().setAccessibleName("Login");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // TODO add your handling code here:
+        boolean autenticado = true;
+        
+        // faz login
+        
+        if (autenticado) {
+            this.setTitle("Escolher Produtos"); // troca o título da página
+            
+            jpLogin.setVisible(false);
+            jspSelecionarProdutos.setVisible(true);
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,6 +210,15 @@ public class RealizarPedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlEmail;
+    private javax.swing.JLabel jlSenha;
+    private javax.swing.JPanel jpLogin;
+    private javax.swing.JScrollPane jspSelecionarProdutos;
+    private javax.swing.JLabel logo;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
