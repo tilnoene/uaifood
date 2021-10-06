@@ -138,7 +138,6 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(jlDescricaoProduto)
                     .addComponent(jlValorProduto)
                     .addComponent(jlNomeProduto)
-                    .addComponent(jScrollPane1)
                     .addComponent(jlTituloProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -147,7 +146,8 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlDiaDaPromocaoProduto))))
+                            .addComponent(jlDiaDaPromocaoProduto)))
+                    .addComponent(jScrollPane1))
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,6 +207,13 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
         // TODO add your handling code here:
+        if (txtNomeProduto.getText().equals("")
+            || txtValorProduto.getText().equals("")
+            || jtaDescricaoProduto.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         String nome = txtNomeProduto.getText();
         float valor = Float.parseFloat(txtValorProduto.getText());
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();

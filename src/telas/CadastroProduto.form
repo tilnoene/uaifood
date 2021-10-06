@@ -52,7 +52,6 @@
                       <Component id="jlDescricaoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jlValorProduto" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jlNomeProduto" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Component id="jlTituloProduto" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -65,6 +64,7 @@
                               <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
