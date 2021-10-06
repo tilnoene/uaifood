@@ -30,13 +30,14 @@ public class Principal extends javax.swing.JFrame {
         jpnBackground = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
-        btnPedido = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        btnPedido1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("uaiFood");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
+        setResizable(false);
 
         jpnBackground.setBackground(new java.awt.Color(234, 29, 44));
 
@@ -57,23 +58,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnPedido.setBackground(new java.awt.Color(234, 29, 44));
-        btnPedido.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnPedido.setForeground(new java.awt.Color(255, 255, 255));
-        btnPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
-        btnPedido.setText("Pedido");
-        btnPedido.setBorder(null);
-        btnPedido.setBorderPainted(false);
-        btnPedido.setContentAreaFilled(false);
-        btnPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPedido.setMaximumSize(new java.awt.Dimension(141, 33));
-        btnPedido.setMinimumSize(new java.awt.Dimension(141, 33));
-        btnPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPedidoActionPerformed(evt);
-            }
-        });
-
         btnSair.setBackground(new java.awt.Color(234, 29, 44));
         btnSair.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,12 +67,24 @@ public class Principal extends javax.swing.JFrame {
         btnSair.setBorderPainted(false);
         btnSair.setContentAreaFilled(false);
         btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSair.setMaximumSize(new java.awt.Dimension(141, 33));
-        btnSair.setMinimumSize(new java.awt.Dimension(141, 33));
-        btnSair.setPreferredSize(new java.awt.Dimension(66, 31));
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
+            }
+        });
+
+        btnPedido1.setBackground(new java.awt.Color(234, 29, 44));
+        btnPedido1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnPedido1.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
+        btnPedido1.setText("Pedido");
+        btnPedido1.setBorder(null);
+        btnPedido1.setBorderPainted(false);
+        btnPedido1.setContentAreaFilled(false);
+        btnPedido1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPedido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedido1ActionPerformed(evt);
             }
         });
 
@@ -100,27 +96,27 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnBackgroundLayout.createSequentialGroup()
-                        .addGroup(jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnBackgroundLayout.createSequentialGroup()
                         .addComponent(logo)
-                        .addGap(49, 49, 49))))
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnBackgroundLayout.createSequentialGroup()
+                        .addGroup(jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(94, 94, 94))))
         );
         jpnBackgroundLayout.setVerticalGroup(
             jpnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnBackgroundLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addComponent(logo)
                 .addGap(71, 71, 71)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,19 +134,20 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        new CadastroSeleciona() .setVisible(true);
+        new CadastroSeleciona().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPedidoActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedido1ActionPerformed
+        // TODO add your handling code here:
+        new RealizarPedido().setVisible(true);
+    }//GEN-LAST:event_btnPedido1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnPedido;
+    private javax.swing.JButton btnPedido1;
     private javax.swing.JButton btnSair;
     private javax.swing.JPanel jpnBackground;
     private javax.swing.JLabel logo;
