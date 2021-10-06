@@ -13,7 +13,8 @@ public class Produto {
     private String descricao;
     private int diaDaPromocao;
 
-    public Produto(String nome, float valor, boolean alcoolico, String categoria, String descricao, int diaDaPromocao) {
+    public Produto(int codProduto, String nome, float valor, boolean alcoolico, String categoria, String descricao, int diaDaPromocao) {
+        this.codProduto = codProduto;
         this.nome = nome;
         this.valor = valor;
         this.alcoolico = alcoolico;
