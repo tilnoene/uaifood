@@ -43,38 +43,35 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnPesquisarProduto" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtValorProduto" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtNomeProduto" max="32767" attributes="0"/>
-                          <Component id="rbtnAlcoolicoProduto" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlDescricaoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlValorProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlNomeProduto" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbCategoriaProduto" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtValorProduto" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNomeProduto" max="32767" attributes="0"/>
+                              <Component id="rbtnAlcoolicoProduto" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlDescricaoProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlValorProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlNomeProduto" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbCategoriaProduto" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cmbjlDiaDaPromocaoProduto" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cmbjlDiaDaPromocaoProduto" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Component id="jlTituloProduto" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Component id="jlTituloProduto" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="btnNovoProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnEditarProduto" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnExcluirProduto" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnVoltarProduto" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="btnNovoProduto" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
@@ -110,17 +107,9 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="rbtnAlcoolicoProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnNovoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEditarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnExcluirProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnPesquisarProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
-                  <Component id="btnVoltarProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="btnNovoProduto" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace pref="106" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -316,31 +305,10 @@
         <Component class="javax.swing.JButton" name="btnNovoProduto">
           <Properties>
             <Property name="text" type="java.lang.String" value="NOVO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnEditarProduto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="EDITAR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnExcluirProduto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="EXCLUIR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnPesquisarProduto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="PESQUISAR"/>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="horizontalTextPosition" type="int" value="2"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnVoltarProduto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarProdutoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoProdutoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
