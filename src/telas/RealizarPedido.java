@@ -5,6 +5,8 @@
  */
 package telas;
 
+import javax.swing.SwingConstants;
+
 /**
  *
  * @author Victor
@@ -20,6 +22,8 @@ public class RealizarPedido extends javax.swing.JFrame {
         // exibe somente a tela de Login
         jpLogin.setVisible(true);
         jspSelecionarProdutos.setVisible(false);
+        jlErro.setHorizontalAlignment(SwingConstants.CENTER);
+        jlErro.setVerticalAlignment(SwingConstants.CENTER);
     }
 
     /**
@@ -39,6 +43,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         jlSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
+        jlErro = new javax.swing.JLabel();
         jspSelecionarProdutos = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
 
@@ -47,6 +52,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(234, 29, 44));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setMaximumSize(new java.awt.Dimension(360, 640));
         setMinimumSize(new java.awt.Dimension(360, 640));
         setPreferredSize(new java.awt.Dimension(360, 640));
@@ -96,6 +102,10 @@ public class RealizarPedido extends javax.swing.JFrame {
         txtSenha.setPreferredSize(new java.awt.Dimension(7, 24));
         txtSenha.setSelectionColor(new java.awt.Color(160, 35, 49));
 
+        jlErro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlErro.setForeground(new java.awt.Color(255, 255, 255));
+        jlErro.setText("As credenciais estão incorretas!");
+
         javax.swing.GroupLayout jpLoginLayout = new javax.swing.GroupLayout(jpLogin);
         jpLogin.setLayout(jpLoginLayout);
         jpLoginLayout.setHorizontalGroup(
@@ -104,16 +114,17 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jlSenha)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(jlEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(logo)))
                 .addContainerGap(50, Short.MAX_VALUE))
+            .addComponent(jlErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpLoginLayout.setVerticalGroup(
             jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +141,9 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlErro)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         getContentPane().add(jpLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
@@ -214,6 +227,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlEmail;
+    private javax.swing.JLabel jlErro;
     private javax.swing.JLabel jlSenha;
     private javax.swing.JPanel jpLogin;
     private javax.swing.JScrollPane jspSelecionarProdutos;
