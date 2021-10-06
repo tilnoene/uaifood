@@ -1,6 +1,10 @@
 package classes;
 
 // subclasse da superclasse usuario.
+
+import java.io.IOException;
+import taxi.ManipuladorArquivo;
+
 // dados especificos: codigo do cliente e endereço.
 
 public class Cliente extends Usuario{
@@ -13,6 +17,10 @@ public class Cliente extends Usuario{
         this.endereco = endereco;
     }
 
+    public void armazenarCliente() throws IOException {
+        ManipuladorArquivo.armazenarCliente(this);
+    }
+    
     public int getCodCliente() {
         return codCliente;
     }

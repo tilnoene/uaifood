@@ -1,7 +1,11 @@
 package classes;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import taxi.ManipuladorArquivo;
+
 public class Produto {
-    //private int codProduto // provavelmente nao precisa redeclarar;
+    private int codProduto;
     private String nome;
     private float valor;
     private boolean alcoolico;
@@ -9,7 +13,8 @@ public class Produto {
     private String descricao;
     private int diaDaPromocao;
 
-    public Produto(String nome, float valor, boolean alcoolico, String categoria, String descricao, int diaDaPromocao) {
+    public Produto(int codProduto, String nome, float valor, boolean alcoolico, String categoria, String descricao, int diaDaPromocao) {
+        this.codProduto = codProduto;
         this.nome = nome;
         this.valor = valor;
         this.alcoolico = alcoolico;
@@ -17,7 +22,31 @@ public class Produto {
         this.descricao = descricao;
         this.diaDaPromocao = diaDaPromocao;
     }
+    
+    public void init() throws IOException {
+        int last_id = 1;
+        
+        try {
+            ArrayList<Produto> produtos = ManipuladorArquivo.carregarProdutos();
+            
+            if (produtos.size() > 0)
+                last_id = produtos.get(produtos.size()-1).getCodProduto();
+        } catch(IOException ex) {
+            last_id = 0;
+        }
+        
+        this.setCodProduto(last_id);
+        ManipuladorArquivo.armazenarProduto(this);
+    }
 
+    public int getCodProduto() {
+        return codProduto;
+    }
+
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -34,7 +63,7 @@ public class Produto {
         this.valor = valor;
     }
 
-    public boolean isAlcoolico() {
+    public boolean getAlcoolico() {
         return alcoolico;
     }
 

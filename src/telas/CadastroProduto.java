@@ -102,10 +102,10 @@ public class CadastroProduto extends javax.swing.JFrame {
         });
 
         jtaDescricaoProduto.setBackground(new java.awt.Color(234, 29, 44));
-        jtaDescricaoProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jtaDescricaoProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jtaDescricaoProduto.setForeground(new java.awt.Color(255, 255, 255));
-        jtaDescricaoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jtaDescricaoProduto.setRows(5);
+        jtaDescricaoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jScrollPane1.setViewportView(jtaDescricaoProduto);
 
         btnNovoProduto.setText("NOVO");
@@ -193,7 +193,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(btnExcluirProduto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPesquisarProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnVoltarProduto)
                 .addGap(17, 17, 17))
         );

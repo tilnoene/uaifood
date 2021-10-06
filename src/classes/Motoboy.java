@@ -8,28 +8,28 @@ comissao, disponibilidade;
 */
 
 public class Motoboy extends Usuario{
-    private int codMotoby;
+    private int codMotoboy;
     private static Timestamp inicioExpediente; //timestamp sera usado para pegar
     private static Timestamp finalExpediente; // o horario de expediente, provavelmente sera mudado para uma string apenas
     private float comissao;
     private boolean disponibilidade;
 
-    public Motoboy(int codMotoby, float comissao, boolean disponibilidade, 
+    public Motoboy(int codMotoboy, float comissao, boolean disponibilidade, 
             String cpf, String nome, String email, String senha, 
             String dataDeNascimento, String telefone) {
         
         super(cpf, nome, email, senha, dataDeNascimento, telefone);
-        this.codMotoby = codMotoby;
+        this.codMotoboy = codMotoboy;
         this.comissao = comissao;
         this.disponibilidade = disponibilidade;
     }
 
-    public int getCodMotoby() {
-        return codMotoby;
+    public int getCodMotoboy() {
+        return codMotoboy;
     }
 
-    public void setCodMotoby(int codMotoby) {
-        this.codMotoby = codMotoby;
+    public void setCodMotoboy(int codMotoboy) {
+        this.codMotoboy = codMotoboy;
     }
 
     public static Timestamp getInicioExpediente() {
@@ -56,7 +56,7 @@ public class Motoboy extends Usuario{
         this.comissao = comissao;
     }
 
-    public boolean isDisponibilidade() {
+    public boolean getDisponibilidade() {
         return disponibilidade;
     }
 
