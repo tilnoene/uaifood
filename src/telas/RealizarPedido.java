@@ -5,7 +5,14 @@
  */
 package telas;
 
+import classes.Cliente;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import taxi.ManipuladorArquivo;
 
 /**
  *
@@ -21,6 +28,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         // exibe somente a tela de Login
         jpLogin.setVisible(true);
+        jlErro.setVisible(false); // mensagem de erro não aparece
         jspSelecionarProdutos.setVisible(false);
         jlErro.setHorizontalAlignment(SwingConstants.CENTER);
         jlErro.setVerticalAlignment(SwingConstants.CENTER);
@@ -102,7 +110,6 @@ public class RealizarPedido extends javax.swing.JFrame {
 
         jlErro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlErro.setForeground(new java.awt.Color(255, 255, 255));
-        jlErro.setText("As credenciais estão incorretas!");
 
         javax.swing.GroupLayout jpLoginLayout = new javax.swing.GroupLayout(jpLogin);
         jpLogin.setLayout(jpLoginLayout);
@@ -139,9 +146,9 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlErro)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         getContentPane().add(jpLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
@@ -174,15 +181,28 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        boolean autenticado = true;
+        String email = txtEmail.getText();
+        String senha = String.valueOf(txtSenha.getPassword());
         
-        // faz login
+        if (email.equals("") || senha.equals("")) {
+            jlErro.setText("Por favor, preencha todos os campos!");
+            jlErro.setVisible(true);
+            return;
+        }
         
-        if (autenticado) {
-            this.setTitle("Escolher Produtos"); // troca o título da página
-            
-            jpLogin.setVisible(false);
-            jspSelecionarProdutos.setVisible(true);
+        try {
+            if (login(email, senha)) {
+                this.setTitle("Escolher Produtos"); // troca o título da página
+                
+                jpLogin.setVisible(false);
+                jspSelecionarProdutos.setVisible(true);
+            } else {
+                jlErro.setText("As credenciais estão incorretas!");
+                jlErro.setVisible(true);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(RealizarPedido.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar o banco de dados!", "Erro", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -234,4 +254,33 @@ public class RealizarPedido extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
+
+    private boolean login(String emailUsuario, String senhaUsuario) throws IOException {
+        String texto = ManipuladorArquivo.leitor("database/clientes.txt");
+        
+        String[] linhas = texto.split("\n");
+        ArrayList<Cliente> clientes = new ArrayList();
+        
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+            
+            String[] linha = linhas[i].split(";");
+            
+            String cpf = linha[0];
+            String nome = linha[1];
+            String email = linha[2];
+            String senha = linha[3];
+            String dataDeNascimento = linha[4];
+            String telefone = linha[5];
+            int codCliente = Integer.parseInt(linha[6]);
+            String endereco = linha[7];
+            
+            clientes.add(new Cliente(codCliente, endereco, cpf, nome, email, senha, dataDeNascimento, telefone));
+            
+            if (email.equals(emailUsuario) && senha.equals(senhaUsuario))
+                return true;
+        }
+        
+        return false;
+    }
 }
