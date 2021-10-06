@@ -11,6 +11,7 @@ package taxi;
  */
 import classes.Cliente;
 import classes.Motoboy;
+import classes.Produto;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -21,7 +22,7 @@ import java.util.Scanner;
 
 public class ManipuladorArquivo {
 
-    public static String leitor(String path) throws IOException {
+    private static String leitor(String path) throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader(path));
         String linha = "";
         String ans = "";
@@ -38,7 +39,7 @@ public class ManipuladorArquivo {
         return ans;
     }
 
-    public static void escritor(String path, String linha) throws IOException {
+    private static void escritor(String path, String linha) throws IOException {
         try {
             String texto = leitor(path) + linha; // permanece com o que já havia
 
@@ -140,5 +141,46 @@ public class ManipuladorArquivo {
         }
 
         return motoboys;
+    }
+    
+    // CRUD Produto
+    public static void armazenarProduto(Produto produto) throws IOException {
+        String texto = 
+                String.valueOf(produto.getCodProduto()) + ";"
+                + produto.getNome() + ";"
+                + String.valueOf(produto.getValor()) + ";"
+                + String.valueOf(produto.getAlcoolico()) + ";"
+                + produto.getCategoria() + ";"
+                + produto.getDescricao() + ";"
+                + String.valueOf(produto.getDiaDaPromocao()) + ";"
+                + "\n";
+        
+        escritor("database/produtos.txt", texto);
+    }
+    
+    public static ArrayList<Produto> carregarProdutos() throws IOException {
+        // carrega os produtos do banco de dados
+        String texto = leitor("database/produtos.txt");
+
+        String[] linhas = texto.split("\n");
+        ArrayList<Produto> produtos = new ArrayList();
+
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            String[] linha = linhas[i].split(";");
+            
+            int codProduto = Integer.parseInt(linha[0]);
+            String nome = linha[1];
+            float valor = Float.parseFloat(linha[2]);
+            boolean alcoolico = Boolean.valueOf(linha[3]);
+            String categoria = linha[4];
+            String descricao = linha[5];
+            int diaDaPromocao = Integer.parseInt(linha[6]);
+
+            produtos.add(new Produto(codProduto, nome, valor, alcoolico, categoria, descricao, diaDaPromocao));
+        }
+
+        return produtos;
     }
 }
