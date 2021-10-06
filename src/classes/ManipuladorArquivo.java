@@ -144,20 +144,24 @@ public class ManipuladorArquivo {
     }
     
     // CRUD Produto
-    public static void armazenarProduto(Produto produto) throws IOException {
-        String texto = 
-                String.valueOf(produto.getCodProduto()) + ";"
-                + produto.getNome() + ";"
-                + String.valueOf(produto.getValor()) + ";"
-                + String.valueOf(produto.getAlcoolico()) + ";"
-                + produto.getCategoria() + ";"
-                + produto.getDescricao() + ";"
-                + String.valueOf(produto.getDiaDaPromocao()) + ";"
-                + "\n";
-        
-        escritor("database/produtos.txt", texto);
+    public static Produto stringToProduto(String linha) {
+        String valores[] = linha.split(";");
+
+        int codProduto = Integer.parseInt(valores[0]);
+        String nome = valores[1];
+        float valor = Float.parseFloat(valores[2]);
+        boolean alcoolico = Boolean.valueOf(valores[3]);
+        String categoria = valores[4];
+        String descricao = valores[5];
+        int diaDaPromocao = Integer.parseInt(valores[6]);
+
+        return new Produto(codProduto, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
     }
-    
+
+    public static void armazenarProduto(Produto produto) throws IOException {
+        escritor("database/produtos.txt", produto.toString());
+    }
+
     public static ArrayList<Produto> carregarProdutos() throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
@@ -168,19 +172,45 @@ public class ManipuladorArquivo {
         for (int i = 0; i < linhas.length; i++) {
             if (linhas[i].length() == 0) continue;
 
-            String[] linha = linhas[i].split(";");
-            
-            int codProduto = Integer.parseInt(linha[0]);
-            String nome = linha[1];
-            float valor = Float.parseFloat(linha[2]);
-            boolean alcoolico = Boolean.valueOf(linha[3]);
-            String categoria = linha[4];
-            String descricao = linha[5];
-            int diaDaPromocao = Integer.parseInt(linha[6]);
-
-            produtos.add(new Produto(codProduto, nome, valor, alcoolico, categoria, descricao, diaDaPromocao));
+            produtos.add(stringToProduto(linhas[i]));
         }
 
         return produtos;
+    }
+
+    public static void editarProduto(Produto produto) throws IOException {
+        // carrega os produtos do banco de dados
+        String texto = leitor("database/produtos.txt");
+
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os produtos e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Produto currProduto = stringToProduto(linhas[i]);
+
+            if (produto.getCodProduto() == currProduto.getCodProduto())
+                armazenarProduto(produto); // o código é imutável, então sobscreve
+            else
+                armazenarProduto(currProduto);
+        }
+    }
+
+    public static void excluirProduto(Produto produto) throws IOException {
+        // carrega os produtos do banco de dados
+        String texto = leitor("database/produtos.txt");
+
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os produtos e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Produto currProduto = stringToProduto(linhas[i]);
+
+            if (produto.getCodProduto() != currProduto.getCodProduto()) // se for igual, ignora
+                armazenarProduto(currProduto);
+        }
     }
 }

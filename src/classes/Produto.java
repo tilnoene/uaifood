@@ -39,6 +39,17 @@ public class Produto {
         ManipuladorArquivo.armazenarProduto(this);
     }
 
+    public String toString() {
+        return String.valueOf(this.codProduto) + ";"
+                + this.nome + ";"
+                + String.valueOf(this.valor) + ";"
+                + String.valueOf(this.alcoolico) + ";"
+                + this.categoria + ";"
+                + this.descricao + ";"
+                + String.valueOf(this.diaDaPromocao) + ";"
+                + "\n";
+    }
+    
     public int getCodProduto() {
         return codProduto;
     }
