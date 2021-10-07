@@ -1,0 +1,4 @@
+
+
+2;Pizza de calabresa;24.9;false;Pizza;A melhor pizza que tem.;5
+3;Cacetinho;3.5;false;Padarias;Um bom pão francês.;0

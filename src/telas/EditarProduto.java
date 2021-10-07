@@ -340,13 +340,17 @@ public class EditarProduto extends javax.swing.JFrame {
 
     private void btnEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProdutoActionPerformed
         // TODO add your handling code here:
+        if (cmbProdutos.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um produto.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         // tela de edição visível
         jpSelecionarProduto.setVisible(false);
         jpEditarProduto.setVisible(true);
         this.setTitle("Editar Produto");
         
-        int indice_produto = cmbProdutos.getSelectedIndex();
+        int indice_produto = cmbProdutos.getSelectedIndex() - 1;
         Produto produto = produtos.get(indice_produto);
         
         // valores do objeto original
@@ -461,6 +465,7 @@ public class EditarProduto extends javax.swing.JFrame {
             produtos = ManipuladorArquivo.carregarProdutos();
             ArrayList<String> nomes_produtos = new ArrayList();
             
+            nomes_produtos.add("Selecione um produto");
             for (Produto produto : produtos) {
                 nomes_produtos.add(String.valueOf(produto.getCodProduto()) + " - " + produto.getNome());
             }
