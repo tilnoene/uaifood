@@ -62,19 +62,23 @@ public class ManipuladorArquivo {
     }
     
     // CRUD Cliente
+    public static Cliente stringToCliente(String linha) {
+        String valores[] = linha.split(";");
+
+        int codCliente = Integer.parseInt(valores[0]);
+        String endereco = valores[1];
+        String cpf = valores[2];
+        String nome = valores[3];
+        String email = valores[4];
+        String senha = valores[5];
+        String dataDeNascimento = valores[6];
+        String telefone = valores[7];
+
+        return new Cliente(codCliente, endereco, cpf, nome, email, senha, dataDeNascimento, telefone);
+    }
+
     public static void armazenarCliente(Cliente cliente) throws IOException {
-        String texto = 
-                String.valueOf(cliente.getCodCliente()) + ";"
-                + cliente.getEndereco() + ";"
-                + cliente.getCpf() + ";"
-                + cliente.getNome() + ";"
-                + cliente.getEmail() + ";"
-                + cliente.getSenha() + ";"
-                + cliente.getDataDeNascimento() + ";"
-                + cliente.getTelefone() +
-                "\n";
-        
-        escritor("database/clientes.txt", texto);
+        escritor("database/clientes.txt", cliente.toString());
     }
     
     public static ArrayList<Cliente> carregarClientes() throws IOException {
@@ -87,38 +91,69 @@ public class ManipuladorArquivo {
         for (int i = 0; i < linhas.length; i++) {
             if (linhas[i].length() == 0) continue;
 
-            String[] linha = linhas[i].split(";");
-
-            int codCliente = Integer.parseInt(linha[0]);
-            String endereco = linha[1];
-            String cpf = linha[2];
-            String nome = linha[3];
-            String email = linha[4];
-            String senha = linha[5];
-            String dataDeNascimento = linha[6];
-            String telefone = linha[7];
-
-            clientes.add(new Cliente(codCliente, endereco, cpf, nome, email, senha, dataDeNascimento, telefone));
+            clientes.add(stringToCliente(linhas[i]));
         }
 
         return clientes;
     }
+
+    public static void editarCliente(Cliente cliente) throws IOException {
+        // carrega os clientes do banco de dados
+        String texto = leitor("database/clientes.txt");
+        limparArquivo("database/clientes.txt");
+        
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os clientes e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Cliente currCliente = stringToCliente(linhas[i]);
+
+            if (cliente.getCodCliente() == currCliente.getCodCliente())
+                armazenarCliente(cliente); // o código é imutável, então sobscreve
+            else
+                armazenarCliente(currCliente);
+        }
+    }
+
+    public static void excluirCliente(Cliente cliente) throws IOException {
+        // carrega os clientes do banco de dados
+        String texto = leitor("database/clientes.txt");
+        limparArquivo("database/clientes.txt");
+
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os clientes e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Cliente currCliente = stringToCliente(linhas[i]);
+
+            if (cliente.getCodCliente() != currCliente.getCodCliente()) // se for igual, ignora
+                armazenarCliente(currCliente);
+        }
+    }
     
     // CRUD Motoboy
-    public static void armazenarMotoboy(Motoboy motoboy) throws IOException {
-        String texto = 
-                String.valueOf(motoboy.getCodMotoboy()) + ";"
-                + String.valueOf(motoboy.getComissao()) + ";"
-                + String.valueOf(motoboy.getDisponibilidade()) + ";"
-                + motoboy.getCpf() + ";"
-                + motoboy.getNome() + ";"
-                + motoboy.getEmail() + ";"
-                + motoboy.getSenha() + ";"
-                + motoboy.getDataDeNascimento() + ";"
-                + motoboy.getTelefone() +
-                "\n";
+    public static Motoboy stringToMotoboy(String linha) {
+        String valores[] = linha.split(";");
 
-        escritor("database/motoboys.txt", texto);
+        int codMotoboy = Integer.parseInt(valores[0]);
+        float comissao = Float.parseFloat(valores[1]);
+        boolean disponibilidade = Boolean.valueOf(valores[2]);
+        String cpf = valores[3];
+        String nome = valores[4];
+        String email = valores[5];
+        String senha = valores[6];
+        String dataDeNascimento = valores[7];
+        String telefone = valores[8];
+
+        return new Motoboy(codMotoboy, comissao, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+    }
+
+    public static void armazenarMotoboy(Motoboy motoboy) throws IOException {
+        escritor("database/motoboys.txt", motoboy.toString());
     }
 
     public static ArrayList<Motoboy> carregarMotoboys() throws IOException {
@@ -131,24 +166,50 @@ public class ManipuladorArquivo {
         for (int i = 0; i < linhas.length; i++) {
             if (linhas[i].length() == 0) continue;
 
-            String[] linha = linhas[i].split(";");
-
-            int codMotoboy = Integer.parseInt(linha[0]);
-            float comissao = Float.parseFloat(linha[1]);
-            boolean disponibilidade = Boolean.valueOf(linha[2]);
-            String cpf = linha[3];
-            String nome = linha[4];
-            String email = linha[5];
-            String senha = linha[6];
-            String dataDeNascimento = linha[7];
-            String telefone = linha[8];
-
-            motoboys.add(new Motoboy(codMotoboy, comissao, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone));
+            motoboys.add(stringToMotoboy(linhas[i]));
         }
 
         return motoboys;
     }
     
+    public static void editarMotoboy(Motoboy motoboy) throws IOException {
+        // carrega os motoboys do banco de dados
+        String texto = leitor("database/motoboys.txt");
+        limparArquivo("database/motoboys.txt");
+        
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os motoboys e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Motoboy currMotoboy = stringToMotoboy(linhas[i]);
+
+            if (motoboy.getCodMotoboy() == currMotoboy.getCodMotoboy())
+                armazenarMotoboy(motoboy); // o código é imutável, então sobscreve
+            else
+                armazenarMotoboy(currMotoboy);
+        }
+    }
+
+    public static void excluirMotoboy(Motoboy motoboy) throws IOException {
+        // carrega os motoboys do banco de dados
+        String texto = leitor("database/motoboys.txt");
+        limparArquivo("database/motoboys.txt");
+
+        String[] linhas = texto.split("\n");
+
+        // percorre por todos os motoboys e verifica o código
+        for (int i = 0; i < linhas.length; i++) {
+            if (linhas[i].length() == 0) continue;
+
+            Motoboy currMotoboy = stringToMotoboy(linhas[i]);
+
+            if (motoboy.getCodMotoboy() != currMotoboy.getCodMotoboy()) // se for igual, ignora
+                armazenarMotoboy(currMotoboy);
+        }
+    }
+
     // CRUD Produto
     public static Produto stringToProduto(String linha) {
         String valores[] = linha.split(";");

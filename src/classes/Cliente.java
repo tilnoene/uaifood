@@ -4,6 +4,7 @@ package classes;
 
 import java.io.IOException;
 import classes.ManipuladorArquivo;
+import java.util.ArrayList;
 
 // dados especificos: codigo do cliente e endereço.
 
@@ -17,8 +18,31 @@ public class Cliente extends Usuario{
         this.endereco = endereco;
     }
 
-    public void armazenarCliente() throws IOException {
+    public void init() throws IOException {
+        int curr_id = 0;
+        
+        try {
+            ArrayList<Cliente> clientes = ManipuladorArquivo.carregarClientes();
+            
+            if (clientes.size() > 0)
+                curr_id = clientes.get(clientes.size()-1).getCodCliente()+1;
+        } catch(IOException ex) {
+            curr_id = 0;
+        }
+        
+        this.setCodCliente(curr_id);
         ManipuladorArquivo.armazenarCliente(this);
+    }
+    
+    public String toString() {
+        return String.valueOf(this.codCliente) + ";"
+                + this.endereco + ";"
+                + this.cpf + ";"
+                + this.nome + ";"
+                + this.email + ";"
+                + this.senha + ":"
+                + this.dataDeNascimento + ";"
+                + this.telefone;
     }
     
     public int getCodCliente() {

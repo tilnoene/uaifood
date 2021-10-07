@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import jdk.jfr.Timestamp;
 
 /* subclasse da superclasse usuario.
@@ -23,7 +25,35 @@ public class Motoboy extends Usuario{
         this.comissao = comissao;
         this.disponibilidade = disponibilidade;
     }
-
+    
+    public void init() throws IOException {
+        int curr_id = 0;
+        
+        try {
+            ArrayList<Motoboy> motoboys = ManipuladorArquivo.carregarMotoboys();
+            
+            if (motoboys.size() > 0)
+                curr_id = motoboys.get(motoboys.size()-1).getCodMotoboy()+1;
+        } catch(IOException ex) {
+            curr_id = 0;
+        }
+        
+        this.setCodMotoboy(curr_id);
+        ManipuladorArquivo.armazenarMotoboy(this);
+    }
+    
+    public String toString() {
+        return String.valueOf(this.codMotoboy) + ";"
+                + String.valueOf(this.comissao) + ";"
+                + String.valueOf(this.disponibilidade) + ";"
+                + this.cpf + ";"
+                + this.nome + ";"
+                + this.email + ";"
+                + this.senha + ";"
+                + this.dataDeNascimento + ":"
+                + this.telefone;
+    }
+    
     public int getCodMotoboy() {
         return codMotoboy;
     }
