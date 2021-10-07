@@ -31,13 +31,23 @@ public class CadastroSeleciona extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jToolBar1 = new javax.swing.JToolBar();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
+        jlCadastros = new javax.swing.JLabel();
+        jlProdutos = new javax.swing.JLabel();
         btnProdutoSelecionaCadastro = new javax.swing.JButton();
+        btnProdutoSelecionaEditar = new javax.swing.JButton();
+        btnProdutoSelecionaExcluir = new javax.swing.JButton();
+        jlClientes = new javax.swing.JLabel();
+        btnClienteSelecionaCadastro = new javax.swing.JButton();
+        btnClienteSelecionaEditar = new javax.swing.JButton();
+        btnClienteSelecionaExcluir = new javax.swing.JButton();
+        jlMotoboys = new javax.swing.JLabel();
+        btnMotoboySelecionaCadastro = new javax.swing.JButton();
+        btnMotoboySelecionaEditar = new javax.swing.JButton();
+        btnMotoboySelecionaExcluir1 = new javax.swing.JButton();
         btnSairSelecionaCadastro = new javax.swing.JButton();
-        btnCadastroCliente = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,106 +86,275 @@ public class CadastroSeleciona extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jPasswordField1.setText("jPasswordField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(360, 640));
 
         jPanel2.setBackground(new java.awt.Color(236, 35, 51));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selecione qual tipo de cadastro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 1, 14))); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(360, 640));
 
-        btnProdutoSelecionaCadastro.setBackground(new java.awt.Color(255, 255, 255));
-        btnProdutoSelecionaCadastro.setText("Novo Produto");
+        jlCadastros.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
+        jlCadastros.setForeground(new java.awt.Color(255, 255, 255));
+        jlCadastros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlCadastros.setText("Cadastros");
+
+        jlProdutos.setFont(new java.awt.Font("Sul Sans", 0, 20)); // NOI18N
+        jlProdutos.setForeground(new java.awt.Color(255, 255, 255));
+        jlProdutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlProdutos.setText("Produtos");
+
+        btnProdutoSelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
+        btnProdutoSelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnProdutoSelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnProdutoSelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
+        btnProdutoSelecionaCadastro.setText("Novo");
+        btnProdutoSelecionaCadastro.setBorder(null);
+        btnProdutoSelecionaCadastro.setBorderPainted(false);
+        btnProdutoSelecionaCadastro.setContentAreaFilled(false);
+        btnProdutoSelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProdutoSelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProdutoSelecionaCadastroActionPerformed(evt);
             }
         });
 
-        btnSairSelecionaCadastro.setBackground(new java.awt.Color(204, 204, 204));
-        btnSairSelecionaCadastro.setText("Sair");
+        btnProdutoSelecionaEditar.setBackground(new java.awt.Color(236, 35, 51));
+        btnProdutoSelecionaEditar.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnProdutoSelecionaEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnProdutoSelecionaEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_editar_branco.png"))); // NOI18N
+        btnProdutoSelecionaEditar.setText("Editar");
+        btnProdutoSelecionaEditar.setBorder(null);
+        btnProdutoSelecionaEditar.setBorderPainted(false);
+        btnProdutoSelecionaEditar.setContentAreaFilled(false);
+        btnProdutoSelecionaEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutoSelecionaEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutoSelecionaEditarActionPerformed(evt);
+            }
+        });
+
+        btnProdutoSelecionaExcluir.setBackground(new java.awt.Color(236, 35, 51));
+        btnProdutoSelecionaExcluir.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnProdutoSelecionaExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btnProdutoSelecionaExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_excluir_branco.png"))); // NOI18N
+        btnProdutoSelecionaExcluir.setText("Excluir");
+        btnProdutoSelecionaExcluir.setBorder(null);
+        btnProdutoSelecionaExcluir.setBorderPainted(false);
+        btnProdutoSelecionaExcluir.setContentAreaFilled(false);
+        btnProdutoSelecionaExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutoSelecionaExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutoSelecionaExcluirActionPerformed(evt);
+            }
+        });
+
+        jlClientes.setFont(new java.awt.Font("Sul Sans", 0, 20)); // NOI18N
+        jlClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jlClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlClientes.setText("Clientes");
+
+        btnClienteSelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
+        btnClienteSelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnClienteSelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnClienteSelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
+        btnClienteSelecionaCadastro.setText("Novo");
+        btnClienteSelecionaCadastro.setBorder(null);
+        btnClienteSelecionaCadastro.setBorderPainted(false);
+        btnClienteSelecionaCadastro.setContentAreaFilled(false);
+        btnClienteSelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClienteSelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteSelecionaCadastroActionPerformed(evt);
+            }
+        });
+
+        btnClienteSelecionaEditar.setBackground(new java.awt.Color(236, 35, 51));
+        btnClienteSelecionaEditar.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnClienteSelecionaEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnClienteSelecionaEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_editar_branco.png"))); // NOI18N
+        btnClienteSelecionaEditar.setText("Editar");
+        btnClienteSelecionaEditar.setBorder(null);
+        btnClienteSelecionaEditar.setBorderPainted(false);
+        btnClienteSelecionaEditar.setContentAreaFilled(false);
+        btnClienteSelecionaEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClienteSelecionaEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteSelecionaEditarActionPerformed(evt);
+            }
+        });
+
+        btnClienteSelecionaExcluir.setBackground(new java.awt.Color(236, 35, 51));
+        btnClienteSelecionaExcluir.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnClienteSelecionaExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btnClienteSelecionaExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_excluir_branco.png"))); // NOI18N
+        btnClienteSelecionaExcluir.setText("Excluir");
+        btnClienteSelecionaExcluir.setBorder(null);
+        btnClienteSelecionaExcluir.setBorderPainted(false);
+        btnClienteSelecionaExcluir.setContentAreaFilled(false);
+        btnClienteSelecionaExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClienteSelecionaExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteSelecionaExcluirActionPerformed(evt);
+            }
+        });
+
+        jlMotoboys.setFont(new java.awt.Font("Sul Sans", 0, 20)); // NOI18N
+        jlMotoboys.setForeground(new java.awt.Color(255, 255, 255));
+        jlMotoboys.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlMotoboys.setText("Motoboys");
+
+        btnMotoboySelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
+        btnMotoboySelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnMotoboySelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnMotoboySelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
+        btnMotoboySelecionaCadastro.setText("Novo");
+        btnMotoboySelecionaCadastro.setBorder(null);
+        btnMotoboySelecionaCadastro.setBorderPainted(false);
+        btnMotoboySelecionaCadastro.setContentAreaFilled(false);
+        btnMotoboySelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMotoboySelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotoboySelecionaCadastroActionPerformed(evt);
+            }
+        });
+
+        btnMotoboySelecionaEditar.setBackground(new java.awt.Color(236, 35, 51));
+        btnMotoboySelecionaEditar.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnMotoboySelecionaEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnMotoboySelecionaEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_editar_branco.png"))); // NOI18N
+        btnMotoboySelecionaEditar.setText("Editar");
+        btnMotoboySelecionaEditar.setBorder(null);
+        btnMotoboySelecionaEditar.setBorderPainted(false);
+        btnMotoboySelecionaEditar.setContentAreaFilled(false);
+        btnMotoboySelecionaEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMotoboySelecionaEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotoboySelecionaEditarActionPerformed(evt);
+            }
+        });
+
+        btnMotoboySelecionaExcluir1.setBackground(new java.awt.Color(236, 35, 51));
+        btnMotoboySelecionaExcluir1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnMotoboySelecionaExcluir1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMotoboySelecionaExcluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_excluir_branco.png"))); // NOI18N
+        btnMotoboySelecionaExcluir1.setText("Excluir");
+        btnMotoboySelecionaExcluir1.setBorder(null);
+        btnMotoboySelecionaExcluir1.setBorderPainted(false);
+        btnMotoboySelecionaExcluir1.setContentAreaFilled(false);
+        btnMotoboySelecionaExcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMotoboySelecionaExcluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotoboySelecionaExcluir1ActionPerformed(evt);
+            }
+        });
+
+        btnSairSelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
+        btnSairSelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnSairSelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnSairSelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_voltar_branco.png"))); // NOI18N
+        btnSairSelecionaCadastro.setText("Voltar");
+        btnSairSelecionaCadastro.setBorder(null);
+        btnSairSelecionaCadastro.setBorderPainted(false);
+        btnSairSelecionaCadastro.setContentAreaFilled(false);
+        btnSairSelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSairSelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairSelecionaCadastroActionPerformed(evt);
             }
         });
 
-        btnCadastroCliente.setBackground(new java.awt.Color(255, 255, 255));
-        btnCadastroCliente.setText("Cliente");
-        btnCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroClienteActionPerformed(evt);
-            }
-        });
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Motoboy");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Excluir Produto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Editar Produto");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
-                .addComponent(btnCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(btnProdutoSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnProdutoSelecionaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnProdutoSelecionaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 48, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jlClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jlProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClienteSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSairSelecionaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(103, 103, 103))
+                .addComponent(btnClienteSelecionaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClienteSelecionaExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnProdutoSelecionaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlMotoboys, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnMotoboySelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSairSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(btnMotoboySelecionaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnMotoboySelecionaExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(47, 47, 47)))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jlCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(btnProdutoSelecionaCadastro)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton5)
-                        .addGap(63, 63, 63))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastroCliente)
-                        .addGap(44, 44, 44)))
+                .addGap(26, 26, 26)
+                .addComponent(jlCadastros)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(jlProdutos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnProdutoSelecionaExcluir)
+                    .addComponent(btnProdutoSelecionaEditar)
+                    .addComponent(btnProdutoSelecionaCadastro))
+                .addGap(79, 79, 79)
+                .addComponent(jlClientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClienteSelecionaEditar)
+                    .addComponent(btnClienteSelecionaExcluir)
+                    .addComponent(btnClienteSelecionaCadastro))
+                .addGap(71, 71, 71)
+                .addComponent(jlMotoboys)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMotoboySelecionaEditar)
+                    .addComponent(btnMotoboySelecionaExcluir1)
+                    .addComponent(btnMotoboySelecionaCadastro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(btnSairSelecionaCadastro)
-                .addContainerGap(323, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(86, 86, 86)
-                    .addComponent(jButton2)
-                    .addContainerGap(502, Short.MAX_VALUE)))
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,30 +381,46 @@ public class CadastroSeleciona extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSairSelecionaCadastroActionPerformed
 
-    private void btnCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClienteActionPerformed
+    private void btnClienteSelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaCadastroActionPerformed
         // TODO add your handling code here:
         new CadastroCliente().setVisible(true);
-    }//GEN-LAST:event_btnCadastroClienteActionPerformed
+    }//GEN-LAST:event_btnClienteSelecionaCadastroActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnMotoboySelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaCadastroActionPerformed
         // TODO add your handling code here:
         new CadastroMotoboy().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnMotoboySelecionaCadastroActionPerformed
 
     private void btnProdutoSelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoSelecionaCadastroActionPerformed
         // TODO add your handling code here:
         new CadastroProduto().setVisible(true);
     }//GEN-LAST:event_btnProdutoSelecionaCadastroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnProdutoSelecionaExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoSelecionaExcluirActionPerformed
         // TODO add your handling code here:
         new ExcluirProduto().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnProdutoSelecionaExcluirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnProdutoSelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoSelecionaEditarActionPerformed
         // TODO add your handling code here:
         new EditarProduto().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnProdutoSelecionaEditarActionPerformed
+
+    private void btnClienteSelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClienteSelecionaEditarActionPerformed
+
+    private void btnClienteSelecionaExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClienteSelecionaExcluirActionPerformed
+
+    private void btnMotoboySelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMotoboySelecionaEditarActionPerformed
+
+    private void btnMotoboySelecionaExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaExcluir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMotoboySelecionaExcluir1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,16 +458,26 @@ public class CadastroSeleciona extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastroCliente;
+    private javax.swing.JButton btnClienteSelecionaCadastro;
+    private javax.swing.JButton btnClienteSelecionaEditar;
+    private javax.swing.JButton btnClienteSelecionaExcluir;
+    private javax.swing.JButton btnMotoboySelecionaCadastro;
+    private javax.swing.JButton btnMotoboySelecionaEditar;
+    private javax.swing.JButton btnMotoboySelecionaExcluir1;
     private javax.swing.JButton btnProdutoSelecionaCadastro;
+    private javax.swing.JButton btnProdutoSelecionaEditar;
+    private javax.swing.JButton btnProdutoSelecionaExcluir;
     private javax.swing.JButton btnSairSelecionaCadastro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel jlCadastros;
+    private javax.swing.JLabel jlClientes;
+    private javax.swing.JLabel jlMotoboys;
+    private javax.swing.JLabel jlProdutos;
     // End of variables declaration//GEN-END:variables
 }
