@@ -51,8 +51,8 @@ public class Principal extends javax.swing.JFrame {
         btnCadastrar.setBackground(new java.awt.Color(234, 29, 44));
         btnCadastrar.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
-        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_configuracao_branco.png"))); // NOI18N
+        btnCadastrar.setText("Gerenciar");
         btnCadastrar.setBorder(null);
         btnCadastrar.setBorderPainted(false);
         btnCadastrar.setContentAreaFilled(false);
@@ -141,7 +141,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        new CadastroSeleciona().setVisible(true);
+        new Gerenciamento().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
