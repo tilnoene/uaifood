@@ -60,7 +60,7 @@ public class ExcluirProduto extends javax.swing.JFrame {
         btnNovoProduto2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Selecionar Produto");
+        setTitle("Excluir Produto");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(null);
@@ -148,6 +148,8 @@ public class ExcluirProduto extends javax.swing.JFrame {
         try {
             ManipuladorArquivo.excluirProduto(produto);
             JOptionPane.showMessageDialog(null, "Produto excluído com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+            
+            carregarProdutos();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado! O produto não foi excluído.", "Erro", JOptionPane.ERROR_MESSAGE);
         }

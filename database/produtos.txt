@@ -1,4 +1,2 @@
 
-
 2;novo produto;777.0;true;Item 1;ratue;0
-3;teste dois;7777.0;true;Item 1;valor;3
