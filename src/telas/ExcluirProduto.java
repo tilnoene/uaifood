@@ -142,10 +142,15 @@ public class ExcluirProduto extends javax.swing.JFrame {
 
     private void btnNovoProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProduto1ActionPerformed
         // TODO add your handling code here:
-        int indice_produto = cmbProdutos.getSelectedIndex();
+        if (cmbProdutos.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um produto.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int indice_produto = cmbProdutos.getSelectedIndex() - 1;
         Produto produto = produtos.get(indice_produto);
 
-        try {
+            try {
             ManipuladorArquivo.excluirProduto(produto);
             JOptionPane.showMessageDialog(null, "Produto excluído com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             
@@ -211,6 +216,7 @@ public class ExcluirProduto extends javax.swing.JFrame {
             produtos = ManipuladorArquivo.carregarProdutos();
             ArrayList<String> nomes_produtos = new ArrayList();
             
+            nomes_produtos.add("Selecione um produto");
             for (Produto produto : produtos) {
                 nomes_produtos.add(String.valueOf(produto.getCodProduto()) + " - " + produto.getNome());
             }
