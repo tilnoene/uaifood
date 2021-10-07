@@ -1,2 +1,4 @@
 
-2;novo produto;777.0;true;Item 1;ratue;0
+
+0;432;432.0;false;Item 1;432;0
+1;4322234324324324324;423432.0;false;Item 1;324432;0
