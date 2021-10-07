@@ -3,7 +3,7 @@ package classes;
 // subclasse da superclasse usuario.
 
 import java.io.IOException;
-import taxi.ManipuladorArquivo;
+import classes.ManipuladorArquivo;
 
 // dados especificos: codigo do cliente e endereço.
 

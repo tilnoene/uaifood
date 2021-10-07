@@ -2,7 +2,7 @@ package classes;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import taxi.ManipuladorArquivo;
+import classes.ManipuladorArquivo;
 
 public class Produto {
     private int codProduto;

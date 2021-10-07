@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taxi;
+package classes;
 
 /**
  *
@@ -21,7 +21,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManipuladorArquivo {
-
+    
+    private static void limparArquivo(String path) throws IOException {
+        BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
+        buffWrite.write("");
+        buffWrite.close();
+    }
+            
     private static String leitor(String path) throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader(path));
         String linha = "";
@@ -181,7 +187,8 @@ public class ManipuladorArquivo {
     public static void editarProduto(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
-
+        limparArquivo("database/produtos.txt");
+        
         String[] linhas = texto.split("\n");
 
         // percorre por todos os produtos e verifica o código
@@ -200,6 +207,7 @@ public class ManipuladorArquivo {
     public static void excluirProduto(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
+        limparArquivo("database/produtos.txt");
 
         String[] linhas = texto.split("\n");
 

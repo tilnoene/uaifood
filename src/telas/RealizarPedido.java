@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import taxi.ManipuladorArquivo;
+import classes.ManipuladorArquivo;
 
 /**
  *
@@ -39,7 +39,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlErro.setVerticalAlignment(SwingConstants.CENTER);        
         
         
-        listarProdutos();
+        //listarProdutos();
     }
 
     /**
