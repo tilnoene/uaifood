@@ -22,6 +22,9 @@ public class CadastroProduto extends javax.swing.JFrame {
      */
     public CadastroProduto() {
         initComponents();
+        
+        carregarDiasDaSemana();
+        carregarCategorias();
     }
 
     /**
@@ -161,17 +164,12 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlCategoriaProduto)
                             .addComponent(cmbCategoriaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNovoProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(btnNovoProduto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 25, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 7, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlDiaDaPromocaoProduto)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnNovoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlDiaDaPromocaoProduto)
+                            .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -224,6 +222,29 @@ public class CadastroProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+        
+    public void carregarDiasDaSemana() {
+        cmbjlDiaDaPromocaoProduto.removeAllItems();
+
+        cmbjlDiaDaPromocaoProduto.addItem("Selecione um dia");
+        cmbjlDiaDaPromocaoProduto.addItem("Domingo");
+        cmbjlDiaDaPromocaoProduto.addItem("Segunda");
+        cmbjlDiaDaPromocaoProduto.addItem("Terça");
+        cmbjlDiaDaPromocaoProduto.addItem("Quarta");
+        cmbjlDiaDaPromocaoProduto.addItem("Quinta");
+        cmbjlDiaDaPromocaoProduto.addItem("Sexta");
+        cmbjlDiaDaPromocaoProduto.addItem("Sábado");
+    }
+    
+    public void carregarCategorias() {
+        cmbCategoriaProduto.removeAllItems();
+        
+        cmbCategoriaProduto.addItem("Selecione uma categoria");
+        for(String categoria : Produto.categorias) {
+            cmbCategoriaProduto.addItem(categoria);
+        }
+    }
+    
     private void rbtnAlcoolicoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAlcoolicoProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnAlcoolicoProdutoActionPerformed
@@ -232,7 +253,9 @@ public class CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtNomeProduto.getText().equals("")
             || txtValorProduto.getText().equals("")
-            || jtaDescricaoProduto.getText().equals("")) {
+            || jtaDescricaoProduto.getText().equals("")
+            || cmbCategoriaProduto.getSelectedIndex() == 0
+            || cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -241,7 +264,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         float valor = Float.parseFloat(txtValorProduto.getText());
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
-        int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex();
+        int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
         
         Produto produto = new Produto(0, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);

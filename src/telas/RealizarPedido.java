@@ -66,12 +66,11 @@ public class RealizarPedido extends javax.swing.JFrame {
 
         jLabel1.setText("lagrimas de crocodilo do WIU");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(234, 29, 44));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setMaximumSize(null);
-        setMinimumSize(null);
         setResizable(false);
         setSize(new java.awt.Dimension(360, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

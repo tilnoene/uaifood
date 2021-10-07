@@ -61,21 +61,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jlCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="cmbCategoriaProduto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="btnNovoProduto" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="btnNovoProduto1" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" pref="25" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cmbjlDiaDaPromocaoProduto" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnNovoProduto1" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="cmbjlDiaDaPromocaoProduto" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNovoProduto" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
