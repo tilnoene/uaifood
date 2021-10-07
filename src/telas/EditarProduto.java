@@ -366,7 +366,7 @@ public class EditarProduto extends javax.swing.JFrame {
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
         // TODO add your handling code here:
-        int indice_produto = cmbProdutos.getSelectedIndex();
+        int indice_produto = cmbProdutos.getSelectedIndex() - 1;
         Produto produtoAntigo = produtos.get(indice_produto);
         
         if (txtNomeProduto.getText().equals("")

@@ -1,2 +1,2 @@
 
-0;Pizza;27.32;true;Carnes;pizza boa;3
+0;Pizza de calabresa;24.9;false;Pizza;pizza boa...;3
