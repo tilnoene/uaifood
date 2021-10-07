@@ -5,6 +5,12 @@
  */
 package telas;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Eduardo
@@ -31,39 +37,38 @@ public class CadastroMotoboy extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        txtSenhaMotoboy = new javax.swing.JTextField();
+        btnSalvarMotoboy = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        btnVoltarCadastroCliente = new javax.swing.JButton();
+        btnVoltarCadastroMotoboy = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        btnCpfMotoboy = new javax.swing.JTextField();
+        txtEmailMotoboy = new javax.swing.JTextField();
+        txtTelefoneMotoboy = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnNovoMotoboy = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtNomeMotoboy = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtCodigoMotoboy = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtComissaoMotoboy = new javax.swing.JTextField();
+        txtDataNascimentoMotoboy = new javax.swing.JFormattedTextField();
+        txtComecoExpediente = new javax.swing.JFormattedTextField();
+        txtFimExpediente = new javax.swing.JFormattedTextField();
+        btnDisponibilidadeMotoboy = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setPreferredSize(new java.awt.Dimension(800, 800));
 
         jPanel1.setBackground(new java.awt.Color(236, 35, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Cadastro->Motoboy", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 12))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro->Motoboy", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 12))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(360, 640));
 
         jLabel1.setFont(new java.awt.Font("Consolas", 2, 36)); // NOI18N
@@ -84,21 +89,24 @@ public class CadastroMotoboy extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(236, 35, 51));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
 
-        jButton3.setText("EDITAR");
-
-        jButton4.setText("PESQUISAR");
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSalvarMotoboy.setText("SALVAR");
+        btnSalvarMotoboy.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSalvarMotoboy.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSalvarMotoboy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarMotoboyActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,18 +116,21 @@ public class CadastroMotoboy extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Data de nascimento. dd/mm/aaaa");
 
-        jButton5.setText("EXCLUIR");
-
-        btnVoltarCadastroCliente.setBackground(new java.awt.Color(255, 255, 255));
-        btnVoltarCadastroCliente.setText("VOLTAR");
+        btnVoltarCadastroMotoboy.setBackground(new java.awt.Color(255, 255, 255));
+        btnVoltarCadastroMotoboy.setText("VOLTAR");
+        btnVoltarCadastroMotoboy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarCadastroMotoboyActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Telefone");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        btnCpfMotoboy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                btnCpfMotoboyActionPerformed(evt);
             }
         });
 
@@ -127,10 +138,10 @@ public class CadastroMotoboy extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CPF");
 
-        jButton2.setText("NOVO");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnNovoMotoboy.setText("NOVO");
+        btnNovoMotoboy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnNovoMotoboyActionPerformed(evt);
             }
         });
 
@@ -155,63 +166,85 @@ public class CadastroMotoboy extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Comissão");
 
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Disponibilidade");
+        try {
+            txtDataNascimentoMotoboy.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtDataNascimentoMotoboy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataNascimentoMotoboyActionPerformed(evt);
+            }
+        });
+
+        try {
+            txtComecoExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtComecoExpediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtComecoExpedienteActionPerformed(evt);
+            }
+        });
+
+        try {
+            txtFimExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        btnDisponibilidadeMotoboy.setBackground(new java.awt.Color(234, 29, 44));
+        btnDisponibilidadeMotoboy.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        btnDisponibilidadeMotoboy.setForeground(new java.awt.Color(255, 255, 255));
+        btnDisponibilidadeMotoboy.setText("Disponiblidade");
+
+        jLabel13.setText("HH:mm");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnVoltarCadastroCliente))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
+                    .addComponent(btnDisponibilidadeMotoboy)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(btnNovoMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnSalvarMotoboy)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVoltarCadastroMotoboy))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel11)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jButton4))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel8)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField5)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField6)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField7)
+                                .addComponent(txtNomeMotoboy)
+                                .addComponent(txtEmailMotoboy)
+                                .addComponent(txtSenhaMotoboy)
+                                .addComponent(txtTelefoneMotoboy)
+                                .addComponent(txtCodigoMotoboy)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel10))
-                                .addComponent(jTextField2)
+                                .addComponent(btnCpfMotoboy)
+                                .addComponent(txtComissaoMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDataNascimentoMotoboy)
                                 .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtComecoExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField9)))
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 44, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(txtFimExpediente)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel13))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,64 +252,59 @@ public class CadastroMotoboy extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCpfMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNomeMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmailMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenhaMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataNascimentoMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTelefoneMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodigoMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtComecoExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFimExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(11, 11, 11)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(txtComissaoMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnDisponibilidadeMotoboy)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltarCadastroCliente)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
-                .addGap(44, 44, 44))
+                    .addComponent(btnNovoMotoboy)
+                    .addComponent(btnSalvarMotoboy)
+                    .addComponent(btnVoltarCadastroMotoboy))
+                .addGap(73, 73, 73))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -291,13 +319,67 @@ public class CadastroMotoboy extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnNovoMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoMotoboyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnNovoMotoboyActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void btnCpfMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCpfMotoboyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_btnCpfMotoboyActionPerformed
+
+    private void txtDataNascimentoMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoMotoboyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoMotoboyActionPerformed
+
+    private void btnVoltarCadastroMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarCadastroMotoboyActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarCadastroMotoboyActionPerformed
+
+    private void btnSalvarMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMotoboyActionPerformed
+        // TODO add your handling code here:
+        String[] horarioC = new String[2];
+        String[] horarioF = new String[2];
+        
+        // CHECAR se a data é correta
+        String dataJoin = txtDataNascimentoMotoboy.getText();
+        String dateFormat = "dd/MM/uuuu";
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
+        .ofPattern(dateFormat)
+        .withResolverStyle(ResolverStyle.STRICT);
+        try {
+            LocalDate date = LocalDate.parse(dataJoin, dateTimeFormatter);
+        // Se a data estvier errada, mostrar mensgem de erro e apagar a data.
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(null, "Data de nascimento errada", "Mensagem", JOptionPane.ERROR_MESSAGE);
+            txtDataNascimentoMotoboy.setText("");
+        }
+        /////////////////////////////////////////////////////////////////
+        
+        // checar o horario de expediente
+        
+        horarioC = txtComecoExpediente.getText().split(":");
+        horarioF = txtFimExpediente.getText().split(":");
+        
+        int hora1 = Integer.parseInt(horarioC[0]);
+        int minuto1 = Integer.parseInt(horarioC[1]);
+        int hora2 = Integer.parseInt(horarioF[0]);
+        int minuto2 = Integer.parseInt(horarioF[1]);
+        int time1 = hora1*60 + minuto1;
+        int time2 = hora2*60 + minuto2;
+        
+        if ((time1 >= time2) || (hora1>24) || (minuto1>60) || (hora2>24) || (minuto2>60)){
+            JOptionPane.showMessageDialog(null, "Horários de expedientes erradas", "Mensagem", JOptionPane.ERROR_MESSAGE);
+            txtComecoExpediente.setText("");
+            txtFimExpediente.setText("");
+        }
+
+    }//GEN-LAST:event_btnSalvarMotoboyActionPerformed
+
+    private void txtComecoExpedienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComecoExpedienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtComecoExpedienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,15 +417,15 @@ public class CadastroMotoboy extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVoltarCadastroCliente;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JTextField btnCpfMotoboy;
+    private javax.swing.JRadioButton btnDisponibilidadeMotoboy;
+    private javax.swing.JButton btnNovoMotoboy;
+    private javax.swing.JButton btnSalvarMotoboy;
+    private javax.swing.JButton btnVoltarCadastroMotoboy;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -354,16 +436,14 @@ public class CadastroMotoboy extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtCodigoMotoboy;
+    private javax.swing.JFormattedTextField txtComecoExpediente;
+    private javax.swing.JTextField txtComissaoMotoboy;
+    private javax.swing.JFormattedTextField txtDataNascimentoMotoboy;
+    private javax.swing.JTextField txtEmailMotoboy;
+    private javax.swing.JFormattedTextField txtFimExpediente;
+    private javax.swing.JTextField txtNomeMotoboy;
+    private javax.swing.JTextField txtSenhaMotoboy;
+    private javax.swing.JTextField txtTelefoneMotoboy;
     // End of variables declaration//GEN-END:variables
 }
