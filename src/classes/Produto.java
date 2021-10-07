@@ -26,18 +26,18 @@ public class Produto {
     }
     
     public void init() throws IOException {
-        int last_id = 1;
+        int curr_id = 0;
         
         try {
             ArrayList<Produto> produtos = ManipuladorArquivo.carregarProdutos();
             
             if (produtos.size() > 0)
-                last_id = produtos.get(produtos.size()-1).getCodProduto();
+                curr_id = produtos.get(produtos.size()-1).getCodProduto()+1;
         } catch(IOException ex) {
-            last_id = 0;
+            curr_id = 0;
         }
         
-        this.setCodProduto(last_id+1);
+        this.setCodProduto(curr_id);
         ManipuladorArquivo.armazenarProduto(this);
     }
 
