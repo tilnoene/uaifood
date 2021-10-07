@@ -60,6 +60,7 @@ public class EditarProduto extends javax.swing.JFrame {
         cmbProdutos = new javax.swing.JComboBox<>();
         jlDescricaoProduto1 = new javax.swing.JLabel();
         btnNovoProduto1 = new javax.swing.JButton();
+        btnNovoProduto3 = new javax.swing.JButton();
         jpEditarProduto = new javax.swing.JPanel();
         jlTituloProduto = new javax.swing.JLabel();
         jlNomeProduto = new javax.swing.JLabel();
@@ -79,6 +80,7 @@ public class EditarProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Selecionar Produto");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setLocation(new java.awt.Point(0, 0));
         setMaximumSize(null);
         setMinimumSize(null);
@@ -87,7 +89,6 @@ public class EditarProduto extends javax.swing.JFrame {
 
         jpSelecionarProduto.setBackground(new java.awt.Color(234, 29, 44));
         jpSelecionarProduto.setMaximumSize(null);
-        jpSelecionarProduto.setMinimumSize(null);
         jpSelecionarProduto.setPreferredSize(new java.awt.Dimension(360, 640));
 
         cmbProdutos.setFont(new java.awt.Font("Sul Sans", 0, 13)); // NOI18N
@@ -112,6 +113,21 @@ public class EditarProduto extends javax.swing.JFrame {
             }
         });
 
+        btnNovoProduto3.setBackground(new java.awt.Color(234, 29, 44));
+        btnNovoProduto3.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnNovoProduto3.setForeground(new java.awt.Color(255, 255, 255));
+        btnNovoProduto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_voltar_branco.png"))); // NOI18N
+        btnNovoProduto3.setText("Voltar");
+        btnNovoProduto3.setBorder(null);
+        btnNovoProduto3.setBorderPainted(false);
+        btnNovoProduto3.setContentAreaFilled(false);
+        btnNovoProduto3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNovoProduto3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoProduto3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpSelecionarProdutoLayout = new javax.swing.GroupLayout(jpSelecionarProduto);
         jpSelecionarProduto.setLayout(jpSelecionarProdutoLayout);
         jpSelecionarProdutoLayout.setHorizontalGroup(
@@ -121,7 +137,8 @@ public class EditarProduto extends javax.swing.JFrame {
                 .addGroup(jpSelecionarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnNovoProduto1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addComponent(cmbProdutos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlDescricaoProduto1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jlDescricaoProduto1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNovoProduto3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                 .addGap(53, 53, 53))
         );
         jpSelecionarProdutoLayout.setVerticalGroup(
@@ -131,9 +148,11 @@ public class EditarProduto extends javax.swing.JFrame {
                 .addComponent(jlDescricaoProduto1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNovoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNovoProduto3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(211, 211, 211))
         );
 
         getContentPane().add(jpSelecionarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -315,6 +334,7 @@ public class EditarProduto extends javax.swing.JFrame {
         // tela de edição visível
         jpSelecionarProduto.setVisible(false);
         jpEditarProduto.setVisible(true);
+        this.setTitle("Editar Produto");
         
         int indice_produto = cmbProdutos.getSelectedIndex();
         Produto produto = produtos.get(indice_produto);
@@ -359,6 +379,11 @@ public class EditarProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNovoProduto2ActionPerformed
 
+    private void btnNovoProduto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProduto3ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNovoProduto3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -399,6 +424,7 @@ public class EditarProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnNovoProduto;
     private javax.swing.JButton btnNovoProduto1;
     private javax.swing.JButton btnNovoProduto2;
+    private javax.swing.JButton btnNovoProduto3;
     private javax.swing.JComboBox<String> cmbCategoriaProduto;
     private javax.swing.JComboBox<String> cmbProdutos;
     private javax.swing.JComboBox<String> cmbjlDiaDaPromocaoProduto;
