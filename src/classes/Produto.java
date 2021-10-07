@@ -35,7 +35,7 @@ public class Produto {
             last_id = 0;
         }
         
-        this.setCodProduto(last_id);
+        this.setCodProduto(last_id+1);
         ManipuladorArquivo.armazenarProduto(this);
     }
 
@@ -46,8 +46,7 @@ public class Produto {
                 + String.valueOf(this.alcoolico) + ";"
                 + this.categoria + ";"
                 + this.descricao + ";"
-                + String.valueOf(this.diaDaPromocao) + ";"
-                + "\n";
+                + String.valueOf(this.diaDaPromocao);
     }
     
     public int getCodProduto() {

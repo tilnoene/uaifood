@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 0;teste;123123.0;true;Item 1;dfvdsgf;0;
 
 0;teste;123.0;true;Item 1;um mostesngojidoig;3;
@@ -9,3 +13,9 @@
 
 0;test;1.2312321E7;false;Item 1;testestes;0;
 
+0;produto;25.0;true;Item 2;carros;2;
+
+1;tilnoene;78.0;false;Item 1;23;0;
+
+2;432;423.0;true;Item 1;42;0
+3;324;432.0;false;Item 1;432;0
