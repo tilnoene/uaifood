@@ -6,6 +6,7 @@
 package telas;
 
 import classes.Cliente;
+import classes.ItemPedido;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -17,13 +18,17 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import classes.ManipuladorArquivo;
+import classes.Produto;
 
 /**
  *
  * @author Victor
  */
 public class RealizarPedido extends javax.swing.JFrame {
-
+    private Cliente cliente;
+    private ArrayList<Produto> produtos;
+    private ArrayList<ItemPedido> carrinho;
+    
     /**
      * Creates new form RealizarPedido
      */
@@ -32,14 +37,12 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         // exibe somente a tela de Login
         jpLogin.setVisible(true);
-        jspSelecionarProdutos.setVisible(false);
+        jpSelecionarProdutos.setVisible(false);
+        jpConfirmacao.setVisible(false);
         
         jlErro.setVisible(false); // mensagem de erro não aparece
         jlErro.setHorizontalAlignment(SwingConstants.CENTER);
         jlErro.setVerticalAlignment(SwingConstants.CENTER);        
-        
-        
-        //listarProdutos();
     }
 
     /**
@@ -51,9 +54,32 @@ public class RealizarPedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jspSelecionarProdutos = new javax.swing.JScrollPane();
+        jpConfirmacao = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtaEndereco = new javax.swing.JTextArea();
+        jlCadastros = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jlNomeProduto = new javax.swing.JLabel();
+        jlDesconto = new javax.swing.JLabel();
+        jlComissao = new javax.swing.JLabel();
+        jlSubtotal1 = new javax.swing.JLabel();
+        jlTotal = new javax.swing.JLabel();
+        jlNomeProduto1 = new javax.swing.JLabel();
+        jlNomeCliente = new javax.swing.JLabel();
+        btnNovoProduto4 = new javax.swing.JButton();
+        btnFinalizar = new javax.swing.JButton();
+        jlNomeProduto2 = new javax.swing.JLabel();
+        jlNomeMotoboy = new javax.swing.JLabel();
         jpSelecionarProdutos = new javax.swing.JPanel();
+        cmbProdutos = new javax.swing.JComboBox<>();
+        jlDescricaoProduto1 = new javax.swing.JLabel();
+        btnAdicionarProduto = new javax.swing.JButton();
+        btnVoltarProduto = new javax.swing.JButton();
+        jlDescricaoProduto2 = new javax.swing.JLabel();
+        jlSubtotal = new javax.swing.JLabel();
+        jsQuantidade = new javax.swing.JSpinner();
+        btnAvancarProduto = new javax.swing.JButton();
+        jlTituloSelecionarProdutos = new javax.swing.JLabel();
         jpLogin = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         btnEntrar = new javax.swing.JButton();
@@ -64,8 +90,6 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlErro = new javax.swing.JLabel();
         btnEntrar1 = new javax.swing.JButton();
 
-        jLabel1.setText("lagrimas de crocodilo do WIU");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(234, 29, 44));
@@ -75,36 +99,302 @@ public class RealizarPedido extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(360, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jspSelecionarProdutos.setBackground(new java.awt.Color(234, 29, 44));
-        jspSelecionarProdutos.setAlignmentX(0.0F);
-        jspSelecionarProdutos.setAlignmentY(0.0F);
-        jspSelecionarProdutos.setHorizontalScrollBar(null);
-        jspSelecionarProdutos.setMaximumSize(null);
-        jspSelecionarProdutos.setMinimumSize(null);
-        jspSelecionarProdutos.setName(""); // NOI18N
-        jspSelecionarProdutos.setPreferredSize(new java.awt.Dimension(360, 640));
-        jspSelecionarProdutos.setRequestFocusEnabled(false);
+        jpConfirmacao.setBackground(new java.awt.Color(234, 29, 44));
+        jpConfirmacao.setPreferredSize(new java.awt.Dimension(360, 640));
+
+        jtaEndereco.setBackground(new java.awt.Color(234, 29, 44));
+        jtaEndereco.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jtaEndereco.setForeground(new java.awt.Color(255, 255, 255));
+        jtaEndereco.setRows(5);
+        jtaEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jScrollPane1.setViewportView(jtaEndereco);
+
+        jlCadastros.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
+        jlCadastros.setForeground(new java.awt.Color(255, 255, 255));
+        jlCadastros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlCadastros.setText("Confirmação");
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setVerifyInputWhenFocusTarget(false);
+
+        jlNomeProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlNomeProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jlNomeProduto.setText("Endereço:");
+
+        jlDesconto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jlDesconto.setForeground(new java.awt.Color(255, 255, 255));
+        jlDesconto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlDesconto.setText("Desconto: R$0.00");
+
+        jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jlComissao.setForeground(new java.awt.Color(255, 255, 255));
+        jlComissao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlComissao.setText("Frete: R$0.00");
+
+        jlSubtotal1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jlSubtotal1.setForeground(new java.awt.Color(255, 255, 255));
+        jlSubtotal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlSubtotal1.setText("Subtotal: R$0.00");
+
+        jlTotal.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
+        jlTotal.setForeground(new java.awt.Color(255, 255, 255));
+        jlTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlTotal.setText("Total: R$0.00");
+
+        jlNomeProduto1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlNomeProduto1.setForeground(new java.awt.Color(255, 255, 255));
+        jlNomeProduto1.setText("Nome:");
+
+        jlNomeCliente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jlNomeCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jlNomeCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlNomeCliente.setText("Nome do Cliente");
+
+        btnNovoProduto4.setBackground(new java.awt.Color(234, 29, 44));
+        btnNovoProduto4.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnNovoProduto4.setForeground(new java.awt.Color(255, 255, 255));
+        btnNovoProduto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_fechar_branco.png"))); // NOI18N
+        btnNovoProduto4.setText("Cancelar");
+        btnNovoProduto4.setBorder(null);
+        btnNovoProduto4.setBorderPainted(false);
+        btnNovoProduto4.setContentAreaFilled(false);
+        btnNovoProduto4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNovoProduto4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoProduto4ActionPerformed(evt);
+            }
+        });
+
+        btnFinalizar.setBackground(new java.awt.Color(234, 29, 44));
+        btnFinalizar.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnFinalizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_verificar_branco.png"))); // NOI18N
+        btnFinalizar.setText("Finalizar");
+        btnFinalizar.setBorder(null);
+        btnFinalizar.setBorderPainted(false);
+        btnFinalizar.setContentAreaFilled(false);
+        btnFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
+
+        jlNomeProduto2.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlNomeProduto2.setForeground(new java.awt.Color(255, 255, 255));
+        jlNomeProduto2.setText("Motoboy:");
+
+        jlNomeMotoboy.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jlNomeMotoboy.setForeground(new java.awt.Color(255, 255, 255));
+        jlNomeMotoboy.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jlNomeMotoboy.setText("Nome do Motoboy");
+
+        javax.swing.GroupLayout jpConfirmacaoLayout = new javax.swing.GroupLayout(jpConfirmacao);
+        jpConfirmacao.setLayout(jpConfirmacaoLayout);
+        jpConfirmacaoLayout.setHorizontalGroup(
+            jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(btnNovoProduto4)
+                .addGap(18, 18, 18)
+                .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jlComissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                    .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlNomeProduto)
+                                    .addComponent(jlNomeProduto1)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jlDesconto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlSubtotal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpConfirmacaoLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlNomeMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNomeProduto2, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(35, 35, 35))
+        );
+        jpConfirmacaoLayout.setVerticalGroup(
+            jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jlCadastros)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jlNomeProduto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlNomeCliente)
+                .addGap(18, 18, 18)
+                .addComponent(jlNomeProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlNomeProduto2)
+                .addGap(4, 4, 4)
+                .addComponent(jlNomeMotoboy)
+                .addGap(43, 43, 43)
+                .addComponent(jlSubtotal1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlComissao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlDesconto)
+                .addGap(42, 42, 42)
+                .addComponent(jlTotal)
+                .addGap(40, 40, 40)
+                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovoProduto4)
+                    .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jpConfirmacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jpSelecionarProdutos.setBackground(new java.awt.Color(234, 29, 44));
-        jpSelecionarProdutos.setAlignmentX(0.0F);
-        jpSelecionarProdutos.setAlignmentY(0.0F);
         jpSelecionarProdutos.setMaximumSize(null);
-        jpSelecionarProdutos.setRequestFocusEnabled(false);
+        jpSelecionarProdutos.setPreferredSize(new java.awt.Dimension(360, 640));
+
+        cmbProdutos.setFont(new java.awt.Font("Sul Sans", 0, 13)); // NOI18N
+        cmbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProdutosActionPerformed(evt);
+            }
+        });
+
+        jlDescricaoProduto1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlDescricaoProduto1.setForeground(new java.awt.Color(255, 255, 255));
+        jlDescricaoProduto1.setText("Selecione um produto:");
+
+        btnAdicionarProduto.setBackground(new java.awt.Color(234, 29, 44));
+        btnAdicionarProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnAdicionarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdicionarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
+        btnAdicionarProduto.setText("Adicionar");
+        btnAdicionarProduto.setBorder(null);
+        btnAdicionarProduto.setBorderPainted(false);
+        btnAdicionarProduto.setContentAreaFilled(false);
+        btnAdicionarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarProdutoActionPerformed(evt);
+            }
+        });
+
+        btnVoltarProduto.setBackground(new java.awt.Color(234, 29, 44));
+        btnVoltarProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnVoltarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_voltar_branco.png"))); // NOI18N
+        btnVoltarProduto.setText("Voltar");
+        btnVoltarProduto.setBorder(null);
+        btnVoltarProduto.setBorderPainted(false);
+        btnVoltarProduto.setContentAreaFilled(false);
+        btnVoltarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVoltarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarProdutoActionPerformed(evt);
+            }
+        });
+
+        jlDescricaoProduto2.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlDescricaoProduto2.setForeground(new java.awt.Color(255, 255, 255));
+        jlDescricaoProduto2.setText("Quantidade:");
+
+        jlSubtotal.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
+        jlSubtotal.setForeground(new java.awt.Color(255, 255, 255));
+        jlSubtotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlSubtotal.setText("Subtotal: R$0.00");
+
+        jsQuantidade.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jsQuantidade.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        btnAvancarProduto.setBackground(new java.awt.Color(234, 29, 44));
+        btnAvancarProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnAvancarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAvancarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_avancar_branco.png"))); // NOI18N
+        btnAvancarProduto.setText("Avançar");
+        btnAvancarProduto.setBorder(null);
+        btnAvancarProduto.setBorderPainted(false);
+        btnAvancarProduto.setContentAreaFilled(false);
+        btnAvancarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAvancarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvancarProdutoActionPerformed(evt);
+            }
+        });
+
+        jlTituloSelecionarProdutos.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
+        jlTituloSelecionarProdutos.setForeground(new java.awt.Color(255, 255, 255));
+        jlTituloSelecionarProdutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlTituloSelecionarProdutos.setText("Selecionar Produtos");
 
         javax.swing.GroupLayout jpSelecionarProdutosLayout = new javax.swing.GroupLayout(jpSelecionarProdutos);
         jpSelecionarProdutos.setLayout(jpSelecionarProdutosLayout);
         jpSelecionarProdutosLayout.setHorizontalGroup(
             jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addComponent(jlSubtotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSelecionarProdutosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlDescricaoProduto2)
+                    .addComponent(jlDescricaoProduto1)
+                    .addGroup(jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnVoltarProduto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAvancarProduto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
+                    .addGroup(jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpSelecionarProdutosLayout.createSequentialGroup()
+                            .addComponent(jsQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbProdutos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSelecionarProdutosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlTituloSelecionarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jpSelecionarProdutosLayout.setVerticalGroup(
             jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSelecionarProdutosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jlTituloSelecionarProdutos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(jlDescricaoProduto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlDescricaoProduto2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpSelecionarProdutosLayout.createSequentialGroup()
+                        .addComponent(jsQuantidade)
+                        .addGap(3, 3, 3)))
+                .addGap(91, 91, 91)
+                .addComponent(jlSubtotal)
+                .addGap(64, 64, 64)
+                .addComponent(btnAvancarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVoltarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
-        jspSelecionarProdutos.setViewportView(jpSelecionarProdutos);
-
-        getContentPane().add(jspSelecionarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jpSelecionarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jpLogin.setBackground(new java.awt.Color(234, 29, 44));
         jpLogin.setMaximumSize(new java.awt.Dimension(360, 640));
@@ -173,13 +463,14 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlSenha)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(jlEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(btnEntrar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                .addComponent(btnEntrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(logo)))
@@ -227,10 +518,12 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         try {
             if (login(email, senha)) {
-                this.setTitle("Escolher Produtos"); // troca o título da página
+                this.setTitle("Selecionar Produtos"); // troca o título da página
+                carrinho = new ArrayList<ItemPedido>();
+                carregarProdutos();
                 
                 jpLogin.setVisible(false);
-                jspSelecionarProdutos.setVisible(true);
+                jpSelecionarProdutos.setVisible(true);
             } else {
                 jlErro.setText("As credenciais estão incorretas!");
                 jlErro.setVisible(true);
@@ -245,6 +538,76 @@ public class RealizarPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
         new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_btnEntrar1ActionPerformed
+
+    private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
+        // TODO add your handling code here:
+        if (cmbProdutos.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um produto.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // tela de edição visível
+        int indice_produto = cmbProdutos.getSelectedIndex() - 1;
+        Produto produto = produtos.get(indice_produto);
+        int quantidade = (Integer)jsQuantidade.getValue();
+        
+        carrinho.add(new ItemPedido(quantidade, quantidade * produto.getValorAtual(), produto));
+        
+        // atualiza o valor total
+        jlSubtotal.setText("Subtotal R$" + getValorTotal());
+        
+        // valores do objeto original
+        cmbProdutos.setSelectedIndex(0);
+        jsQuantidade.setValue(1);
+    }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
+
+    private void btnVoltarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarProdutoActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarProdutoActionPerformed
+
+    private void btnAvancarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarProdutoActionPerformed
+        // TODO add your handling code here:
+        if (getValorTotal() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, adicione pelo menos um produto.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // verifica se há motoboy disponível
+        float frete = 0.1f;
+        
+        this.setTitle("Confirmação"); // troca o título da página
+
+        jpLogin.setVisible(false);
+        jpSelecionarProdutos.setVisible(false);
+        jpConfirmacao.setVisible(true);
+        
+        jlNomeCliente.setText(cliente.getNome());
+        jtaEndereco.setText(cliente.getEndereco());
+        jlNomeMotoboy.setText("Maycon Narguilé");
+        
+        jlSubtotal1.setText("Subtotal: R$" + getValorTotal());
+        jlComissao.setText("Frete: R$" + getValorTotal()*frete);
+        jlDesconto.setText("Desconto: R$" + (getValorTotalSemDesconto() - getValorTotal()));
+        
+        jlTotal.setText("Total: R$" + (getValorTotal() + getValorTotal()*frete));
+    }//GEN-LAST:event_btnAvancarProdutoActionPerformed
+
+    private void cmbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProdutosActionPerformed
+
+    private void btnNovoProduto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProduto4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNovoProduto4ActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnFinalizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,15 +645,41 @@ public class RealizarPedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarProduto;
+    private javax.swing.JButton btnAvancarProduto;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnEntrar1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnFinalizar;
+    private javax.swing.JButton btnNovoProduto1;
+    private javax.swing.JButton btnNovoProduto2;
+    private javax.swing.JButton btnNovoProduto3;
+    private javax.swing.JButton btnNovoProduto4;
+    private javax.swing.JButton btnVoltarProduto;
+    private javax.swing.JComboBox<String> cmbProdutos;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel jlCadastros;
+    private javax.swing.JLabel jlComissao;
+    private javax.swing.JLabel jlDesconto;
+    private javax.swing.JLabel jlDescricaoProduto1;
+    private javax.swing.JLabel jlDescricaoProduto2;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlErro;
+    private javax.swing.JLabel jlNomeCliente;
+    private javax.swing.JLabel jlNomeMotoboy;
+    private javax.swing.JLabel jlNomeProduto;
+    private javax.swing.JLabel jlNomeProduto1;
+    private javax.swing.JLabel jlNomeProduto2;
     private javax.swing.JLabel jlSenha;
+    private javax.swing.JLabel jlSubtotal;
+    private javax.swing.JLabel jlSubtotal1;
+    private javax.swing.JLabel jlTituloSelecionarProdutos;
+    private javax.swing.JLabel jlTotal;
+    private javax.swing.JPanel jpConfirmacao;
     private javax.swing.JPanel jpLogin;
     private javax.swing.JPanel jpSelecionarProdutos;
-    private javax.swing.JScrollPane jspSelecionarProdutos;
+    private javax.swing.JSpinner jsQuantidade;
+    private javax.swing.JTextArea jtaEndereco;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
@@ -301,138 +690,51 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         for (int i = 0; i < clientes.size(); i++) {
             // verifica credenciais
-            if (clientes.get(i).getEmail().equals(emailUsuario) && clientes.get(i).getSenha().equals(senhaUsuario))
+            if (clientes.get(i).getEmail().equals(emailUsuario) && clientes.get(i).getSenha().equals(senhaUsuario)) {
+                cliente = clientes.get(i);
                 return true;
+            }
         }
         
         return false;
     }
-
-    private void listarProdutos() {
-        jpLogin.setVisible(false);
-        jspSelecionarProdutos.setVisible(true);
-        
-        javax.swing.GroupLayout jpSelecionarProdutosLayout = new javax.swing.GroupLayout(jpSelecionarProdutos);
-        jpSelecionarProdutos.setLayout(jpSelecionarProdutosLayout);
-        
-        SequentialGroup hor = jpSelecionarProdutosLayout.createSequentialGroup();
-        SequentialGroup ver = jpSelecionarProdutosLayout.createSequentialGroup();
-        
-        for (int i = 1; i <= 10; i++) {
-            JPanel macacoa = new javax.swing.JPanel();
+    
+    private void carregarProdutos() {
+        try {
+            produtos = ManipuladorArquivo.carregarProdutos();
+            ArrayList<String> nomes_produtos = new ArrayList();
             
-            javax.swing.GroupLayout macacoaLayout = new javax.swing.GroupLayout(macacoa);
-            macacoa.setLayout(macacoaLayout);
-            macacoaLayout.setHorizontalGroup(
-                macacoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 100, Short.MAX_VALUE)
-            );
-            macacoaLayout.setVerticalGroup(
-                macacoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 100, Short.MAX_VALUE)
-            );
+            nomes_produtos.add("Selecione um produto");
+            for (Produto produto : produtos) {
+                nomes_produtos.add("R$" + String.valueOf(produto.getValorAtual()) + " - " + produto.getNome());
+            }
             
-            hor.addComponent(macacoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE);
-            
-            ver.addGap(1, 1, 1);
-            ver.addComponent(macacoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE);
+            MyComboBoxModel myModel = new MyComboBoxModel(nomes_produtos.toArray(new String[0]));
+            cmbProdutos.setModel(myModel);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar os produtos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private float getValorTotal() {
+        float total = 0;
+        
+        // pega o valor total do pedido
+        for (ItemPedido item : carrinho) {
+            total += item.getSubTotal();
         }
         
-        jpSelecionarProdutosLayout.setHorizontalGroup(
-            jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpSelecionarProdutosLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(hor.addContainerGap(195, Short.MAX_VALUE))));
+        return total;
+    }
+    
+    private float getValorTotalSemDesconto() {
+        float total = 0;
         
-        jpSelecionarProdutosLayout.setVerticalGroup(
-            jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ver.addContainerGap(850, Short.MAX_VALUE)));
-                
-        //jspSelecionarProdutos.setViewportView(jpSelecionarProdutos);
-        /*
-        javax.swing.GroupLayout jpSelecionarProdutosLayout = new javax.swing.GroupLayout(jpSelecionarProdutos);
-        jpSelecionarProdutos.setLayout(jpSelecionarProdutosLayout);
-        
-        for (int i = 1; i <= 1; i++) {
-            JPanel jpItem = new javax.swing.JPanel();
-            JLabel jlbNome = new JLabel();
-            JLabel jlbPreco = new JLabel();
-            JLabel jlbCodigo = new JLabel();
-            JCheckBox jcbAdicionar = new JCheckBox();
-            
-            jpItem.setBackground(new java.awt.Color(234, 29, 44));
-            jpItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-
-            jlbNome.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-            jlbNome.setForeground(new java.awt.Color(255, 255, 255));
-            jlbNome.setText("Pizza de Calabresa");
-
-            jlbPreco.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
-            jlbPreco.setForeground(new java.awt.Color(255, 255, 255));
-            jlbPreco.setText("R$20,00");
-
-            jcbAdicionar.setBackground(new java.awt.Color(234, 29, 44));
-            jcbAdicionar.setForeground(new java.awt.Color(234, 29, 44));
-            jcbAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            jcbAdicionar.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_adicionar_branco.png"))); // NOI18N
-            jcbAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
-            jcbAdicionar.setMargin(new java.awt.Insets(1, 1, 1, 1));
-            jcbAdicionar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_branco.png"))); // NOI18N
-            jcbAdicionar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_carrinho_remover_branco.png"))); // NOI18N
-
-            jlbCodigo.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-            jlbCodigo.setForeground(new java.awt.Color(255, 255, 255));
-            jlbCodigo.setText("#1");
-
-            javax.swing.GroupLayout jpItemLayout = new javax.swing.GroupLayout(jpItem);
-            jpItem.setLayout(jpItemLayout);
-            jpItemLayout.setHorizontalGroup(
-                jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpItemLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jlbNome, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
-                        .addComponent(jlbPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(25, 25, 25)
-                    .addGroup(jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jlbCodigo)
-                        .addComponent(jcbAdicionar))
-                    .addContainerGap())
-            );
-            jpItemLayout.setVerticalGroup(
-                jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpItemLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jlbNome)
-                        .addComponent(jlbCodigo))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(jpItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jlbPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jcbAdicionar))
-                    .addGap(6, 6, 6))
-            );
-
-            
-            jpSelecionarProdutosLayout.setHorizontalGroup(
-                jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpSelecionarProdutosLayout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addComponent(jpItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(197, Short.MAX_VALUE))
-            );
-            jpSelecionarProdutosLayout.setVerticalGroup(
-                jpSelecionarProdutosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpSelecionarProdutosLayout.createSequentialGroup()
-                    .addGap(100*i, 100*i, 100*i)
-                    .addComponent(jpItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(392, Short.MAX_VALUE))
-            );
-
-            
+        // pega o valor total do pedido
+        for (ItemPedido item : carrinho) {
+            total += item.getSubTotalSemDesconto();
         }
         
-        jspSelecionarProdutos.setViewportView(jpSelecionarProdutos);
-        */
+        return total;
     }
 }

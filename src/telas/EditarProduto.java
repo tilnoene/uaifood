@@ -473,7 +473,7 @@ public class EditarProduto extends javax.swing.JFrame {
             MyComboBoxModel myModel = new MyComboBoxModel(nomes_produtos.toArray(new String[0]));
             cmbProdutos.setModel(myModel);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar os produtos!", "Erro", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar os produtos!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

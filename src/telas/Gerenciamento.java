@@ -48,6 +48,7 @@ public class Gerenciamento extends javax.swing.JFrame {
         btnMotoboySelecionaExcluir1 = new javax.swing.JButton();
         btnSairSelecionaCadastro = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        btnMotoboysDisponiveis = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,6 +273,21 @@ public class Gerenciamento extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(50, 2));
         jSeparator1.setVerifyInputWhenFocusTarget(false);
 
+        btnMotoboysDisponiveis.setBackground(new java.awt.Color(236, 35, 51));
+        btnMotoboysDisponiveis.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnMotoboysDisponiveis.setForeground(new java.awt.Color(255, 255, 255));
+        btnMotoboysDisponiveis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_capacete_branco.png"))); // NOI18N
+        btnMotoboysDisponiveis.setText("Motoboys Disponíveis");
+        btnMotoboysDisponiveis.setBorder(null);
+        btnMotoboysDisponiveis.setBorderPainted(false);
+        btnMotoboysDisponiveis.setContentAreaFilled(false);
+        btnMotoboysDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMotoboysDisponiveis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotoboysDisponiveisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -301,6 +317,7 @@ public class Gerenciamento extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMotoboysDisponiveis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlMotoboys, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 41, Short.MAX_VALUE)
@@ -346,7 +363,9 @@ public class Gerenciamento extends javax.swing.JFrame {
                     .addComponent(btnMotoboySelecionaEditar)
                     .addComponent(btnMotoboySelecionaExcluir1)
                     .addComponent(btnMotoboySelecionaCadastro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMotoboysDisponiveis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(btnSairSelecionaCadastro)
                 .addGap(71, 71, 71))
         );
@@ -416,6 +435,10 @@ public class Gerenciamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMotoboySelecionaExcluir1ActionPerformed
 
+    private void btnMotoboysDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboysDisponiveisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMotoboysDisponiveisActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +484,7 @@ public class Gerenciamento extends javax.swing.JFrame {
     private javax.swing.JButton btnMotoboySelecionaCadastro;
     private javax.swing.JButton btnMotoboySelecionaEditar;
     private javax.swing.JButton btnMotoboySelecionaExcluir1;
+    private javax.swing.JButton btnMotoboysDisponiveis;
     private javax.swing.JButton btnProdutoSelecionaCadastro;
     private javax.swing.JButton btnProdutoSelecionaEditar;
     private javax.swing.JButton btnProdutoSelecionaExcluir;

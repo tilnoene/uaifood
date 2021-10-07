@@ -6,12 +6,14 @@ public class Pedido {
     private String tipoDePagamento;
     private float frete;
     private float precoTotal;
+    private String endereco;
 
-    public Pedido(int codPedido, String tipoDePagamento, float frete, float precoTotal) {
+    public Pedido(int codPedido, String tipoDePagamento, float frete, float precoTotal, String endereco) {
         this.codPedido = codPedido;
         this.tipoDePagamento = tipoDePagamento;
         this.frete = frete;
         this.precoTotal = precoTotal;
+        this.endereco = endereco;
     }
 
     public int getCodPedido() {
@@ -46,5 +48,11 @@ public class Pedido {
         this.precoTotal = precoTotal;
     }
     
+    public String getEndereco() {
+        return endereco;
+    }
     
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }

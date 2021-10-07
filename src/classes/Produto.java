@@ -41,6 +41,11 @@ public class Produto {
         ManipuladorArquivo.armazenarProduto(this);
     }
 
+    public float getValorAtual() {
+        // retorna valor atual processado e com desconto
+        return valor;
+    }
+    
     public String toString() {
         return String.valueOf(this.codProduto) + ";"
                 + this.nome + ";"
