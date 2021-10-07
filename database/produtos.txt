@@ -1,4 +1,0 @@
-
-
-2;Cacetinho;2.5;false;Padarias;Um bom pão francês.;2
-3;Pizza de calabresa;25.9;false;Pizza;Pizzazona top, a melhor que tem.;5

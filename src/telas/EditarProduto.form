@@ -65,10 +65,10 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="btnNovoProduto1" pref="250" max="32767" attributes="0"/>
+                      <Component id="btnEditarProduto" pref="250" max="32767" attributes="0"/>
                       <Component id="cmbProdutos" alignment="1" max="32767" attributes="0"/>
                       <Component id="jlDescricaoProduto1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnNovoProduto3" alignment="0" pref="250" max="32767" attributes="0"/>
+                      <Component id="btnVoltarProduto" alignment="0" pref="250" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
@@ -82,9 +82,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="cmbProdutos" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnNovoProduto1" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="btnEditarProduto" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnNovoProduto3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="btnVoltarProduto" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -120,7 +120,7 @@
             <Property name="text" type="java.lang.String" value="Selecione um produto:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnNovoProduto1">
+        <Component class="javax.swing.JButton" name="btnEditarProduto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -145,10 +145,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoProduto1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnNovoProduto3">
+        <Component class="javax.swing.JButton" name="btnVoltarProduto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -173,7 +173,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoProduto3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarProdutoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -208,13 +208,16 @@
                       <Component id="jlTituloProduto" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jlCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbCategoriaProduto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="btnNovoProduto2" alignment="1" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btnCancelarProduto" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jlCategoriaProduto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbCategoriaProduto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnSalvarProduto" min="-2" pref="129" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -222,14 +225,10 @@
                                       <Component id="jlDiaDaPromocaoProduto" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnNovoProduto" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -262,12 +261,12 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="rbtnAlcoolicoProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnNovoProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="btnNovoProduto2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnCancelarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnSalvarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="114" max="32767" attributes="0"/>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -460,7 +459,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnNovoProduto">
+        <Component class="javax.swing.JButton" name="btnCancelarProduto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -485,10 +484,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoProdutoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarProdutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnNovoProduto2">
+        <Component class="javax.swing.JButton" name="btnSalvarProduto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -513,7 +512,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoProduto2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarProdutoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
