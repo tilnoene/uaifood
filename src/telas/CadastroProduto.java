@@ -22,6 +22,9 @@ public class CadastroProduto extends javax.swing.JFrame {
      */
     public CadastroProduto() {
         initComponents();
+        
+        carregarDiasDaSemana();
+        carregarCategorias();
     }
 
     /**
@@ -224,6 +227,29 @@ public class CadastroProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+        
+    public void carregarDiasDaSemana() {
+        cmbjlDiaDaPromocaoProduto.removeAllItems();
+
+        cmbjlDiaDaPromocaoProduto.addItem("Selecione um dia");
+        cmbjlDiaDaPromocaoProduto.addItem("Domingo");
+        cmbjlDiaDaPromocaoProduto.addItem("Segunda");
+        cmbjlDiaDaPromocaoProduto.addItem("Terça");
+        cmbjlDiaDaPromocaoProduto.addItem("Quarta");
+        cmbjlDiaDaPromocaoProduto.addItem("Quinta");
+        cmbjlDiaDaPromocaoProduto.addItem("Sexta");
+        cmbjlDiaDaPromocaoProduto.addItem("Sábado");
+    }
+    
+    public void carregarCategorias() {
+        cmbCategoriaProduto.removeAllItems();
+        
+        cmbCategoriaProduto.addItem("Selecione uma categoria");
+        for(String categoria : Produto.categorias) {
+            cmbCategoriaProduto.addItem(categoria);
+        }
+    }
+    
     private void rbtnAlcoolicoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAlcoolicoProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnAlcoolicoProdutoActionPerformed
@@ -232,7 +258,9 @@ public class CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtNomeProduto.getText().equals("")
             || txtValorProduto.getText().equals("")
-            || jtaDescricaoProduto.getText().equals("")) {
+            || jtaDescricaoProduto.getText().equals("")
+            || cmbCategoriaProduto.getSelectedIndex() == 0
+            || cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -241,7 +269,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         float valor = Float.parseFloat(txtValorProduto.getText());
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
-        int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex();
+        int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
         
         Produto produto = new Produto(0, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
