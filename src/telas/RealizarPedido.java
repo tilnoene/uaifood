@@ -62,6 +62,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         jlErro = new javax.swing.JLabel();
+        btnEntrar1 = new javax.swing.JButton();
 
         jLabel1.setText("lagrimas de crocodilo do WIU");
 
@@ -70,7 +71,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         setBackground(new java.awt.Color(234, 29, 44));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setMaximumSize(null);
-        setMinimumSize(new java.awt.Dimension(360, 640));
+        setMinimumSize(null);
         setResizable(false);
         setSize(new java.awt.Dimension(360, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +108,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         getContentPane().add(jspSelecionarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jpLogin.setBackground(new java.awt.Color(234, 29, 44));
-        jpLogin.setMaximumSize(new java.awt.Dimension(800, 640));
+        jpLogin.setMaximumSize(new java.awt.Dimension(360, 640));
         jpLogin.setMinimumSize(new java.awt.Dimension(360, 640));
         jpLogin.setPreferredSize(new java.awt.Dimension(360, 640));
 
@@ -150,6 +151,21 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlErro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlErro.setForeground(new java.awt.Color(255, 255, 255));
 
+        btnEntrar1.setBackground(new java.awt.Color(234, 29, 44));
+        btnEntrar1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnEntrar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_registrar_branco.png"))); // NOI18N
+        btnEntrar1.setText("Registrar");
+        btnEntrar1.setBorder(null);
+        btnEntrar1.setBorderPainted(false);
+        btnEntrar1.setContentAreaFilled(false);
+        btnEntrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpLoginLayout = new javax.swing.GroupLayout(jpLogin);
         jpLogin.setLayout(jpLoginLayout);
         jpLoginLayout.setHorizontalGroup(
@@ -163,7 +179,8 @@ public class RealizarPedido extends javax.swing.JFrame {
                             .addComponent(jlSenha)
                             .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(jlEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(btnEntrar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(logo)))
@@ -173,7 +190,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         jpLoginLayout.setVerticalGroup(
             jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpLoginLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(131, 131, 131)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlEmail)
@@ -185,9 +202,11 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlErro)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEntrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlErro, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         getContentPane().add(jpLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 640));
@@ -222,6 +241,11 @@ public class RealizarPedido extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar o banco de dados!", "Erro", JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
+        // TODO add your handling code here:
+        new CadastroCliente().setVisible(true);
+    }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +284,7 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnEntrar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlErro;
