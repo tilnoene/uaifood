@@ -34,7 +34,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jlTituloMotoboy = new javax.swing.JLabel();
         jlNome = new javax.swing.JLabel();
@@ -43,7 +42,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JTextField();
         jlCpf = new javax.swing.JLabel();
         btnNovoMotoboy = new javax.swing.JButton();
-        btnNovoProduto1 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         jlSenha = new javax.swing.JLabel();
         jlTelefone = new javax.swing.JLabel();
@@ -61,9 +60,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setResizable(false);
 
-        jScrollPane1.setMinimumSize(null);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(360, 640));
-
         jPanel1.setBackground(new java.awt.Color(234, 29, 44));
         jPanel1.setMinimumSize(new java.awt.Dimension(343, 638));
         jPanel1.setPreferredSize(new java.awt.Dimension(360, 640));
@@ -73,23 +69,23 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         jlTituloMotoboy.setForeground(new java.awt.Color(255, 255, 255));
         jlTituloMotoboy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlTituloMotoboy.setText("Cadastrar Motoboy");
-        jPanel1.add(jlTituloMotoboy, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 30, 310, -1));
+        jPanel1.add(jlTituloMotoboy, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 30, 320, -1));
 
         jlNome.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlNome.setForeground(new java.awt.Color(255, 255, 255));
         jlNome.setText("Nome:");
-        jPanel1.add(jlNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 85, -1, -1));
+        jPanel1.add(jlNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 86, -1, -1));
 
         txtNome.setBackground(new java.awt.Color(234, 29, 44));
         txtNome.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 106, 310, 38));
+        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 106, 300, 38));
 
         jlEmail.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlEmail.setForeground(new java.awt.Color(255, 255, 255));
         jlEmail.setText("Email:");
-        jPanel1.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 155, -1, -1));
+        jPanel1.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 156, -1, -1));
 
         txtTelefone.setBackground(new java.awt.Color(234, 29, 44));
         txtTelefone.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -100,12 +96,12 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
                 txtTelefoneActionPerformed(evt);
             }
         });
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 385, 310, 38));
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 38));
 
         jlCpf.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlCpf.setForeground(new java.awt.Color(255, 255, 255));
         jlCpf.setText("CPF:");
-        jPanel1.add(jlCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 225, -1, -1));
+        jPanel1.add(jlCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
 
         btnNovoMotoboy.setBackground(new java.awt.Color(234, 29, 44));
         btnNovoMotoboy.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -121,39 +117,39 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
                 btnNovoMotoboyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNovoMotoboy, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 600, 120, 38));
+        jPanel1.add(btnNovoMotoboy, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 120, 38));
 
-        btnNovoProduto1.setBackground(new java.awt.Color(234, 29, 44));
-        btnNovoProduto1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnNovoProduto1.setForeground(new java.awt.Color(255, 255, 255));
-        btnNovoProduto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_fechar_branco.png"))); // NOI18N
-        btnNovoProduto1.setText("Cancelar");
-        btnNovoProduto1.setBorder(null);
-        btnNovoProduto1.setBorderPainted(false);
-        btnNovoProduto1.setContentAreaFilled(false);
-        btnNovoProduto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNovoProduto1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(234, 29, 44));
+        btnCancelar.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_fechar_branco.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoProduto1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNovoProduto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 120, 38));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 120, 38));
 
         txtEmail.setBackground(new java.awt.Color(234, 29, 44));
         txtEmail.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 176, 310, 38));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 176, 300, 38));
 
         jlSenha.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlSenha.setForeground(new java.awt.Color(255, 255, 255));
         jlSenha.setText("Senha:");
-        jPanel1.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 295, -1, -1));
+        jPanel1.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         jlTelefone.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlTelefone.setForeground(new java.awt.Color(255, 255, 255));
         jlTelefone.setText("Telefone:");
-        jPanel1.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 365, -1, -1));
+        jPanel1.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         txtSenha.setBackground(new java.awt.Color(234, 29, 44));
         txtSenha.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -165,12 +161,12 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
                 txtSenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 316, 310, 38));
+        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 38));
 
         jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlComissao.setForeground(new java.awt.Color(255, 255, 255));
         jlComissao.setText("Data de Nascimento:");
-        jPanel1.add(jlComissao, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 435, -1, -1));
+        jPanel1.add(jlComissao, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         txtDataDeNascimento.setBackground(new java.awt.Color(234, 29, 44));
         txtDataDeNascimento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -186,7 +182,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
                 txtDataDeNascimentoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 456, 310, 40));
+        jPanel1.add(txtDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 130, 40));
 
         txtComecoExpediente.setBackground(new java.awt.Color(234, 29, 44));
         txtComecoExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -202,7 +198,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
                 txtComecoExpedienteActionPerformed(evt);
             }
         });
-        jPanel1.add(txtComecoExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 528, 140, 40));
+        jPanel1.add(txtComecoExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 40));
 
         txtFimExpediente.setBackground(new java.awt.Color(234, 29, 44));
         txtFimExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -213,49 +209,49 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtFimExpediente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        jPanel1.add(txtFimExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 528, 140, 40));
+        jPanel1.add(txtFimExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 460, 130, 40));
 
         jlExpediente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlExpediente.setForeground(new java.awt.Color(255, 255, 255));
         jlExpediente.setText("Expediente:");
-        jPanel1.add(jlExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 507, -1, -1));
+        jPanel1.add(jlExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("-");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 20, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 40, 40));
 
         txtCpf.setBackground(new java.awt.Color(234, 29, 44));
         txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         txtCpf.setForeground(new java.awt.Color(255, 255, 255));
         txtCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 246, 310, 38));
-
-        jScrollPane1.setViewportView(jPanel1);
+        jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 390, 130, 38));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNovoProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProduto1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_btnNovoProduto1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnNovoMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoMotoboyActionPerformed
         // TODO add your handling code here:
@@ -345,11 +341,10 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnNovoMotoboy;
-    private javax.swing.JButton btnNovoProduto1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlComissao;
     private javax.swing.JLabel jlCpf;
     private javax.swing.JLabel jlEmail;

@@ -429,7 +429,7 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnMotoboySelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaEditarActionPerformed
         // TODO add your handling code here:
-        //new EditarMotoboy().setVisible(true);
+        new EditarMotoboy().setVisible(true);
     }//GEN-LAST:event_btnMotoboySelecionaEditarActionPerformed
 
     private void btnMotoboySelecionaExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaExcluir1ActionPerformed
