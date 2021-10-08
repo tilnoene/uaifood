@@ -82,6 +82,11 @@ public class EditarProduto extends javax.swing.JFrame {
 
         cmbProdutos.setFont(new java.awt.Font("Sul Sans", 0, 13)); // NOI18N
         cmbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProdutosActionPerformed(evt);
+            }
+        });
 
         jlDescricaoProduto1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlDescricaoProduto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,6 +207,7 @@ public class EditarProduto extends javax.swing.JFrame {
         jtaDescricaoProduto.setBackground(new java.awt.Color(234, 29, 44));
         jtaDescricaoProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jtaDescricaoProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jtaDescricaoProduto.setLineWrap(true);
         jtaDescricaoProduto.setRows(5);
         jtaDescricaoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jScrollPane1.setViewportView(jtaDescricaoProduto);
@@ -261,7 +267,7 @@ public class EditarProduto extends javax.swing.JFrame {
                         .addGroup(jpEditarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jpEditarProdutoLayout.createSequentialGroup()
-                                .addGap(0, 7, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jpEditarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlDiaDaPromocaoProduto))))))
@@ -399,6 +405,10 @@ public class EditarProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarProdutoActionPerformed
+
+    private void cmbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProdutosActionPerformed
 
     /**
      * @param args the command line arguments

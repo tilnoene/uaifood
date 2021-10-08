@@ -50,7 +50,7 @@ public class Motoboy extends Usuario{
                 + this.nome + ";"
                 + this.email + ";"
                 + this.senha + ";"
-                + this.dataDeNascimento + ":"
+                + this.dataDeNascimento + ";"
                 + this.telefone;
     }
     

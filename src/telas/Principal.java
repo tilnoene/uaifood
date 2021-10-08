@@ -5,12 +5,21 @@
  */
 package telas;
 
+import classes.ManipuladorArquivo;
+import classes.Motoboy;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eduardo
  */
 public class Principal extends javax.swing.JFrame {
-
+    private ArrayList<Motoboy> motoboys_disponiveis;
+    
     /**
      * Creates new form Principal
      */
@@ -150,8 +159,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
-        // TODO add your handling code here:
-        new RealizarPedido().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            motoboys_disponiveis = new ArrayList<Motoboy>();
+            carregarMotoboysDisponiveis();
+            
+            // verifica se tem motoboys disponíveis
+            if (motoboys_disponiveis.size() == 0) {
+                JOptionPane.showMessageDialog(null, "Não temos motoboys disponíveis, volte mais tarde!", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else
+                new RealizarPedido().setVisible(true);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar os motoboys!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnPedidoActionPerformed
 
     /**
@@ -189,6 +209,16 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    private void carregarMotoboysDisponiveis() throws IOException {
+        ArrayList<Motoboy> motoboys = ManipuladorArquivo.carregarMotoboys();
+        
+        // adiciona somente os disponíveis
+        for (Motoboy motoboy : motoboys) {
+            if (motoboy.getDisponibilidade())
+                motoboys_disponiveis.add(motoboy);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnPedido;

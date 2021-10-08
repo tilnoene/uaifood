@@ -365,7 +365,7 @@ public class Gerenciamento extends javax.swing.JFrame {
                     .addComponent(btnMotoboySelecionaCadastro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMotoboysDisponiveis)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(btnSairSelecionaCadastro)
                 .addGap(71, 71, 71))
         );
@@ -401,7 +401,7 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnMotoboySelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaCadastroActionPerformed
         // TODO add your handling code here:
-        new CadastroMotoboy().setVisible(true);
+        new CadastrarMotoboy().setVisible(true);
     }//GEN-LAST:event_btnMotoboySelecionaCadastroActionPerformed
 
     private void btnProdutoSelecionaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoSelecionaCadastroActionPerformed
@@ -429,10 +429,12 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnMotoboySelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaEditarActionPerformed
         // TODO add your handling code here:
+        new EditarMotoboy().setVisible(true);
     }//GEN-LAST:event_btnMotoboySelecionaEditarActionPerformed
 
     private void btnMotoboySelecionaExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaExcluir1ActionPerformed
         // TODO add your handling code here:
+        new ExcluirMotoboy().setVisible(true);
     }//GEN-LAST:event_btnMotoboySelecionaExcluir1ActionPerformed
 
     private void btnMotoboysDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboysDisponiveisActionPerformed

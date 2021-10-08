@@ -18,7 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import classes.ManipuladorArquivo;
+import classes.Motoboy;
+import classes.Pedido;
 import classes.Produto;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -28,6 +31,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     private Cliente cliente;
     private ArrayList<Produto> produtos;
     private ArrayList<ItemPedido> carrinho;
+    private ArrayList<Motoboy> motoboys_disponiveis = new ArrayList<Motoboy>();
     
     /**
      * Creates new form RealizarPedido
@@ -35,14 +39,20 @@ public class RealizarPedido extends javax.swing.JFrame {
     public RealizarPedido() {
         initComponents();
         
+        try {
+            carregarMotoboysDisponiveis();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao carregar os motoboys!", "Erro", JOptionPane.PLAIN_MESSAGE);
+            this.setVisible(false);
+            return;
+        }
+        
         // exibe somente a tela de Login
         jpLogin.setVisible(true);
         jpSelecionarProdutos.setVisible(false);
         jpConfirmacao.setVisible(false);
         
-        jlErro.setVisible(false); // mensagem de erro não aparece
-        jlErro.setHorizontalAlignment(SwingConstants.CENTER);
-        jlErro.setVerticalAlignment(SwingConstants.CENTER);        
+        jlErro.setVisible(false); // mensagem de erro não aparece    
     }
 
     /**
@@ -127,22 +137,22 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlDesconto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlDesconto.setForeground(new java.awt.Color(255, 255, 255));
         jlDesconto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlDesconto.setText("Desconto: R$0.00");
+        jlDesconto.setText("Desconto: R$0,00");
 
         jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlComissao.setForeground(new java.awt.Color(255, 255, 255));
         jlComissao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlComissao.setText("Frete: R$0.00");
+        jlComissao.setText("Frete: R$0,00");
 
         jlSubtotal1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlSubtotal1.setForeground(new java.awt.Color(255, 255, 255));
         jlSubtotal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlSubtotal1.setText("Subtotal: R$0.00");
+        jlSubtotal1.setText("Subtotal: R$0,00");
 
         jlTotal.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
         jlTotal.setForeground(new java.awt.Color(255, 255, 255));
         jlTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlTotal.setText("Total: R$0.00");
+        jlTotal.setText("Total: R$0,00");
 
         jlNomeProduto1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlNomeProduto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -439,6 +449,7 @@ public class RealizarPedido extends javax.swing.JFrame {
 
         jlErro.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlErro.setForeground(new java.awt.Color(255, 255, 255));
+        jlErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btnEntrar1.setBackground(new java.awt.Color(234, 29, 44));
         btnEntrar1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -536,7 +547,7 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
-        new CadastroCliente2().setVisible(true);
+        new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
@@ -554,7 +565,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         carrinho.add(new ItemPedido(quantidade, quantidade * produto.getValorAtual(), produto));
         
         // atualiza o valor total
-        jlSubtotal.setText("Subtotal R$" + getValorTotal());
+        jlSubtotal.setText("Subtotal R$" + String.format("%.2f", getValorTotal()));
         
         // valores do objeto original
         cmbProdutos.setSelectedIndex(0);
@@ -573,8 +584,8 @@ public class RealizarPedido extends javax.swing.JFrame {
             return;
         }
         
-        // verifica se há motoboy disponível
-        float frete = 0.1f;
+        // escolhe o primeiro motoboy disponível
+        Motoboy motoboy = motoboys_disponiveis.get(0);
         
         this.setTitle("Confirmação"); // troca o título da página
 
@@ -584,13 +595,13 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         jlNomeCliente.setText(cliente.getNome());
         jtaEndereco.setText(cliente.getEndereco());
-        jlNomeMotoboy.setText("Maycon Narguilé");
+        jlNomeMotoboy.setText(motoboy.getNome());
         
-        jlSubtotal1.setText("Subtotal: R$" + getValorTotal());
-        jlComissao.setText("Frete: R$" + getValorTotal()*frete);
-        jlDesconto.setText("Desconto: R$" + (getValorTotalSemDesconto() - getValorTotal()));
+        jlSubtotal1.setText("Subtotal: R$" + String.format("%.2f", getValorTotal()));
+        jlComissao.setText("Frete: R$" + String.format("%.2f", getValorTotal()*motoboy.getComissao()));
+        jlDesconto.setText("Desconto: R$" + String.format("%.2f", (getValorTotalSemDesconto() - getValorTotal())));
         
-        jlTotal.setText("Total: R$" + (getValorTotal() + getValorTotal()*frete));
+        jlTotal.setText("Total: R$" + String.format("%.2f", (getValorTotal() + getValorTotal()*motoboy.getComissao())));
     }//GEN-LAST:event_btnAvancarProdutoActionPerformed
 
     private void cmbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdutosActionPerformed
@@ -604,9 +615,19 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
-        
-        
-        this.setVisible(false);
+        try {
+            Motoboy motoboy = motoboys_disponiveis.get(0);
+
+            new Pedido(0, "tipoDePagamento", getValorTotal()*motoboy.getComissao(), getValorTotal() + getValorTotal()*motoboy.getComissao(), jtaEndereco.getText(), cliente, motoboy, carrinho);
+            
+            motoboy.setDisponibilidade(false);
+            ManipuladorArquivo.editarMotoboy(motoboy);
+            
+            JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso!", "Erro", JOptionPane.PLAIN_MESSAGE);
+            this.setVisible(false);
+        } catch (Exception exc) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao finalizar o pedido!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     /**
@@ -650,9 +671,6 @@ public class RealizarPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnEntrar1;
     private javax.swing.JButton btnFinalizar;
-    private javax.swing.JButton btnNovoProduto1;
-    private javax.swing.JButton btnNovoProduto2;
-    private javax.swing.JButton btnNovoProduto3;
     private javax.swing.JButton btnNovoProduto4;
     private javax.swing.JButton btnVoltarProduto;
     private javax.swing.JComboBox<String> cmbProdutos;
@@ -706,7 +724,7 @@ public class RealizarPedido extends javax.swing.JFrame {
             
             nomes_produtos.add("Selecione um produto");
             for (Produto produto : produtos) {
-                nomes_produtos.add("R$" + String.valueOf(produto.getValorAtual()) + " - " + produto.getNome());
+                nomes_produtos.add("R$" + String.format("%.2f", produto.getValorAtual()) + " - " + produto.getNome());
             }
             
             MyComboBoxModel myModel = new MyComboBoxModel(nomes_produtos.toArray(new String[0]));
@@ -736,5 +754,15 @@ public class RealizarPedido extends javax.swing.JFrame {
         }
         
         return total;
+    }
+
+    private void carregarMotoboysDisponiveis() throws IOException {
+        ArrayList<Motoboy> motoboys = ManipuladorArquivo.carregarMotoboys();
+        
+        // adiciona somente os disponíveis
+        for (Motoboy motoboy : motoboys) {
+            if (motoboy.getDisponibilidade())
+                motoboys_disponiveis.add(motoboy);
+        }
     }
 }
