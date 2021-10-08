@@ -21,6 +21,7 @@ import classes.ManipuladorArquivo;
 import classes.Motoboy;
 import classes.Pedido;
 import classes.Produto;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -136,22 +137,22 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlDesconto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlDesconto.setForeground(new java.awt.Color(255, 255, 255));
         jlDesconto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlDesconto.setText("Desconto: R$0.00");
+        jlDesconto.setText("Desconto: R$0,00");
 
         jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlComissao.setForeground(new java.awt.Color(255, 255, 255));
         jlComissao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlComissao.setText("Frete: R$0.00");
+        jlComissao.setText("Frete: R$0,00");
 
         jlSubtotal1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jlSubtotal1.setForeground(new java.awt.Color(255, 255, 255));
         jlSubtotal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlSubtotal1.setText("Subtotal: R$0.00");
+        jlSubtotal1.setText("Subtotal: R$0,00");
 
         jlTotal.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
         jlTotal.setForeground(new java.awt.Color(255, 255, 255));
         jlTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlTotal.setText("Total: R$0.00");
+        jlTotal.setText("Total: R$0,00");
 
         jlNomeProduto1.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlNomeProduto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -564,7 +565,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         carrinho.add(new ItemPedido(quantidade, quantidade * produto.getValorAtual(), produto));
         
         // atualiza o valor total
-        jlSubtotal.setText("Subtotal R$" + getValorTotal());
+        jlSubtotal.setText("Subtotal R$" + String.format("%.2f", getValorTotal()));
         
         // valores do objeto original
         cmbProdutos.setSelectedIndex(0);
@@ -596,11 +597,11 @@ public class RealizarPedido extends javax.swing.JFrame {
         jtaEndereco.setText(cliente.getEndereco());
         jlNomeMotoboy.setText(motoboy.getNome());
         
-        jlSubtotal1.setText("Subtotal: R$" + getValorTotal());
-        jlComissao.setText("Frete: R$" + getValorTotal()*motoboy.getComissao());
-        jlDesconto.setText("Desconto: R$" + (getValorTotalSemDesconto() - getValorTotal()));
+        jlSubtotal1.setText("Subtotal: R$" + String.format("%.2f", getValorTotal()));
+        jlComissao.setText("Frete: R$" + String.format("%.2f", getValorTotal()*motoboy.getComissao()));
+        jlDesconto.setText("Desconto: R$" + String.format("%.2f", (getValorTotalSemDesconto() - getValorTotal())));
         
-        jlTotal.setText("Total: R$" + (getValorTotal() + getValorTotal()*motoboy.getComissao()));
+        jlTotal.setText("Total: R$" + String.format("%.2f", (getValorTotal() + getValorTotal()*motoboy.getComissao())));
     }//GEN-LAST:event_btnAvancarProdutoActionPerformed
 
     private void cmbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdutosActionPerformed
@@ -723,7 +724,7 @@ public class RealizarPedido extends javax.swing.JFrame {
             
             nomes_produtos.add("Selecione um produto");
             for (Produto produto : produtos) {
-                nomes_produtos.add("R$" + String.valueOf(produto.getValorAtual()) + " - " + produto.getNome());
+                nomes_produtos.add("R$" + String.format("%.2f", produto.getValorAtual()) + " - " + produto.getNome());
             }
             
             MyComboBoxModel myModel = new MyComboBoxModel(nomes_produtos.toArray(new String[0]));

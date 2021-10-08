@@ -221,7 +221,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Desconto: R$0.00"/>
+            <Property name="text" type="java.lang.String" value="Desconto: R$0,00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlComissao">
@@ -233,7 +233,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Frete: R$0.00"/>
+            <Property name="text" type="java.lang.String" value="Frete: R$0,00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlSubtotal1">
@@ -245,7 +245,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Subtotal: R$0.00"/>
+            <Property name="text" type="java.lang.String" value="Subtotal: R$0,00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlTotal">
@@ -257,7 +257,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Total: R$0.00"/>
+            <Property name="text" type="java.lang.String" value="Total: R$0,00"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlNomeProduto1">
