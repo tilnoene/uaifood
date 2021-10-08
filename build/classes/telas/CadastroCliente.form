@@ -110,7 +110,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                   <Component id="jlTituloProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jlCpfCliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Component id="txtCpfCliente" min="-2" pref="38" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                   <Component id="jlEnderecoCliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Component id="txtEnderecoCliente" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="45" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCancelarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnAdicionarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -193,6 +193,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCpfClienteKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlNomeCliente">
           <Properties>

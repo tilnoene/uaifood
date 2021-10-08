@@ -75,6 +75,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         txtCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
         txtCpfCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtCpfCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCpfClienteKeyTyped(evt);
+            }
+        });
 
         jlNomeCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlNomeCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,7 +231,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jlTituloProduto)
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addComponent(jlCpfCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,7 +259,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addComponent(jlEnderecoCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtEnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -309,6 +314,21 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
   
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
+
+    private void txtCpfClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfClienteKeyTyped
+        // TODO add your handling code here:
+        String cpf = txtCpfCliente.getText();
+
+        // 123.456.789-01
+        cpf = cpf
+          .replaceAll("\\D", "")
+          .replaceFirst("(\\d{3})(\\d{1})", "$1.$2")
+          .replaceFirst("(\\d{3})(\\d{1})", "$1.$2")
+          .replaceFirst("(\\d{3})(\\d{1})", "$1-$2")
+          .replaceFirst("(-\\d{1})\\d", "$1");
+
+        txtCpfCliente.setText(cpf);
+    }//GEN-LAST:event_txtCpfClienteKeyTyped
 
     /**
      * @param args the command line arguments
