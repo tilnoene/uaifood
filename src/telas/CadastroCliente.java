@@ -5,12 +5,14 @@
  */
 package telas;
 
+import classes.Cliente;
 import classes.Produto;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,12 +41,12 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jlTituloProduto = new javax.swing.JLabel();
-        jlCpfCliente = new javax.swing.JLabel();
-        txtCpfCliente = new javax.swing.JTextField();
         jlNomeCliente = new javax.swing.JLabel();
         txtNomeCliente = new javax.swing.JTextField();
         jlEmailCliente = new javax.swing.JLabel();
         txtEmailCliente = new javax.swing.JTextField();
+        jlCpfCliente = new javax.swing.JLabel();
+        txtCpfCliente = new javax.swing.JTextField();
         jlSenhaCliente = new javax.swing.JLabel();
         txtSenhaCliente = new javax.swing.JPasswordField();
         jlDataNascimentoCliente = new javax.swing.JLabel();
@@ -67,20 +69,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         jlTituloProduto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlTituloProduto.setText("Novo Cliente");
 
-        jlCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jlCpfCliente.setText("CPF:");
-
-        txtCpfCliente.setBackground(new java.awt.Color(234, 29, 44));
-        txtCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        txtCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
-        txtCpfCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtCpfCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCpfClienteKeyTyped(evt);
-            }
-        });
-
         jlNomeCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlNomeCliente.setForeground(new java.awt.Color(255, 255, 255));
         jlNomeCliente.setText("Nome:");
@@ -98,6 +86,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtEmailCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         txtEmailCliente.setForeground(new java.awt.Color(255, 255, 255));
         txtEmailCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        jlCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jlCpfCliente.setText("CPF:");
+
+        txtCpfCliente.setBackground(new java.awt.Color(234, 29, 44));
+        txtCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        txtCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
+        txtCpfCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtCpfCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCpfClienteKeyTyped(evt);
+            }
+        });
 
         jlSenhaCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlSenhaCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,13 +190,6 @@ public class CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(txtTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(186, 186, 186)
-                                .addComponent(jlTelefoneCliente)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(17, 17, 17)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -218,7 +213,12 @@ public class CadastroCliente extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jlDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(179, 179, 179)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlTelefoneCliente)
+                                .addComponent(txtTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(btnCancelarCliente)
@@ -232,10 +232,6 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jlTituloProduto)
                 .addGap(43, 43, 43)
-                .addComponent(jlCpfCliente)
-                .addGap(6, 6, 6)
-                .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
                 .addComponent(jlNomeCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,7 +239,11 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addComponent(jlEmailCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlCpfCliente)
+                .addGap(6, 6, 6)
+                .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlSenhaCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +259,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addComponent(jlEnderecoCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtEnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -282,23 +282,10 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDataNascimentoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoClienteActionPerformed
-        // TODO add your handling code here:
-        String[] horarioC = new String[2];
-        String[] horarioF = new String[2];
-
-        // CHECAR se a data é correta
-        String dataJoin = txtDataNascimentoCliente.getText();
-        String dateFormat = "dd/MM/uuuu";
-
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
-        .ofPattern(dateFormat)
-        .withResolverStyle(ResolverStyle.STRICT);
         try {
-            LocalDate date = LocalDate.parse(dataJoin, dateTimeFormatter);
-            // Se a data estvier errada, mostrar mensgem de erro e apagar a data.
-        } catch (DateTimeParseException e) {
-            JOptionPane.showMessageDialog(null, "Data de nascimento errada", "Mensagem", JOptionPane.ERROR_MESSAGE);
-            txtDataNascimentoCliente.setText("");
+            checkBirthDate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_txtDataNascimentoClienteActionPerformed
 
@@ -312,7 +299,39 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarClienteActionPerformed
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
-  
+        
+        if (txtNomeCliente.getText().equals("")
+            || txtEmailCliente.getText().equals("")
+            || txtCpfCliente.getText().equals("")
+            || txtSenhaCliente.getText().equals("")
+            || txtTelefoneCliente.getText().equals("")
+            || txtEnderecoCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try {
+            checkBirthDate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String nome = txtNomeCliente.getText();
+        String email = txtEmailCliente.getText();
+        String cpf = txtCpfCliente.getText();
+        String senha = txtSenhaCliente.getText();
+        String telefone = txtTelefoneCliente.getText();
+        String endereco = txtEnderecoCliente.getText();
+        
+        Cliente cliente = new Cliente(0, endereco, cpf, nome, email, senha, txtDataNascimentoCliente.getText(), telefone);
+        try {
+            cliente.init();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+            this.setVisible(false);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Algo deu errado! O cliente não foi cadastrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAdicionarClienteActionPerformed
 
     private void txtCpfClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpfClienteKeyTyped
@@ -330,6 +349,20 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtCpfCliente.setText(cpf);
     }//GEN-LAST:event_txtCpfClienteKeyTyped
 
+    public void checkBirthDate() {
+        // TODO add your handling code here:
+        // CHECAR se a data é correta
+        String dataJoin = txtDataNascimentoCliente.getText();
+        String dateFormat = "dd/MM/uuuu";
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
+            .ofPattern(dateFormat)
+            .withResolverStyle(ResolverStyle.STRICT);
+
+        // Se a data estiver errada, da um erro que pode ser pego pelo try..catch
+        LocalDate date = LocalDate.parse(dataJoin, dateTimeFormatter);
+    }
+    
     /**
      * @param args the command line arguments
      */

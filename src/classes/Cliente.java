@@ -40,7 +40,7 @@ public class Cliente extends Usuario{
                 + this.cpf + ";"
                 + this.nome + ";"
                 + this.email + ";"
-                + this.senha + ":"
+                + this.senha + ";"
                 + this.dataDeNascimento + ";"
                 + this.telefone;
     }
