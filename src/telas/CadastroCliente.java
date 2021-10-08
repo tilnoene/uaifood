@@ -95,6 +95,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtCpfCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         txtCpfCliente.setForeground(new java.awt.Color(255, 255, 255));
         txtCpfCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtCpfCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCpfClienteFocusLost(evt);
+            }
+        });
         txtCpfCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCpfClienteKeyTyped(evt);
@@ -123,6 +128,11 @@ public class CadastroCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtDataNascimentoCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        txtDataNascimentoCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDataNascimentoClienteFocusLost(evt);
+            }
+        });
         txtDataNascimentoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataNascimentoClienteActionPerformed(evt);
@@ -209,11 +219,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlCpfCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jlDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                                .addComponent(txtDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlDataNascimentoCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(179, 179, 179)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,6 +355,17 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         txtCpfCliente.setText(cpf);
     }//GEN-LAST:event_txtCpfClienteKeyTyped
+
+    private void txtDataNascimentoClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoClienteFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoClienteFocusLost
+
+    private void txtCpfClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCpfClienteFocusLost
+        // TODO add your handling code here:
+        // tira qualquer caractere que não for um número ou ponto
+        String str = txtCpfCliente.getText().replaceAll("[^\\d.-]", "");
+        txtCpfCliente.setText(str);
+    }//GEN-LAST:event_txtCpfClienteFocusLost
 
     public void checkBirthDate() {
         // TODO add your handling code here:

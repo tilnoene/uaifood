@@ -74,13 +74,8 @@
                                       <Component id="txtCpfCliente" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
                                       <Component id="jlCpfCliente" alignment="1" min="-2" pref="325" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtDataNascimentoCliente" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="jlDataNascimentoCliente" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtDataNascimentoCliente" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="jlDataNascimentoCliente" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -253,6 +248,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCpfClienteFocusLost"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCpfClienteKeyTyped"/>
           </Events>
         </Component>
@@ -321,6 +317,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDataNascimentoClienteFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataNascimentoClienteActionPerformed"/>
           </Events>
         </Component>
