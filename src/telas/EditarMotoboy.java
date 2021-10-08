@@ -397,10 +397,10 @@ public class EditarMotoboy extends javax.swing.JFrame {
         try {
             Motoboy motoboy = new Motoboy(0, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
             motoboy.init();
-            JOptionPane.showMessageDialog(null, "Motoboy cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Algo deu errado! O motoboy não foi cadastrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Algo deu errado! O motoboy não foi editado.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSalvarMotoboyActionPerformed
 
