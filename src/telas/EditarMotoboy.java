@@ -336,14 +336,14 @@ public class EditarMotoboy extends javax.swing.JFrame {
     private void btnEditarMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMotoboyActionPerformed
         // TODO add your handling code here:
         if (cmbMotoboy.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor, selecione um produto.", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um motoboy.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
         // tela de edição visível
         jpSelecionarMotoboy.setVisible(false);
         jpEditarMotoboy.setVisible(true);
-        this.setTitle("Editar Produto");
+        this.setTitle("Editar Motoboy");
         
         int indice_motoboy = cmbMotoboy.getSelectedIndex() - 1;
         Motoboy motoboy = motoboys.get(indice_motoboy);
@@ -372,7 +372,6 @@ public class EditarMotoboy extends javax.swing.JFrame {
     private void btnSalvarMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMotoboyActionPerformed
         // TODO add your handling code here:
         if (txtNome.getText().equals("")
-            || txtTelefone.getText().equals("")
             || txtEmail.getText().equals("")
             || txtCpf.getText().equals("")
             || String.valueOf(txtSenha.getPassword()).equals("")
@@ -393,9 +392,10 @@ public class EditarMotoboy extends javax.swing.JFrame {
         String dataDeNascimento = txtDataDeNascimento.getText();
         String comecoExpediente = txtInicioExpediente.getText();
         String fimExpediente = txtFinalExpediente.getText();
-
+        boolean disponibilidade = rbtnDisponibilidade.isSelected();
+        
         try {
-            Motoboy motoboy = new Motoboy(0, 0.1f, true, cpf, nome, email, senha, dataDeNascimento, telefone);
+            Motoboy motoboy = new Motoboy(0, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
             motoboy.init();
             JOptionPane.showMessageDialog(null, "Motoboy cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
