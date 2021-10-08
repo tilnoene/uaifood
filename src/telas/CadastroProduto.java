@@ -112,6 +112,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         jtaDescricaoProduto.setBackground(new java.awt.Color(234, 29, 44));
         jtaDescricaoProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jtaDescricaoProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jtaDescricaoProduto.setLineWrap(true);
         jtaDescricaoProduto.setRows(5);
         jtaDescricaoProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jScrollPane1.setViewportView(jtaDescricaoProduto);
@@ -168,7 +169,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 7, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlDiaDaPromocaoProduto)))
