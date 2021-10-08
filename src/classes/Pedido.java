@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Pedido {
     
     private int codPedido;
@@ -8,12 +10,19 @@ public class Pedido {
     private float precoTotal;
     private String endereco;
 
-    public Pedido(int codPedido, String tipoDePagamento, float frete, float precoTotal, String endereco) {
+    Cliente cliente;
+    Motoboy motoboy;
+    ArrayList<ItemPedido> itens;
+    
+    public Pedido(int codPedido, String tipoDePagamento, float frete, float precoTotal, String endereco, Cliente cliente, Motoboy motoboy, ArrayList<ItemPedido> itens) {
         this.codPedido = codPedido;
         this.tipoDePagamento = tipoDePagamento;
         this.frete = frete;
         this.precoTotal = precoTotal;
         this.endereco = endereco;
+        this.cliente = cliente;
+        this.motoboy = motoboy;
+        this.itens = itens;
     }
 
     public int getCodPedido() {
