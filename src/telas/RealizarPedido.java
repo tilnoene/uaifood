@@ -547,7 +547,7 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
         // TODO add your handling code here:
-        new CadastroCliente2().setVisible(true);
+        new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_btnEntrar1ActionPerformed
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
