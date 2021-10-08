@@ -22,12 +22,14 @@ import java.util.Scanner;
 
 public class ManipuladorArquivo {
     
+    // limpa um arquivo de texto
     private static void limparArquivo(String path) throws IOException {
         BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
         buffWrite.write("");
         buffWrite.close();
     }
-            
+    
+    // lê o conteúdo de um arquivo
     private static String leitor(String path) throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader(path));
         String linha = "";
@@ -44,10 +46,11 @@ public class ManipuladorArquivo {
 
         return ans;
     }
-
+    
+    // escreve em algum arquivo
     private static void escritor(String path, String linha) throws IOException {
         try {
-            String texto = leitor(path) + linha; // permanece com o que já havia
+            String texto = leitor(path) + linha; // permanece com o que já havia no arquivo
 
             BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
 
@@ -62,6 +65,7 @@ public class ManipuladorArquivo {
     }
     
     // CRUD Cliente
+    // converte uma linha do banco de dados para um objeto do tipo Cliente
     public static Cliente stringToCliente(String linha) {
         String valores[] = linha.split(";");
 
@@ -76,13 +80,14 @@ public class ManipuladorArquivo {
 
         return new Cliente(codCliente, endereco, cpf, nome, email, senha, dataDeNascimento, telefone);
     }
-
+    
+    // armazena um cliente no banco de dados
     public static void armazenarCliente(Cliente cliente) throws IOException {
         escritor("database/clientes.txt", cliente.toString());
     }
     
+    // carrega os clientes do banco de dados
     public static ArrayList<Cliente> carregarClientes() throws IOException {
-        // carrega os clientes do banco de dados
         String texto = leitor("database/clientes.txt");
 
         String[] linhas = texto.split("\n");
@@ -96,7 +101,8 @@ public class ManipuladorArquivo {
 
         return clientes;
     }
-
+    
+    // edita um cliente no banco de dados
     public static void editarCliente(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
         String texto = leitor("database/clientes.txt");
@@ -116,7 +122,8 @@ public class ManipuladorArquivo {
                 armazenarCliente(currCliente);
         }
     }
-
+    
+    // exclui um cliente do banco de dados
     public static void excluirCliente(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
         String texto = leitor("database/clientes.txt");
@@ -136,6 +143,7 @@ public class ManipuladorArquivo {
     }
     
     // CRUD Motoboy
+    // converte uma linha do banco de dados para um objeto do tipo Motoboy
     public static Motoboy stringToMotoboy(String linha) {
         String valores[] = linha.split(";");
 
@@ -151,11 +159,13 @@ public class ManipuladorArquivo {
 
         return new Motoboy(codMotoboy, comissao, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
     }
-
+    
+    // armazena um motoboy no banco de dados
     public static void armazenarMotoboy(Motoboy motoboy) throws IOException {
         escritor("database/motoboys.txt", motoboy.toString());
     }
-
+    
+    // carrega os motoboys do banco de dados
     public static ArrayList<Motoboy> carregarMotoboys() throws IOException {
         // carrega os motoboys do banco de dados
         String texto = leitor("database/motoboys.txt");
@@ -172,6 +182,7 @@ public class ManipuladorArquivo {
         return motoboys;
     }
     
+    // edita um motoboy no banco de dados
     public static void editarMotoboy(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
         String texto = leitor("database/motoboys.txt");
@@ -191,7 +202,8 @@ public class ManipuladorArquivo {
                 armazenarMotoboy(currMotoboy);
         }
     }
-
+    
+    // exclui um motoboy do banco de dados
     public static void excluirMotoboy(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
         String texto = leitor("database/motoboys.txt");
@@ -211,6 +223,7 @@ public class ManipuladorArquivo {
     }
 
     // CRUD Produto
+    // converte uma linha do banco de dados para um objeto do tipo Produto
     public static Produto stringToProduto(String linha) {
         String valores[] = linha.split(";");
 
@@ -224,13 +237,14 @@ public class ManipuladorArquivo {
 
         return new Produto(codProduto, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
     }
-
+    
+    // armazena um produto no banco de dados
     public static void armazenarProduto(Produto produto) throws IOException {
         escritor("database/produtos.txt", produto.toString());
     }
-
+    
+    // carrega os produtos do banco de dados
     public static ArrayList<Produto> carregarProdutos() throws IOException {
-        // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
 
         String[] linhas = texto.split("\n");
@@ -244,7 +258,8 @@ public class ManipuladorArquivo {
 
         return produtos;
     }
-
+    
+    // edita um produto no banco de dados
     public static void editarProduto(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
@@ -264,7 +279,8 @@ public class ManipuladorArquivo {
                 armazenarProduto(currProduto);
         }
     }
-
+    
+    // exclui um produto do banco de dados
     public static void excluirProduto(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
