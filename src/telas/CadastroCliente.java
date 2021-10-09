@@ -63,6 +63,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
 
         jPanel1.setBackground(new java.awt.Color(234, 29, 44));
+        jPanel1.setPreferredSize(new java.awt.Dimension(360, 640));
 
         jlTituloProduto.setFont(new java.awt.Font("Sul Sans", 0, 24)); // NOI18N
         jlTituloProduto.setForeground(new java.awt.Color(255, 255, 255));
@@ -255,7 +256,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addComponent(jlEnderecoCliente)
                 .addGap(6, 6, 6)
                 .addComponent(txtEnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))

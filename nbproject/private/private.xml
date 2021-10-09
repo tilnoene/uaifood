@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/java/uaifood/src/classes/Motoboy.java</file>
             <file>file:/E:/java/uaifood/src/telas/CadastrarMotoboy.java</file>
             <file>file:/E:/java/uaifood/src/telas/EditarMotoboy.java</file>
@@ -10,6 +11,11 @@
             <file>file:/E:/java/uaifood/src/classes/ManipuladorArquivo.java</file>
             <file>file:/E:/java/uaifood/src/telas/Principal.java</file>
             <file>file:/E:/java/uaifood/src/telas/CadastroCliente.java</file>
+=======
+            <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/telas/EditarCliente.java</file>
+            <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/telas/CadastroCliente.java</file>
+            <file>file:/C:/Users/mvinn/Documents/repositorios/uaifood/src/telas/Gerenciamento.java</file>
+>>>>>>> 2b7d83e9bc38c2bf4128cf9173255cf3b8f92b6c
         </group>
     </open-files>
 </project-private>

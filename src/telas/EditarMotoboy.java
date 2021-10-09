@@ -398,7 +398,11 @@ public class EditarMotoboy extends javax.swing.JFrame {
         boolean disponibilidade = rbtnDisponibilidade.isSelected();
         
         try {
+<<<<<<< HEAD
             Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+=======
+            Motoboy motoboy = new Motoboy(0, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+>>>>>>> 2b7d83e9bc38c2bf4128cf9173255cf3b8f92b6c
             ManipuladorArquivo.editarMotoboy(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);

@@ -623,7 +623,7 @@ public class RealizarPedido extends javax.swing.JFrame {
             motoboy.setDisponibilidade(false);
             ManipuladorArquivo.editarMotoboy(motoboy);
             
-            JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso!", "Erro", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso!", "Pedido realizado", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao finalizar o pedido!", "Erro", JOptionPane.ERROR_MESSAGE);
