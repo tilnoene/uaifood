@@ -421,6 +421,7 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnClienteSelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaEditarActionPerformed
         // TODO add your handling code here:
+        new EditarCliente().setVisible(true);
     }//GEN-LAST:event_btnClienteSelecionaEditarActionPerformed
 
     private void btnClienteSelecionaExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaExcluirActionPerformed
