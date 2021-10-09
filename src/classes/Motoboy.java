@@ -42,6 +42,7 @@ public class Motoboy extends Usuario{
         ManipuladorArquivo.armazenarMotoboy(this);
     }
     
+    @Override
     public String toString() {
         return String.valueOf(this.codMotoboy) + ";"
                 + String.valueOf(this.comissao) + ";"

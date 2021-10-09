@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Eduardo
  */
-
+/*
 class MyComboBoxModel extends DefaultComboBoxModel<String> {
     public MyComboBoxModel(String[] items) {
         super(items);
@@ -31,7 +31,7 @@ class MyComboBoxModel extends DefaultComboBoxModel<String> {
         return selectedString;
     }
 }
-
+*/
 public class ExcluirProduto extends javax.swing.JFrame {
     private ArrayList<Produto> produtos;
     

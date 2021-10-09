@@ -6,6 +6,7 @@
 package telas;
 
 import classes.ManipuladorArquivo;
+import static classes.ManipuladorArquivo.editarMotoboy;
 import classes.Motoboy;
 import classes.Produto;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 
 public class EditarMotoboy extends javax.swing.JFrame {
     private ArrayList<Motoboy> motoboys;
+    int codigoGlobalMotoboy;
     
     /**
      * Creates new form CadastroProduto
@@ -347,6 +349,7 @@ public class EditarMotoboy extends javax.swing.JFrame {
         
         int indice_motoboy = cmbMotoboy.getSelectedIndex() - 1;
         Motoboy motoboy = motoboys.get(indice_motoboy);
+        codigoGlobalMotoboy = motoboy.getCodMotoboy();
 
         // valores do objeto original
         txtNome.setText(motoboy.getNome());
@@ -395,8 +398,8 @@ public class EditarMotoboy extends javax.swing.JFrame {
         boolean disponibilidade = rbtnDisponibilidade.isSelected();
         
         try {
-            Motoboy motoboy = new Motoboy(0, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
-            motoboy.init();
+            Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+            ManipuladorArquivo.editarMotoboy(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {

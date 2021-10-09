@@ -7,7 +7,12 @@ package telas;
 
 import classes.Motoboy;
 import classes.Produto;
+import classes.CheckDados;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -53,7 +58,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         txtFimExpediente = new javax.swing.JFormattedTextField();
         jlExpediente = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtCpf = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Produto");
@@ -223,10 +228,15 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 40, 40));
 
         txtCpf.setBackground(new java.awt.Color(234, 29, 44));
-        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtCpf.setForeground(new java.awt.Color(255, 255, 255));
         txtCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 390, 130, 38));
+        txtCpf.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,28 +265,44 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
 
     private void btnNovoMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoMotoboyActionPerformed
         // TODO add your handling code here:
-        if (txtNome.getText().equals("")
-            || txtTelefone.getText().equals("")
-            || txtEmail.getText().equals("")
-            || txtCpf.getText().equals("")
-            || String.valueOf(txtSenha.getPassword()).equals("")
-            || txtTelefone.getText().equals("")
-            || txtDataDeNascimento.getText().equals("")
-            || txtComecoExpediente.getText().equals("")
-            || txtFimExpediente.getText().equals("")
-        ) {
+        
+        String nome = txtNome.getText(); // nao precisa checar
+        String email = txtEmail.getText(); //precisa checar se ja um com email cadastrado
+        String cpf = txtCpf.getText().replaceAll("[\\D]", ""); // filtra os digitos 
+        //precisa checar se já há um com cpf cadastrado
+        String senha = String.valueOf(txtSenha.getPassword());// nao precisa checar
+        String telefone = txtTelefone.getText(); // nao precisa checar
+        String dataDeNascimento = txtDataDeNascimento.getText(); // precisa checar
+        String comecoExpediente = txtComecoExpediente.getText();// precisa checar
+        String fimExpediente = txtFimExpediente.getText();// precisa checar
+        
+        // Checar se os campos estão vazios
+        if (CheckDados.ehVazio(nome,email,cpf,senha,telefone,dataDeNascimento,
+                comecoExpediente, fimExpediente)) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        // Checar se a data de nascimento está errada
+        if (CheckDados.checaData(dataDeNascimento)){
+            JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
-        String nome = txtNome.getText();
-        String email = txtEmail.getText();
-        String cpf = txtCpf.getText();
-        String senha = String.valueOf(txtSenha.getPassword());
-        String telefone = txtTelefone.getText();
-        String dataDeNascimento = txtDataDeNascimento.getText();
-        String comecoExpediente = txtComecoExpediente.getText();
-        String fimExpediente = txtFimExpediente.getText();
+        ////////// CHECAR OS HORARIOS DE EXPEDIENTE ///////
+        if (CheckDados.checaExpediente(comecoExpediente, fimExpediente)){
+            JOptionPane.showMessageDialog(null, "Horário de expediente inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try {
+            ////////// CHECAR A PREEXISTENCIA DO CPF ///////
+            if (CheckDados.checaCpf(cpf)){
+                JOptionPane.showMessageDialog(null, "CPF já existente, digite outro!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CadastrarMotoboy.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
             Motoboy motoboy = new Motoboy(0, 0.1f, true, cpf, nome, email, senha, dataDeNascimento, telefone);
@@ -354,7 +380,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     private javax.swing.JLabel jlTelefone;
     private javax.swing.JLabel jlTituloMotoboy;
     private javax.swing.JFormattedTextField txtComecoExpediente;
-    private javax.swing.JTextField txtCpf;
+    private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataDeNascimento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JFormattedTextField txtFimExpediente;
