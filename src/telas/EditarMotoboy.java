@@ -396,7 +396,7 @@ public class EditarMotoboy extends javax.swing.JFrame {
         
         try {
             Motoboy motoboy = new Motoboy(0, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
-            motoboy.init();
+            ManipuladorArquivo.editarMotoboy(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {
