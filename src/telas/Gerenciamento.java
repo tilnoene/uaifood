@@ -426,6 +426,7 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnClienteSelecionaExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteSelecionaExcluirActionPerformed
         // TODO add your handling code here:
+        new ExcluirCliente().setVisible(true);
     }//GEN-LAST:event_btnClienteSelecionaExcluirActionPerformed
 
     private void btnMotoboySelecionaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboySelecionaEditarActionPerformed
