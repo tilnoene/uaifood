@@ -61,7 +61,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         txtCpf = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Novo Produto");
+        setTitle("Novo Motoboy");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setResizable(false);
 

@@ -61,7 +61,7 @@ public class ExcluirMotoboy extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Excluir Produto");
+        setTitle("Excluir Motoboy");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(null);
