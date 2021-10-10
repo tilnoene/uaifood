@@ -1,2 +1,4 @@
-0;Pizza de calabresa;24.95;false;Pizza;pizza boa;5
+
+
+0;Pizza de calabresa;25.0;false;Pizza;pizza boa;6
 1;Ratatouille;16.25;false;Carnes;Ratão borrachudo que não serve pra funcionar em todas as telas que Deus quis.;0

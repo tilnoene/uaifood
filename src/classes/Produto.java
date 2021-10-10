@@ -3,6 +3,7 @@ package classes;
 import java.io.IOException;
 import java.util.ArrayList;
 import classes.ManipuladorArquivo;
+import java.util.Date;
 
 public class Produto {
     private int codProduto;
@@ -43,7 +44,8 @@ public class Produto {
 
     public float getValorAtual() {
         // retorna valor atual processado e com desconto
-        return valor;
+        int hoje = new Date().getDay();
+        return hoje == this.diaDaPromocao ? this.valor * 0.95f : this.valor;
     }
     
     public String toString() {
