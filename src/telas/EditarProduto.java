@@ -362,7 +362,7 @@ public class EditarProduto extends javax.swing.JFrame {
         
         // valores do objeto original
         txtNomeProduto.setText(produto.getNome());
-        txtValorProduto.setText(String.valueOf(produto.getValor()));
+        txtValorProduto.setText(String.format("%.2f", produto.getValor()));
         jtaDescricaoProduto.setText(produto.getDescricao());
         
         cmbCategoriaProduto.setSelectedItem(produto.getCategoria());
@@ -386,7 +386,7 @@ public class EditarProduto extends javax.swing.JFrame {
         }
         
         String nome = txtNomeProduto.getText();
-        float valor = Float.parseFloat(txtValorProduto.getText());
+        float valor = Float.parseFloat(txtValorProduto.getText().replace(',', '.'));
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
         int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
