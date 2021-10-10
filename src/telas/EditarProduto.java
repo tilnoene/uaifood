@@ -74,6 +74,7 @@ public class EditarProduto extends javax.swing.JFrame {
         setMaximumSize(null);
         setMinimumSize(null);
         setPreferredSize(null);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpSelecionarProduto.setBackground(new java.awt.Color(234, 29, 44));

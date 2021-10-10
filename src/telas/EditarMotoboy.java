@@ -78,6 +78,7 @@ public class EditarMotoboy extends javax.swing.JFrame {
         setTitle("Selecionar Motoboy");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpSelecionarMotoboy.setBackground(new java.awt.Color(234, 29, 44));
@@ -484,7 +485,6 @@ public class EditarMotoboy extends javax.swing.JFrame {
     private javax.swing.JLabel jlTituloMotoboy;
     private javax.swing.JPanel jpEditarMotoboy;
     private javax.swing.JPanel jpSelecionarMotoboy;
-    private javax.swing.JRadioButton rbtnAlcoolicoProduto;
     private javax.swing.JRadioButton rbtnDisponibilidade;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataDeNascimento;

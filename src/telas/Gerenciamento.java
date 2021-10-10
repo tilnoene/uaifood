@@ -92,6 +92,7 @@ public class Gerenciamento extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciamento");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
+        setResizable(false);
         setSize(new java.awt.Dimension(360, 640));
 
         jPanel2.setBackground(new java.awt.Color(236, 35, 51));

@@ -64,6 +64,7 @@ public class ExcluirProduto extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(null);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpSelecionarProduto.setBackground(new java.awt.Color(234, 29, 44));
