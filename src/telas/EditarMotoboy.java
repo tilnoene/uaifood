@@ -57,22 +57,22 @@ public class EditarMotoboy extends javax.swing.JFrame {
         jlNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jlEmail = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
-        jlCpf = new javax.swing.JLabel();
-        btnSalvarMotoboy = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         jlSenha = new javax.swing.JLabel();
-        jlTelefone = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
-        jlComissao = new javax.swing.JLabel();
+        jlTelefone = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JFormattedTextField();
+        jlDataDeNascimento = new javax.swing.JLabel();
         txtDataDeNascimento = new javax.swing.JFormattedTextField();
+        jlCpf = new javax.swing.JLabel();
+        txtCpf = new javax.swing.JFormattedTextField();
+        jlExpediente = new javax.swing.JLabel();
         txtInicioExpediente = new javax.swing.JFormattedTextField();
         txtFinalExpediente = new javax.swing.JFormattedTextField();
-        jlExpediente = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtCpf = new javax.swing.JTextField();
         rbtnDisponibilidade = new javax.swing.JRadioButton();
+        btnSalvarMotoboy = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Selecionar Motoboy");
@@ -178,21 +178,129 @@ public class EditarMotoboy extends javax.swing.JFrame {
         jlEmail.setText("Email:");
         jpEditarMotoboy.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 156, -1, -1));
 
-        txtTelefone.setBackground(new java.awt.Color(234, 29, 44));
-        txtTelefone.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.setBackground(new java.awt.Color(234, 29, 44));
+        txtEmail.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jpEditarMotoboy.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 176, 300, 38));
+
+        jlSenha.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlSenha.setForeground(new java.awt.Color(255, 255, 255));
+        jlSenha.setText("Senha:");
+        jpEditarMotoboy.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        txtSenha.setBackground(new java.awt.Color(234, 29, 44));
+        txtSenha.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
+        txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtSenha.setSelectionColor(new java.awt.Color(160, 35, 49));
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
+                txtSenhaActionPerformed(evt);
             }
         });
+        jpEditarMotoboy.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 38));
+
+        jlTelefone.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        jlTelefone.setText("Telefone:");
+        jpEditarMotoboy.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        txtTelefone.setBackground(new java.awt.Color(234, 29, 44));
+        txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTelefone.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jpEditarMotoboy.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 38));
+
+        jlDataDeNascimento.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlDataDeNascimento.setForeground(new java.awt.Color(255, 255, 255));
+        jlDataDeNascimento.setText("Data de Nascimento:");
+        jpEditarMotoboy.add(jlDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        txtDataDeNascimento.setBackground(new java.awt.Color(234, 29, 44));
+        txtDataDeNascimento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtDataDeNascimento.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtDataDeNascimento.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtDataDeNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataDeNascimentoActionPerformed(evt);
+            }
+        });
+        jpEditarMotoboy.add(txtDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 130, 40));
 
         jlCpf.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlCpf.setForeground(new java.awt.Color(255, 255, 255));
         jlCpf.setText("CPF:");
         jpEditarMotoboy.add(jlCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
+
+        txtCpf.setBackground(new java.awt.Color(234, 29, 44));
+        txtCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtCpf.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jpEditarMotoboy.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 130, 40));
+
+        jlExpediente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlExpediente.setForeground(new java.awt.Color(255, 255, 255));
+        jlExpediente.setText("Expediente:");
+        jpEditarMotoboy.add(jlExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+
+        txtInicioExpediente.setBackground(new java.awt.Color(234, 29, 44));
+        txtInicioExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtInicioExpediente.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtInicioExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtInicioExpediente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtInicioExpediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInicioExpedienteActionPerformed(evt);
+            }
+        });
+        jpEditarMotoboy.add(txtInicioExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 40));
+
+        txtFinalExpediente.setBackground(new java.awt.Color(234, 29, 44));
+        txtFinalExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtFinalExpediente.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtFinalExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtFinalExpediente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jpEditarMotoboy.add(txtFinalExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 460, 130, 40));
+
+        jLabel1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("-");
+        jpEditarMotoboy.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 40, 40));
+
+        rbtnDisponibilidade.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        rbtnDisponibilidade.setForeground(new java.awt.Color(255, 255, 255));
+        rbtnDisponibilidade.setText("Disponível");
+        rbtnDisponibilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnDisponibilidadeActionPerformed(evt);
+            }
+        });
+        jpEditarMotoboy.add(rbtnDisponibilidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
 
         btnSalvarMotoboy.setBackground(new java.awt.Color(234, 29, 44));
         btnSalvarMotoboy.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
@@ -226,109 +334,6 @@ public class EditarMotoboy extends javax.swing.JFrame {
         });
         jpEditarMotoboy.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 120, 38));
 
-        txtEmail.setBackground(new java.awt.Color(234, 29, 44));
-        txtEmail.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jpEditarMotoboy.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 176, 300, 38));
-
-        jlSenha.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlSenha.setForeground(new java.awt.Color(255, 255, 255));
-        jlSenha.setText("Senha:");
-        jpEditarMotoboy.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-
-        jlTelefone.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        jlTelefone.setText("Telefone:");
-        jpEditarMotoboy.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-
-        txtSenha.setBackground(new java.awt.Color(234, 29, 44));
-        txtSenha.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
-        txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtSenha.setSelectionColor(new java.awt.Color(160, 35, 49));
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
-        jpEditarMotoboy.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 38));
-
-        jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlComissao.setForeground(new java.awt.Color(255, 255, 255));
-        jlComissao.setText("Data de Nascimento:");
-        jpEditarMotoboy.add(jlComissao, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
-
-        txtDataDeNascimento.setBackground(new java.awt.Color(234, 29, 44));
-        txtDataDeNascimento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtDataDeNascimento.setForeground(new java.awt.Color(255, 255, 255));
-        try {
-            txtDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtDataDeNascimento.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtDataDeNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataDeNascimentoActionPerformed(evt);
-            }
-        });
-        jpEditarMotoboy.add(txtDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 130, 40));
-
-        txtInicioExpediente.setBackground(new java.awt.Color(234, 29, 44));
-        txtInicioExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtInicioExpediente.setForeground(new java.awt.Color(255, 255, 255));
-        try {
-            txtInicioExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtInicioExpediente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtInicioExpediente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInicioExpedienteActionPerformed(evt);
-            }
-        });
-        jpEditarMotoboy.add(txtInicioExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 130, 40));
-
-        txtFinalExpediente.setBackground(new java.awt.Color(234, 29, 44));
-        txtFinalExpediente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtFinalExpediente.setForeground(new java.awt.Color(255, 255, 255));
-        try {
-            txtFinalExpediente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtFinalExpediente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        jpEditarMotoboy.add(txtFinalExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 460, 130, 40));
-
-        jlExpediente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlExpediente.setForeground(new java.awt.Color(255, 255, 255));
-        jlExpediente.setText("Expediente:");
-        jpEditarMotoboy.add(jlExpediente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("-");
-        jpEditarMotoboy.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 40, 40));
-
-        txtCpf.setBackground(new java.awt.Color(234, 29, 44));
-        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtCpf.setForeground(new java.awt.Color(255, 255, 255));
-        txtCpf.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jpEditarMotoboy.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 390, 130, 38));
-
-        rbtnDisponibilidade.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        rbtnDisponibilidade.setForeground(new java.awt.Color(255, 255, 255));
-        rbtnDisponibilidade.setText("Disponível");
-        rbtnDisponibilidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnDisponibilidadeActionPerformed(evt);
-            }
-        });
-        jpEditarMotoboy.add(rbtnDisponibilidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
-
         getContentPane().add(jpEditarMotoboy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -356,9 +361,9 @@ public class EditarMotoboy extends javax.swing.JFrame {
         txtNome.setText(motoboy.getNome());
         txtEmail.setText(motoboy.getEmail());
         txtSenha.setText(motoboy.getSenha());
-        txtTelefone.setText(motoboy.getTelefone());
+        txtTelefone.setText(motoboy.getTelefone().replaceAll("(\\d{2})(\\d{5})(\\d{4})", "($1) $2-$3")); // coloca o telefone no formato (##) #####-####
         txtDataDeNascimento.setText(motoboy.getDataDeNascimento());
-        txtCpf.setText(motoboy.getCpf());
+        txtCpf.setText(motoboy.getCpf().replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4")); // coloca o cpf no formato ###.###.###-##
         txtInicioExpediente.setText((motoboy.getInicioExpediente()).toString());
         txtFinalExpediente.setText((motoboy.getFinalExpediente()).toString());
         rbtnDisponibilidade.setSelected(motoboy.getDisponibilidade());
@@ -368,10 +373,6 @@ public class EditarMotoboy extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarMotoboyActionPerformed
-
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void btnSalvarMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMotoboyActionPerformed
         // TODO add your handling code here:
@@ -474,8 +475,8 @@ public class EditarMotoboy extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltarMotoboy;
     private javax.swing.JComboBox<String> cmbMotoboy;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jlComissao;
     private javax.swing.JLabel jlCpf;
+    private javax.swing.JLabel jlDataDeNascimento;
     private javax.swing.JLabel jlDescricaoMotoboy;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlExpediente;
@@ -486,14 +487,14 @@ public class EditarMotoboy extends javax.swing.JFrame {
     private javax.swing.JPanel jpEditarMotoboy;
     private javax.swing.JPanel jpSelecionarMotoboy;
     private javax.swing.JRadioButton rbtnDisponibilidade;
-    private javax.swing.JTextField txtCpf;
+    private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataDeNascimento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JFormattedTextField txtFinalExpediente;
     private javax.swing.JFormattedTextField txtInicioExpediente;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JTextField txtTelefone;
+    private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
     private void carregarMotoboys() {

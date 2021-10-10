@@ -44,14 +44,14 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         jlNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jlEmail = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
         jlCpf = new javax.swing.JLabel();
         btnNovoMotoboy = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         jlSenha = new javax.swing.JLabel();
-        jlTelefone = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
+        jlTelefone = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JFormattedTextField();
         jlComissao = new javax.swing.JLabel();
         txtDataDeNascimento = new javax.swing.JFormattedTextField();
         txtComecoExpediente = new javax.swing.JFormattedTextField();
@@ -91,17 +91,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         jlEmail.setForeground(new java.awt.Color(255, 255, 255));
         jlEmail.setText("Email:");
         jPanel1.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 156, -1, -1));
-
-        txtTelefone.setBackground(new java.awt.Color(234, 29, 44));
-        txtTelefone.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 38));
 
         jlCpf.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlCpf.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,11 +140,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         jlSenha.setText("Senha:");
         jPanel1.add(jlSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
-        jlTelefone.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
-        jlTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        jlTelefone.setText("Telefone:");
-        jPanel1.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-
         txtSenha.setBackground(new java.awt.Color(234, 29, 44));
         txtSenha.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,6 +151,22 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 38));
+
+        jlTelefone.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        jlTelefone.setText("Telefone:");
+        jPanel1.add(jlTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        txtTelefone.setBackground(new java.awt.Color(234, 29, 44));
+        txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTelefone.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 38));
 
         jlComissao.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlComissao.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,7 +235,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        txtCpf.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         jPanel1.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -271,7 +271,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         String cpf = txtCpf.getText().replaceAll("[\\D]", ""); // filtra os digitos 
         //precisa checar se já há um com cpf cadastrado
         String senha = String.valueOf(txtSenha.getPassword());// nao precisa checar
-        String telefone = txtTelefone.getText(); // nao precisa checar
+        String telefone = txtTelefone.getText().replaceAll("[\\D]", ""); // filtra os digitos 
         String dataDeNascimento = txtDataDeNascimento.getText(); // precisa checar
         String comecoExpediente = txtComecoExpediente.getText();// precisa checar
         String fimExpediente = txtFimExpediente.getText();// precisa checar
@@ -325,10 +325,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
-
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,6 +382,6 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtFimExpediente;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JTextField txtTelefone;
+    private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
