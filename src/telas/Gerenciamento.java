@@ -34,6 +34,7 @@ public class Gerenciamento extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jlCadastros = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jlProdutos = new javax.swing.JLabel();
         btnProdutoSelecionaCadastro = new javax.swing.JButton();
         btnProdutoSelecionaEditar = new javax.swing.JButton();
@@ -46,9 +47,8 @@ public class Gerenciamento extends javax.swing.JFrame {
         btnMotoboySelecionaCadastro = new javax.swing.JButton();
         btnMotoboySelecionaEditar = new javax.swing.JButton();
         btnMotoboySelecionaExcluir1 = new javax.swing.JButton();
-        btnSairSelecionaCadastro = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         btnMotoboysDisponiveis = new javax.swing.JButton();
+        btnSairSelecionaCadastro = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,6 +102,12 @@ public class Gerenciamento extends javax.swing.JFrame {
         jlCadastros.setForeground(new java.awt.Color(255, 255, 255));
         jlCadastros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlCadastros.setText("Gerenciamento");
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 2));
+        jSeparator1.setVerifyInputWhenFocusTarget(false);
 
         jlProdutos.setFont(new java.awt.Font("Sul Sans", 0, 20)); // NOI18N
         jlProdutos.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,27 +259,6 @@ public class Gerenciamento extends javax.swing.JFrame {
             }
         });
 
-        btnSairSelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
-        btnSairSelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnSairSelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
-        btnSairSelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_voltar_branco.png"))); // NOI18N
-        btnSairSelecionaCadastro.setText("Voltar");
-        btnSairSelecionaCadastro.setBorder(null);
-        btnSairSelecionaCadastro.setBorderPainted(false);
-        btnSairSelecionaCadastro.setContentAreaFilled(false);
-        btnSairSelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSairSelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairSelecionaCadastroActionPerformed(evt);
-            }
-        });
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jSeparator1.setMinimumSize(new java.awt.Dimension(50, 2));
-        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 2));
-        jSeparator1.setVerifyInputWhenFocusTarget(false);
-
         btnMotoboysDisponiveis.setBackground(new java.awt.Color(236, 35, 51));
         btnMotoboysDisponiveis.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         btnMotoboysDisponiveis.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,6 +271,21 @@ public class Gerenciamento extends javax.swing.JFrame {
         btnMotoboysDisponiveis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMotoboysDisponiveisActionPerformed(evt);
+            }
+        });
+
+        btnSairSelecionaCadastro.setBackground(new java.awt.Color(236, 35, 51));
+        btnSairSelecionaCadastro.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnSairSelecionaCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnSairSelecionaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_voltar_branco.png"))); // NOI18N
+        btnSairSelecionaCadastro.setText("Voltar");
+        btnSairSelecionaCadastro.setBorder(null);
+        btnSairSelecionaCadastro.setBorderPainted(false);
+        btnSairSelecionaCadastro.setContentAreaFilled(false);
+        btnSairSelecionaCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSairSelecionaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairSelecionaCadastroActionPerformed(evt);
             }
         });
 
@@ -324,17 +324,18 @@ public class Gerenciamento extends javax.swing.JFrame {
                         .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(btnMotoboySelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSairSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnMotoboySelecionaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMotoboySelecionaExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnMotoboySelecionaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMotoboySelecionaExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(btnSairSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,9 +367,9 @@ public class Gerenciamento extends javax.swing.JFrame {
                     .addComponent(btnMotoboySelecionaCadastro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMotoboysDisponiveis)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(btnSairSelecionaCadastro)
-                .addGap(71, 71, 71))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(btnSairSelecionaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -442,6 +443,7 @@ public class Gerenciamento extends javax.swing.JFrame {
 
     private void btnMotoboysDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMotoboysDisponiveisActionPerformed
         // TODO add your handling code here:
+        new consultarMotoboy().setVisible(true);
     }//GEN-LAST:event_btnMotoboysDisponiveisActionPerformed
 
     /**
