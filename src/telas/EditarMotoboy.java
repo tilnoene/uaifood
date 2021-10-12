@@ -364,9 +364,8 @@ public class EditarMotoboy extends javax.swing.JFrame {
         txtTelefone.setText(motoboy.getTelefone().replaceAll("(\\d{2})(\\d{5})(\\d{4})", "($1) $2-$3")); // coloca o telefone no formato (##) #####-####
         txtDataDeNascimento.setText(motoboy.getDataDeNascimento());
         txtCpf.setText(motoboy.getCpf().replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4")); // coloca o cpf no formato ###.###.###-##
-        // comentei pq estava dando erro e impedindo de obter a disponibilidade, quando consertarem, descomentem
-        // txtInicioExpediente.setText((motoboy.getInicioExpediente()).toString());
-        // txtFinalExpediente.setText((motoboy.getFinalExpediente()).toString());
+        txtInicioExpediente.setText(motoboy.getInicioExpediente());
+        txtFinalExpediente.setText(motoboy.getFinalExpediente());
         rbtnDisponibilidade.setSelected(motoboy.getDisponibilidade());
     }//GEN-LAST:event_btnEditarMotoboyActionPerformed
 
@@ -401,7 +400,7 @@ public class EditarMotoboy extends javax.swing.JFrame {
         boolean disponibilidade = rbtnDisponibilidade.isSelected();
         
         try {
-            Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+            Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone, comecoExpediente, fimExpediente);
             ManipuladorArquivo.editarMotoboy(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);

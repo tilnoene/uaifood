@@ -305,7 +305,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         }
         
         try {
-            Motoboy motoboy = new Motoboy(0, 0.1f, true, cpf, nome, email, senha, dataDeNascimento, telefone);
+            Motoboy motoboy = new Motoboy(0, 0.1f, true, cpf, nome, email, senha, dataDeNascimento, telefone, comecoExpediente, fimExpediente);
             motoboy.init();
             JOptionPane.showMessageDialog(null, "Motoboy cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);

@@ -156,8 +156,10 @@ public class ManipuladorArquivo {
         String senha = valores[6];
         String dataDeNascimento = valores[7];
         String telefone = valores[8];
+        String inicioExpediente = valores[9];
+        String finalExpediente = valores[10];
 
-        return new Motoboy(codMotoboy, comissao, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone);
+        return new Motoboy(codMotoboy, comissao, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone, inicioExpediente, finalExpediente);
     }
     
     // armazena um motoboy no banco de dados

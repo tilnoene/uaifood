@@ -11,21 +11,24 @@ comissao, disponibilidade;
 
 public class Motoboy extends Usuario{
     private int codMotoboy;
-    private static Timestamp inicioExpediente; //timestamp sera usado para pegar
-    private static Timestamp finalExpediente; // o horario de expediente, provavelmente sera mudado para uma string apenas
+    private String inicioExpediente;
+    private String finalExpediente;
     private float comissao;
     private boolean disponibilidade;
 
     public Motoboy(int codMotoboy, float comissao, boolean disponibilidade, 
             String cpf, String nome, String email, String senha, 
-            String dataDeNascimento, String telefone) {
+            String dataDeNascimento, String telefone, 
+            String inicioExpediente, String finalExpediente) {
         
         super(cpf, nome, email, senha, dataDeNascimento, telefone);
         this.codMotoboy = codMotoboy;
         this.comissao = comissao;
         this.disponibilidade = disponibilidade;
+        this.inicioExpediente = inicioExpediente;
+        this.finalExpediente = finalExpediente;
     }
-    
+
     public void init() throws IOException {
         int curr_id = 0;
         
@@ -52,7 +55,9 @@ public class Motoboy extends Usuario{
                 + this.email + ";"
                 + this.senha + ";"
                 + this.dataDeNascimento + ";"
-                + this.telefone;
+                + this.telefone + ";"
+                + this.inicioExpediente + ";"
+                + this.finalExpediente;
     }
     
     public int getCodMotoboy() {
@@ -63,20 +68,20 @@ public class Motoboy extends Usuario{
         this.codMotoboy = codMotoboy;
     }
 
-    public static Timestamp getInicioExpediente() {
+    public String getInicioExpediente() {
         return inicioExpediente;
     }
 
-    public static void setInicioExpediente(Timestamp inicioExpediente) {
-        Motoboy.inicioExpediente = inicioExpediente;
+    public void setInicioExpediente(String inicioExpediente) {
+        this.inicioExpediente = inicioExpediente;
     }
 
-    public static Timestamp getFinalExpediente() {
+    public String getFinalExpediente() {
         return finalExpediente;
     }
 
-    public static void setFinalExpediente(Timestamp finalExpediente) {
-        Motoboy.finalExpediente = finalExpediente;
+    public void setFinalExpediente(String finalExpediente) {
+        this.finalExpediente = finalExpediente;
     }
 
     public float getComissao() {
