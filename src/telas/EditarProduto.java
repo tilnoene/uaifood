@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.ManipuladorArquivo;
 import classes.Produto;
 import java.io.IOException;
@@ -376,11 +377,9 @@ public class EditarProduto extends javax.swing.JFrame {
         int indice_produto = cmbProdutos.getSelectedIndex() - 1;
         Produto produtoAntigo = produtos.get(indice_produto);
         
-        if (txtNomeProduto.getText().equals("")
-            || txtValorProduto.getText().equals("")
-            || jtaDescricaoProduto.getText().equals("")
-            || cmbCategoriaProduto.getSelectedIndex() == 0
-            || cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
+        // Checa se há campos vazios
+        if (CheckDados.ehVazio(txtNomeProduto.getText(), 
+                txtValorProduto.getText(), jtaDescricaoProduto.getText())) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -391,6 +390,17 @@ public class EditarProduto extends javax.swing.JFrame {
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
         int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
+        
+        // Checa se foi selecionada uma categoria
+        if (cmbCategoriaProduto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma categoria.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        // Checa se foi selecionado um dia da promoção
+        if (cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um dia da promoção.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         Produto produto = new Produto(produtoAntigo.getCodProduto(), nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
         try {

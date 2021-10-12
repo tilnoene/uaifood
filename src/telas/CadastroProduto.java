@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -262,22 +263,31 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
         // TODO add your handling code here:
-        if (txtNomeProduto.getText().equals("")
-            || txtValorProduto.getText().equals("")
-            || jtaDescricaoProduto.getText().equals("")
-            || cmbCategoriaProduto.getSelectedIndex() == 0
-            || cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
+        // Checa se há campos vazios
+        if (CheckDados.ehVazio(txtNomeProduto.getText(), 
+                txtValorProduto.getText(), jtaDescricaoProduto.getText())) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         String nome = txtNomeProduto.getText();
-        float valor = Float.parseFloat(txtValorProduto.getText());
+        float valor = Float.parseFloat(txtValorProduto.getText().replace(',', '.'));
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
         int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
-        
+
+        // Checa se foi selecionada uma categoria
+        if (cmbCategoriaProduto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma categoria.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        // Checa se foi selecionado um dia da promoção
+        if (cmbjlDiaDaPromocaoProduto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione um dia da promoção.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         Produto produto = new Produto(0, nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
         try {
             produto.init();
