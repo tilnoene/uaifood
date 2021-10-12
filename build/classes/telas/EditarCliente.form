@@ -225,9 +225,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="btnCancelarProduto" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="btnCancelarCliente" min="-2" pref="129" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnSalvarProduto" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="btnSalvarCliente" min="-2" pref="129" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -271,8 +271,8 @@
                   <Component id="txtEnderecoCliente" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnCancelarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="btnSalvarProduto" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnCancelarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnSalvarCliente" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -292,7 +292,7 @@
             <Property name="text" type="java.lang.String" value="Editar Cliente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCancelarProduto">
+        <Component class="javax.swing.JButton" name="btnCancelarCliente">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -317,10 +317,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarProdutoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarClienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSalvarProduto">
+        <Component class="javax.swing.JButton" name="btnSalvarCliente">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2c" green="1d" red="ea" type="rgb"/>
@@ -345,7 +345,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarProdutoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarClienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlNomeCliente">

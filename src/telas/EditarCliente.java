@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.Cliente;
 import classes.ManipuladorArquivo;
 import java.io.IOException;
@@ -53,8 +54,8 @@ public class EditarCliente extends javax.swing.JFrame {
         btnVoltarCliente = new javax.swing.JButton();
         jpEditarCliente = new javax.swing.JPanel();
         jlTituloCliente = new javax.swing.JLabel();
-        btnCancelarProduto = new javax.swing.JButton();
-        btnSalvarProduto = new javax.swing.JButton();
+        btnCancelarCliente = new javax.swing.JButton();
+        btnSalvarCliente = new javax.swing.JButton();
         jlNomeCliente = new javax.swing.JLabel();
         txtNomeCliente = new javax.swing.JTextField();
         jlEmailCliente = new javax.swing.JLabel();
@@ -161,33 +162,33 @@ public class EditarCliente extends javax.swing.JFrame {
         jlTituloCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlTituloCliente.setText("Editar Cliente");
 
-        btnCancelarProduto.setBackground(new java.awt.Color(234, 29, 44));
-        btnCancelarProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnCancelarProduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_fechar_branco.png"))); // NOI18N
-        btnCancelarProduto.setText("Cancelar");
-        btnCancelarProduto.setBorder(null);
-        btnCancelarProduto.setBorderPainted(false);
-        btnCancelarProduto.setContentAreaFilled(false);
-        btnCancelarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCancelarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarCliente.setBackground(new java.awt.Color(234, 29, 44));
+        btnCancelarCliente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnCancelarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_fechar_branco.png"))); // NOI18N
+        btnCancelarCliente.setText("Cancelar");
+        btnCancelarCliente.setBorder(null);
+        btnCancelarCliente.setBorderPainted(false);
+        btnCancelarCliente.setContentAreaFilled(false);
+        btnCancelarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarProdutoActionPerformed(evt);
+                btnCancelarClienteActionPerformed(evt);
             }
         });
 
-        btnSalvarProduto.setBackground(new java.awt.Color(234, 29, 44));
-        btnSalvarProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        btnSalvarProduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalvarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_verificar_branco.png"))); // NOI18N
-        btnSalvarProduto.setText("Salvar");
-        btnSalvarProduto.setBorder(null);
-        btnSalvarProduto.setBorderPainted(false);
-        btnSalvarProduto.setContentAreaFilled(false);
-        btnSalvarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalvarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarCliente.setBackground(new java.awt.Color(234, 29, 44));
+        btnSalvarCliente.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        btnSalvarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_verificar_branco.png"))); // NOI18N
+        btnSalvarCliente.setText("Salvar");
+        btnSalvarCliente.setBorder(null);
+        btnSalvarCliente.setBorderPainted(false);
+        btnSalvarCliente.setContentAreaFilled(false);
+        btnSalvarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarProdutoActionPerformed(evt);
+                btnSalvarClienteActionPerformed(evt);
             }
         });
 
@@ -309,9 +310,9 @@ public class EditarCliente extends javax.swing.JFrame {
                                 .addComponent(jlTituloCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jpEditarClienteLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(btnCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jpEditarClienteLayout.setVerticalGroup(
@@ -349,8 +350,8 @@ public class EditarCliente extends javax.swing.JFrame {
                 .addComponent(txtEnderecoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jpEditarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -360,24 +361,10 @@ public class EditarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    public void checkBirthDate() {
-        // TODO add your handling code here:
-        // CHECAR se a data é correta
-        String dataJoin = txtDataNascimentoCliente.getText();
-        String dateFormat = "dd/MM/uuuu";
-
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
-            .ofPattern(dateFormat)
-            .withResolverStyle(ResolverStyle.STRICT);
-
-        // Se a data estiver errada, da um erro que pode ser pego pelo try..catch
-        LocalDate date = LocalDate.parse(dataJoin, dateTimeFormatter);
-    }
-    
-    private void btnCancelarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProdutoActionPerformed
+    private void btnCancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClienteActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_btnCancelarProdutoActionPerformed
+    }//GEN-LAST:event_btnCancelarClienteActionPerformed
 
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
         // TODO add your handling code here:
@@ -404,7 +391,7 @@ public class EditarCliente extends javax.swing.JFrame {
         txtEnderecoCliente.setText(cliente.getEndereco());
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
-    private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
+    private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         // TODO add your handling code here:
         
         int indice_cliente = cmbClientes.getSelectedIndex() - 1;
@@ -416,27 +403,21 @@ public class EditarCliente extends javax.swing.JFrame {
         String senha = txtSenhaCliente.getText();
         String telefone = txtTelefoneCliente.getText().replaceAll("[\\D]", ""); // filtra os digitos
         String endereco = txtEnderecoCliente.getText();
+        String dataNascimento = txtDataNascimentoCliente.getText();
         
         // checa se há campos vazios
-        if (nome.equals("")
-            || email.equals("")
-            || cpf.equals("")
-            || senha.equals("")
-            || telefone.equals("")
-            || endereco.equals("")) {
+        if (CheckDados.ehVazio(nome, email, cpf, senha, telefone, endereco)) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
         // testa se a data inserida é válida
-        try {
-            checkBirthDate();
-        } catch (Exception e) {
+        if (CheckDados.checaData(dataNascimento)) {
             JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
-        Cliente cliente = new Cliente(clienteAntigo.getCodCliente(), endereco, cpf, nome, email, senha, txtDataNascimentoCliente.getText(), telefone);
+        Cliente cliente = new Cliente(clienteAntigo.getCodCliente(), endereco, cpf, nome, email, senha, dataNascimento, telefone);
         try {
             ManipuladorArquivo.editarCliente(cliente);
             JOptionPane.showMessageDialog(null, "Cliente editado com sucesso!", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
@@ -444,7 +425,7 @@ public class EditarCliente extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado! O cliente não foi editado.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnSalvarProdutoActionPerformed
+    }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
     private void btnVoltarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarClienteActionPerformed
         // TODO add your handling code here:
@@ -460,11 +441,7 @@ public class EditarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataNascimentoClienteFocusLost
 
     private void txtDataNascimentoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoClienteActionPerformed
-        try {
-            checkBirthDate();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtDataNascimentoClienteActionPerformed
 
     /**
@@ -506,9 +483,9 @@ public class EditarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarProduto;
+    private javax.swing.JButton btnCancelarCliente;
     private javax.swing.JButton btnEditarCliente;
-    private javax.swing.JButton btnSalvarProduto;
+    private javax.swing.JButton btnSalvarCliente;
     private javax.swing.JButton btnVoltarCliente;
     private javax.swing.JComboBox<String> cmbClientes;
     private javax.swing.JLabel jlCpfCliente;

@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.Cliente;
 import classes.Produto;
 import java.io.IOException;
@@ -296,27 +297,32 @@ public class CadastroCliente extends javax.swing.JFrame {
         String senha = txtSenhaCliente.getText();
         String telefone = txtTelefoneCliente.getText().replaceAll("[\\D]", ""); // filtra os digitos
         String endereco = txtEnderecoCliente.getText();
+        String dataDeNascimento = txtDataNascimentoCliente.getText();
         
-        // checa se há campos vazios
-        if (nome.equals("")
-            || email.equals("")
-            || cpf.equals("")
-            || senha.equals("")
-            || telefone.equals("")
-            || endereco.equals("")) {
+        // Checar se os campos estão vazios
+        if (CheckDados.ehVazio(nome,email,cpf,senha,telefone,dataDeNascimento)) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        // testa se a data inserida é válida
-        try {
-            checkBirthDate();
-        } catch (Exception e) {
+        // Checar se a data de nascimento está errada
+        if (CheckDados.checaData(dataDeNascimento)){
             JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
-        Cliente cliente = new Cliente(0, endereco, cpf, nome, email, senha, txtDataNascimentoCliente.getText(), telefone);
+        /*
+        try {
+            // CHECAR A PREEXISTENCIA DO CPF
+            if (CheckDados.checaCpf(cpf)){
+                JOptionPane.showMessageDialog(null, "CPF já existente!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CadastrarMotoboy.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+        
+        Cliente cliente = new Cliente(0, endereco, cpf, nome, email, senha, dataDeNascimento, telefone);
         try {
             cliente.init();
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
