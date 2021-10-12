@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.ManipuladorArquivo;
 import static classes.ManipuladorArquivo.editarMotoboy;
 import classes.Motoboy;
@@ -376,19 +377,6 @@ public class EditarMotoboy extends javax.swing.JFrame {
 
     private void btnSalvarMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMotoboyActionPerformed
         // TODO add your handling code here:
-        if (txtNome.getText().equals("")
-            || txtEmail.getText().equals("")
-            || txtCpf.getText().equals("")
-            || String.valueOf(txtSenha.getPassword()).equals("")
-            || txtTelefone.getText().equals("")
-            || txtDataDeNascimento.getText().equals("")
-            || txtInicioExpediente.getText().equals("")
-            || txtFinalExpediente.getText().equals("")
-        ) {
-            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         String nome = txtNome.getText();
         String email = txtEmail.getText();
         String cpf = txtCpf.getText();
@@ -398,7 +386,26 @@ public class EditarMotoboy extends javax.swing.JFrame {
         String comecoExpediente = txtInicioExpediente.getText();
         String fimExpediente = txtFinalExpediente.getText();
         boolean disponibilidade = rbtnDisponibilidade.isSelected();
+
+        // Checar se os campos estão vazios
+        if (CheckDados.ehVazio(nome, email, cpf, senha, telefone, 
+                dataDeNascimento, comecoExpediente, fimExpediente)) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
+        // Checar se a data de nascimento está errada
+        if (CheckDados.checaData(dataDeNascimento)){
+            JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Checar os horários de expediente
+        if (CheckDados.checaExpediente(comecoExpediente, fimExpediente)){
+            JOptionPane.showMessageDialog(null, "Horário de expediente inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         try {
             Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone, comecoExpediente, fimExpediente);
             ManipuladorArquivo.editarMotoboy(motoboy);
