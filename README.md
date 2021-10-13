@@ -38,9 +38,9 @@ colocar aqui o diagrama de classes.
 
 <p>As cores utilizadas foram escolhidas seguindo o <a href="https://institucional.ifood.com.br/docs/Guia%20de%20Identidade%20Visual%20iFood.pdf" target="_blank">Guia de Identidade Visual do iFood</a>:</p>
 
-![#EA1D2C](https://via.placeholder.com/15/ea1d2c/000000?text=+) `#EA1D2C` `[234, 29, 44]`
+![#EA1D2C](https://via.placeholder.com/15/ea1d2c/000000?text=+) `#EA1D2C` `[234, 29, 44]` (Pantone 185C)
 
-![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff` `[255, 255, 255]`
+![#FFFFFF](https://via.placeholder.com/15/ffffff/000000?text=+) `#FFFFFF` `[255, 255, 255]` (Pantone 000C)
 
 ---
 
