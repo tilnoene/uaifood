@@ -32,10 +32,14 @@ colocar aqui o diagrama de classes.
 
 <h2>🛠 Tecnologias</h2>
 
-<p>O projeto foi desenvolvido em <b>Java</b> (JDK 16.0.2). O diagrama de classes foi construído utilizando o programa <a href="http://dia-installer.de/index.html.en" target="_blank">Dia Diagram Editor<a>.</p>
+<p>O projeto foi desenvolvido em <b>Java</b> (JDK 16.0.2) utilizando o <a href="https://netbeans.apache.org/" target="_blank">NetBeans</a>. O diagrama de classes foi construído utilizando o programa <a href="http://dia-installer.de/index.html.en" target="_blank">Dia Diagram Editor</a>.</p>
 
-<img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" />
-<img alt="NetBeans IDE" src="https://img.shields.io/badge/NetBeansIDE-1B6AC6.svg?style=for-the-badge&logo=apache-netbeans-ide&logoColor=white" />
+<p>A interface foi construída com Swing, com telas de tamanho 360x640, simulando a tela de um celular.</p>
+
+<p>As cores utilizadas foram escolhidas seguindo o <a href="https://institucional.ifood.com.br/docs/Guia%20de%20Identidade%20Visual%20iFood.pdf" target="_blank">Guia de Identidade Visual do iFood</a>:</p>
+
+![#EA1D2C](https://via.placeholder.com/15/ea1d2c/000000?text=+) `#EA1D2C` `[234, 29, 44]`
+![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff` `[255, 255, 255]`
 
 ---
 
