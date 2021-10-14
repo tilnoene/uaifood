@@ -45,6 +45,28 @@ public class Motoboy extends Usuario{
         ManipuladorArquivo.armazenarMotoboy(this);
     }
     
+    // converte uma string no formato HH:mm em um inteiro com os minutos
+    private int converterHorarioEmMinutos(String horario) {
+        String[] horarioTemporario = horario.split(":");
+        
+        return Integer.parseInt(horarioTemporario[0])*60 + Integer.parseInt(horarioTemporario[1]);
+    }
+    
+    public boolean getDisponibilidade() {
+        String horarioAtual = String.valueOf(java.time.LocalTime.now()); 
+        
+        // converte os horarios para minutos (facilitar comparação)
+        int tempoAtual = converterHorarioEmMinutos(horarioAtual);
+        int tempoInicial = converterHorarioEmMinutos(inicioExpediente);
+        int tempoFinal = converterHorarioEmMinutos(finalExpediente);
+        
+        /*System.out.println(tempoInicial);
+        System.out.println(tempoAtual);
+        System.out.println(tempoFinal);*/
+        
+        return disponibilidade && tempoAtual >= tempoInicial && tempoAtual <= tempoFinal;
+    }
+    
     @Override
     public String toString() {
         return String.valueOf(this.codMotoboy) + ";"
@@ -90,10 +112,6 @@ public class Motoboy extends Usuario{
 
     public void setComissao(float comissao) {
         this.comissao = comissao;
-    }
-
-    public boolean getDisponibilidade() {
-        return disponibilidade;
     }
 
     public void setDisponibilidade(boolean disponibilidade) {
