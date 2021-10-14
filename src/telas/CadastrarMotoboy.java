@@ -266,7 +266,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
     private void btnNovoMotoboyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoMotoboyActionPerformed
         // TODO add your handling code here:
         
-        String nome = txtNome.getText(); // nao precisa checar
+        String nome = txtNome.getText().trim(); // nao precisa checar
         String email = txtEmail.getText(); //precisa checar se ja um com email cadastrado
         String cpf = txtCpf.getText().replaceAll("[\\D]", ""); // filtra os digitos 
         //precisa checar se já há um com cpf cadastrado
@@ -278,7 +278,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         
         // Checar se os campos estão vazios
         if (CheckDados.ehVazio(nome,email,cpf,senha,telefone,dataDeNascimento,
-                comecoExpediente, fimExpediente)) {
+                comecoExpediente.replace(":", ""), fimExpediente.replace(":", ""))) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -296,7 +296,7 @@ public class CadastrarMotoboy extends javax.swing.JFrame {
         
         try {
             ////////// CHECAR A PREEXISTENCIA DO CPF ///////
-            if (CheckDados.checaCpf(cpf)){
+            if (CheckDados.checaCpf(cpf, "motoboy")){
                 JOptionPane.showMessageDialog(null, "CPF já existente, digite outro!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
