@@ -153,7 +153,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jlEnderecoCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlEnderecoCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jlEnderecoCliente.setText("Endereço (Bairro):");
+        jlEnderecoCliente.setText("Endereço:");
 
         txtEnderecoCliente.setBackground(new java.awt.Color(234, 29, 44));
         txtEnderecoCliente.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
