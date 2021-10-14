@@ -42,7 +42,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         jlNomeProduto = new javax.swing.JLabel();
         txtNomeProduto = new javax.swing.JTextField();
         jlValorProduto = new javax.swing.JLabel();
-        txtValorProduto = new javax.swing.JTextField();
         jlDescricaoProduto = new javax.swing.JLabel();
         jlCategoriaProduto = new javax.swing.JLabel();
         cmbCategoriaProduto = new javax.swing.JComboBox<>();
@@ -53,6 +52,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         jtaDescricaoProduto = new javax.swing.JTextArea();
         btnNovoProduto = new javax.swing.JButton();
         btnNovoProduto1 = new javax.swing.JButton();
+        txtValorProduto = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Produto");
@@ -79,11 +79,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         jlValorProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlValorProduto.setForeground(new java.awt.Color(255, 255, 255));
         jlValorProduto.setText("Valor:");
-
-        txtValorProduto.setBackground(new java.awt.Color(234, 29, 44));
-        txtValorProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
-        txtValorProduto.setForeground(new java.awt.Color(255, 255, 255));
-        txtValorProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
         jlDescricaoProduto.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
         jlDescricaoProduto.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,6 +145,21 @@ public class CadastroProduto extends javax.swing.JFrame {
             }
         });
 
+        txtValorProduto.setBackground(new java.awt.Color(234, 29, 44));
+        txtValorProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        txtValorProduto.setForeground(new java.awt.Color(255, 255, 255));
+        try {
+            txtValorProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtValorProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
+        txtValorProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,11 +174,10 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 30, Short.MAX_VALUE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtValorProduto)
                     .addComponent(txtNomeProduto)
                     .addComponent(rbtnAlcoolicoProduto)
                     .addComponent(jlDescricaoProduto)
@@ -182,7 +191,8 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlDiaDaPromocaoProduto)))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1)
+                    .addComponent(txtValorProduto))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
@@ -212,7 +222,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                     .addComponent(cmbjlDiaDaPromocaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtnAlcoolicoProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNovoProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,18 +274,20 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
         // TODO add your handling code here:
         // Checa se há campos vazios
-        if (CheckDados.ehVazio(txtNomeProduto.getText(), 
+        if (CheckDados.ehVazio(txtNomeProduto.getText().trim(), 
                 txtValorProduto.getText(), jtaDescricaoProduto.getText())) {
             JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        String nome = txtNomeProduto.getText();
+        String nome = txtNomeProduto.getText().trim();
         float valor = Float.parseFloat(txtValorProduto.getText().replace(',', '.'));
         boolean alcoolico = rbtnAlcoolicoProduto.isSelected();
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
         int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
+        
+        
 
         // Checa se foi selecionada uma categoria
         if (cmbCategoriaProduto.getSelectedIndex() == 0) {
@@ -302,6 +314,10 @@ public class CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnNovoProduto1ActionPerformed
+
+    private void txtValorProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,6 +370,6 @@ public class CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JTextArea jtaDescricaoProduto;
     private javax.swing.JRadioButton rbtnAlcoolicoProduto;
     private javax.swing.JTextField txtNomeProduto;
-    private javax.swing.JTextField txtValorProduto;
+    private javax.swing.JFormattedTextField txtValorProduto;
     // End of variables declaration//GEN-END:variables
 }

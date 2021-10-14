@@ -92,18 +92,29 @@ public class CheckDados {
     ///////////////////////////////////////////
     // Função apra cehcar se já há algum dado no banco de dados
     // por enquanto so testa o cpf:
-    public static boolean checaCpf(String cpfs)throws IOException {
+    public static boolean checaCpf(String cpfs, String pessoa)throws IOException {
         ArrayList<Motoboy> motoboys = ManipuladorArquivo.carregarMotoboys();
+        ArrayList<Cliente> clientes = ManipuladorArquivo.carregarClientes();
         
+        if (pessoa.equals("motoboy")){
+            // percorre por todos os motoboys e verifica o Cpf
+            for (Motoboy moboy: motoboys) {
+
+                if (moboy.getCpf().equals(cpfs)){
+                    return true;
+                }
+            }
         
-        // percorre por todos os motoboys e verifica o Cpf
-        for (Motoboy moboy: motoboys) {
+        } else {
+            // percorre por todos os cliente e verifica o Cpf
+            for (Cliente clie: clientes) {
            
-            if (moboy.getCpf().equals(cpfs)){
-                return true;
+                if (clie.getCpf().equals(cpfs)){
+                    return true;
+                }
             }
         }
-        
+
         return false;
     }
 }

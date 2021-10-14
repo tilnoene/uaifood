@@ -291,7 +291,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
         
-        String nome = txtNomeCliente.getText();
+        String nome = txtNomeCliente.getText().trim();
         String email = txtEmailCliente.getText();
         String cpf = txtCpfCliente.getText().replaceAll("[\\D]", ""); // filtra os digitos
         String senha = txtSenhaCliente.getText();
@@ -310,17 +310,17 @@ public class CadastroCliente extends javax.swing.JFrame {
             return;
         }
         
-        /*
+        
         try {
             // CHECAR A PREEXISTENCIA DO CPF
-            if (CheckDados.checaCpf(cpf)){
+            if (CheckDados.checaCpf(cpf, "cliente")){
                 JOptionPane.showMessageDialog(null, "CPF já existente!", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         } catch (IOException ex) {
             Logger.getLogger(CadastrarMotoboy.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
         
         Cliente cliente = new Cliente(0, endereco, cpf, nome, email, senha, dataDeNascimento, telefone);
         try {
