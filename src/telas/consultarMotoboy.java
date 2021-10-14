@@ -68,6 +68,7 @@ public class consultarMotoboy extends javax.swing.JFrame {
         btnVoltarConsulta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpLista.setBackground(new java.awt.Color(234, 29, 44));
