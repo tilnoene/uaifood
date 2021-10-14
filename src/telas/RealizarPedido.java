@@ -5,6 +5,7 @@
  */
 package telas;
 
+import classes.CheckDados;
 import classes.Cliente;
 import classes.ItemPedido;
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     private Cliente cliente;
     private ArrayList<Produto> produtos;
     private ArrayList<ItemPedido> carrinho;
-    private ArrayList<Motoboy> motoboys_disponiveis = new ArrayList<Motoboy>();
+    private ArrayList<Motoboy> motoboysDisponiveis = new ArrayList<Motoboy>();
     
     /**
      * Creates new form RealizarPedido
@@ -52,7 +53,9 @@ public class RealizarPedido extends javax.swing.JFrame {
         jpSelecionarProdutos.setVisible(false);
         jpConfirmacao.setVisible(false);
         
-        jlErro.setVisible(false); // mensagem de erro não aparece    
+        jlErro.setVisible(false); // mensagem de erro não aparece
+        
+        carregarMetodosDePagamento(); // inclui as opções de pagamento no comboBox
     }
 
     /**
@@ -80,6 +83,8 @@ public class RealizarPedido extends javax.swing.JFrame {
         btnFinalizar = new javax.swing.JButton();
         jlNomeProduto2 = new javax.swing.JLabel();
         jlNomeMotoboy = new javax.swing.JLabel();
+        jlFormaDePagamento = new javax.swing.JLabel();
+        cmbFormaDePagamento = new javax.swing.JComboBox<>();
         jpSelecionarProdutos = new javax.swing.JPanel();
         cmbProdutos = new javax.swing.JComboBox<>();
         jlDescricaoProduto1 = new javax.swing.JLabel();
@@ -202,22 +207,22 @@ public class RealizarPedido extends javax.swing.JFrame {
         jlNomeMotoboy.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlNomeMotoboy.setText("Nome do Motoboy");
 
+        jlFormaDePagamento.setFont(new java.awt.Font("Sul Sans", 0, 14)); // NOI18N
+        jlFormaDePagamento.setForeground(new java.awt.Color(255, 255, 255));
+        jlFormaDePagamento.setText("Categoria:");
+
+        cmbFormaDePagamento.setFont(new java.awt.Font("Sul Sans", 0, 13)); // NOI18N
+        cmbFormaDePagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jpConfirmacaoLayout = new javax.swing.GroupLayout(jpConfirmacao);
         jpConfirmacao.setLayout(jpConfirmacaoLayout);
         jpConfirmacaoLayout.setHorizontalGroup(
             jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpConfirmacaoLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(btnNovoProduto4)
-                .addGap(18, 18, 18)
-                .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jlComissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jpConfirmacaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                    .addComponent(jlCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
                     .addGroup(jpConfirmacaoLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,17 +232,31 @@ public class RealizarPedido extends javax.swing.JFrame {
                                     .addComponent(jlNomeProduto)
                                     .addComponent(jlNomeProduto1)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpConfirmacaoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                                        .addComponent(jlFormaDePagamento)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cmbFormaDePagamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jlNomeProduto2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jlNomeMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31))))
+                    .addGroup(jpConfirmacaoLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(btnNovoProduto4)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jlDesconto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jlTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jlSubtotal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlSubtotal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlComissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpConfirmacaoLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlNomeMotoboy, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlNomeProduto2, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(35, 35, 35))
         );
         jpConfirmacaoLayout.setVerticalGroup(
             jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,10 +274,14 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jlNomeProduto2)
-                .addGap(4, 4, 4)
-                .addComponent(jlNomeMotoboy)
-                .addGap(43, 43, 43)
+                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlNomeProduto2)
+                    .addComponent(jlNomeMotoboy))
+                .addGap(22, 22, 22)
+                .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlFormaDePagamento)
+                    .addComponent(cmbFormaDePagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jlSubtotal1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlComissao)
@@ -270,7 +293,7 @@ public class RealizarPedido extends javax.swing.JFrame {
                 .addGroup(jpConfirmacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovoProduto4)
                     .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         getContentPane().add(jpConfirmacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -585,7 +608,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         }
         
         // escolhe o primeiro motoboy disponível
-        Motoboy motoboy = motoboys_disponiveis.get(0);
+        Motoboy motoboy = motoboysDisponiveis.get(0);
         
         this.setTitle("Confirmação"); // troca o título da página
 
@@ -615,11 +638,28 @@ public class RealizarPedido extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
-        try {
-            Motoboy motoboy = motoboys_disponiveis.get(0);
 
-            new Pedido(0, "tipoDePagamento", getValorTotal()*motoboy.getComissao(), getValorTotal() + getValorTotal()*motoboy.getComissao(), jtaEndereco.getText(), cliente, motoboy, carrinho);
-            
+        Motoboy motoboy = motoboysDisponiveis.get(0);
+        String tipoDePagamento = cmbFormaDePagamento.getSelectedItem().toString();
+        float frete = getValorTotal()*motoboy.getComissao();
+        float precoTotal = getValorTotal() + getValorTotal()*motoboy.getComissao();
+        String endereco = jtaEndereco.getText();
+        
+        // Checa se o campo de endereço não está vazio
+        if (CheckDados.ehVazio(endereco)) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Checa se foi selecionado uma forma de pagamento
+        if (cmbFormaDePagamento.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecione uma forma de pagamento.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            new Pedido(0, tipoDePagamento, frete, precoTotal, endereco, cliente, motoboy, carrinho);
+
             motoboy.setDisponibilidade(false);
             ManipuladorArquivo.editarMotoboy(motoboy);
             
@@ -673,6 +713,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnNovoProduto4;
     private javax.swing.JButton btnVoltarProduto;
+    private javax.swing.JComboBox<String> cmbFormaDePagamento;
     private javax.swing.JComboBox<String> cmbProdutos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -683,6 +724,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jlDescricaoProduto2;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlErro;
+    private javax.swing.JLabel jlFormaDePagamento;
     private javax.swing.JLabel jlNomeCliente;
     private javax.swing.JLabel jlNomeMotoboy;
     private javax.swing.JLabel jlNomeProduto;
@@ -762,7 +804,17 @@ public class RealizarPedido extends javax.swing.JFrame {
         // adiciona somente os disponíveis
         for (Motoboy motoboy : motoboys) {
             if (motoboy.getDisponibilidade())
-                motoboys_disponiveis.add(motoboy);
+                motoboysDisponiveis.add(motoboy);
         }
+    }
+    
+    private void carregarMetodosDePagamento() {
+        cmbFormaDePagamento.removeAllItems();
+
+        cmbFormaDePagamento.addItem("Selecione a forma de pagamento");
+        cmbFormaDePagamento.addItem("Dinheiro (na entrega)"); // o motoboy recebe
+        cmbFormaDePagamento.addItem("Cartão (na entrega)"); // o motoboy levaria a maquininha
+        cmbFormaDePagamento.addItem("Pix (por CPF)"); // cliente tem que ter um pix cadastrado com o cpf dele
+        cmbFormaDePagamento.addItem("Pix (por telefone)"); // cliente tem que ter um pix cadastrado com o telefone dele
     }
 }
