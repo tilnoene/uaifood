@@ -39,7 +39,7 @@ public class consultarMotoboy extends javax.swing.JFrame {
             
             DefaultListModel defModel = new DefaultListModel();
             for (Motoboy motoboy : motoboys) {
-                if (motoboy.getDisponibilidade())
+                if (motoboy.isDisponivel())
                     defModel.addElement(String.valueOf(motoboy.getCodMotoboy()) + " - " + motoboy.getNome());
             }
             

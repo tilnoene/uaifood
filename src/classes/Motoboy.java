@@ -52,7 +52,7 @@ public class Motoboy extends Usuario{
         return Integer.parseInt(horarioTemporario[0])*60 + Integer.parseInt(horarioTemporario[1]);
     }
     
-    public boolean getDisponibilidade() {
+    public boolean isDisponivel() {
         String horarioAtual = String.valueOf(java.time.LocalTime.now()); 
         
         // converte os horarios para minutos (facilitar comparação)
@@ -60,11 +60,8 @@ public class Motoboy extends Usuario{
         int tempoInicial = converterHorarioEmMinutos(inicioExpediente);
         int tempoFinal = converterHorarioEmMinutos(finalExpediente);
         
-        /*System.out.println(tempoInicial);
-        System.out.println(tempoAtual);
-        System.out.println(tempoFinal);*/
-        
-        return disponibilidade && tempoAtual >= tempoInicial && tempoAtual <= tempoFinal;
+        // se não estiver disponível ou não estiver no horário de expediente retorna false
+        return this.disponibilidade && tempoAtual >= tempoInicial && tempoAtual <= tempoFinal;
     }
     
     @Override
@@ -112,6 +109,10 @@ public class Motoboy extends Usuario{
 
     public void setComissao(float comissao) {
         this.comissao = comissao;
+    }
+
+    public boolean getDisponibilidade() {
+        return disponibilidade;
     }
 
     public void setDisponibilidade(boolean disponibilidade) {

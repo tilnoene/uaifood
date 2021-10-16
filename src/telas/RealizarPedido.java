@@ -803,7 +803,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         
         // adiciona somente os disponíveis
         for (Motoboy motoboy : motoboys) {
-            if (motoboy.getDisponibilidade())
+            if (motoboy.isDisponivel())
                 motoboysDisponiveis.add(motoboy);
         }
     }
