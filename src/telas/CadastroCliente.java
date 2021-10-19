@@ -60,7 +60,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         btnAdicionarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Novo Produto");
+        setTitle("Novo Cliente");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone_uaifood.png")).getImage());
         setResizable(false);
 
