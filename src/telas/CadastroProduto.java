@@ -148,11 +148,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         txtValorProduto.setBackground(new java.awt.Color(234, 29, 44));
         txtValorProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         txtValorProduto.setForeground(new java.awt.Color(255, 255, 255));
-        try {
-            txtValorProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
         txtValorProduto.setFont(new java.awt.Font("Sul Sans", 0, 18)); // NOI18N
         txtValorProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,8 +281,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         String categoria = cmbCategoriaProduto.getSelectedItem().toString();
         int diaDaPromocao = cmbjlDiaDaPromocaoProduto.getSelectedIndex() - 1;
         String descricao = jtaDescricaoProduto.getText();
-        
-        
 
         // Checa se foi selecionada uma categoria
         if (cmbCategoriaProduto.getSelectedIndex() == 0) {
