@@ -419,7 +419,7 @@ public class EditarCliente extends javax.swing.JFrame {
         
         Cliente cliente = new Cliente(clienteAntigo.getCodCliente(), endereco, cpf, nome, email, senha, dataNascimento, telefone);
         try {
-            ManipuladorArquivo.editarCliente(cliente);
+            ManipuladorArquivo.editar(cliente);
             JOptionPane.showMessageDialog(null, "Cliente editado com sucesso!", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {

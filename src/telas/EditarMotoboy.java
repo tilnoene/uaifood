@@ -7,7 +7,6 @@ package telas;
 
 import classes.CheckDados;
 import classes.ManipuladorArquivo;
-import static classes.ManipuladorArquivo.editarMotoboy;
 import classes.Motoboy;
 import classes.Produto;
 import java.io.IOException;
@@ -17,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import static classes.ManipuladorArquivo.editar;
 
 /**
  *
@@ -408,7 +408,7 @@ public class EditarMotoboy extends javax.swing.JFrame {
 
         try {
             Motoboy motoboy = new Motoboy(codigoGlobalMotoboy, 0.1f, disponibilidade, cpf, nome, email, senha, dataDeNascimento, telefone, comecoExpediente, fimExpediente);
-            ManipuladorArquivo.editarMotoboy(motoboy);
+            ManipuladorArquivo.editar(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {

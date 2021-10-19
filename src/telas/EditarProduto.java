@@ -404,7 +404,7 @@ public class EditarProduto extends javax.swing.JFrame {
         
         Produto produto = new Produto(produtoAntigo.getCodProduto(), nome, valor, alcoolico, categoria, descricao, diaDaPromocao);
         try {
-            ManipuladorArquivo.editarProduto(produto);
+            ManipuladorArquivo.editar(produto);
             JOptionPane.showMessageDialog(null, "Produto editado com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);
         } catch (IOException ex) {

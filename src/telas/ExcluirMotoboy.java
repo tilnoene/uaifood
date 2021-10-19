@@ -153,7 +153,7 @@ public class ExcluirMotoboy extends javax.swing.JFrame {
         Motoboy motoboy = motoboys.get(indice_motoboy);
 
             try {
-            ManipuladorArquivo.excluirMotoboy(motoboy);
+            ManipuladorArquivo.excluir(motoboy);
             JOptionPane.showMessageDialog(null, "Motoboy excluído com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             
             carregarMotoboys();

@@ -661,7 +661,7 @@ public class RealizarPedido extends javax.swing.JFrame {
             new Pedido(0, tipoDePagamento, frete, precoTotal, endereco, cliente, motoboy, carrinho);
 
             motoboy.setDisponibilidade(false);
-            ManipuladorArquivo.editarMotoboy(motoboy);
+            ManipuladorArquivo.editar(motoboy);
             
             JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso!", "Pedido realizado", JOptionPane.PLAIN_MESSAGE);
             this.setVisible(false);

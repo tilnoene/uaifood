@@ -43,7 +43,7 @@ public class Motoboy extends Usuario {
         }
         
         this.setCodMotoboy(curr_id);
-        ManipuladorArquivo.armazenarMotoboy(this);
+        ManipuladorArquivo.armazenar(this);
     }
     
     @Override

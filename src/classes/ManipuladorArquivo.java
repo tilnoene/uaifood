@@ -82,7 +82,7 @@ public class ManipuladorArquivo {
     }
     
     // armazena um cliente no banco de dados
-    public static void armazenarCliente(Cliente cliente) throws IOException {
+    public static void armazenar(Cliente cliente) throws IOException {
         escritor("database/clientes.txt", cliente.toString());
     }
     
@@ -103,7 +103,7 @@ public class ManipuladorArquivo {
     }
     
     // edita um cliente no banco de dados
-    public static void editarCliente(Cliente cliente) throws IOException {
+    public static void editar(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
         String texto = leitor("database/clientes.txt");
         limparArquivo("database/clientes.txt");
@@ -117,14 +117,14 @@ public class ManipuladorArquivo {
             Cliente currCliente = stringToCliente(linhas[i]);
 
             if (cliente.getCodCliente() == currCliente.getCodCliente())
-                armazenarCliente(cliente); // o código é imutável, então sobscreve
+                ManipuladorArquivo.armazenar(cliente); // o código é imutável, então sobscreve
             else
-                armazenarCliente(currCliente);
+                ManipuladorArquivo.armazenar(currCliente);
         }
     }
     
     // exclui um cliente do banco de dados
-    public static void excluirCliente(Cliente cliente) throws IOException {
+    public static void excluir(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
         String texto = leitor("database/clientes.txt");
         limparArquivo("database/clientes.txt");
@@ -138,7 +138,7 @@ public class ManipuladorArquivo {
             Cliente currCliente = stringToCliente(linhas[i]);
 
             if (cliente.getCodCliente() != currCliente.getCodCliente()) // se for igual, ignora
-                armazenarCliente(currCliente);
+                ManipuladorArquivo.armazenar(currCliente);
         }
     }
     
@@ -163,7 +163,7 @@ public class ManipuladorArquivo {
     }
     
     // armazena um motoboy no banco de dados
-    public static void armazenarMotoboy(Motoboy motoboy) throws IOException {
+    public static void armazenar(Motoboy motoboy) throws IOException {
         escritor("database/motoboys.txt", motoboy.toString());
     }
     
@@ -185,7 +185,7 @@ public class ManipuladorArquivo {
     }
     
     // edita um motoboy no banco de dados
-    public static void editarMotoboy(Motoboy motoboy) throws IOException {
+    public static void editar(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
         String texto = leitor("database/motoboys.txt");
         limparArquivo("database/motoboys.txt");
@@ -199,14 +199,14 @@ public class ManipuladorArquivo {
             Motoboy currMotoboy = stringToMotoboy(linhas[i]);
 
             if (motoboy.getCodMotoboy() == currMotoboy.getCodMotoboy())
-                armazenarMotoboy(motoboy); // o código é imutável, então sobscreve
+                ManipuladorArquivo.armazenar(motoboy); // o código é imutável, então sobscreve
             else
-                armazenarMotoboy(currMotoboy);
+                ManipuladorArquivo.armazenar(currMotoboy);
         }
     }
     
     // exclui um motoboy do banco de dados
-    public static void excluirMotoboy(Motoboy motoboy) throws IOException {
+    public static void excluir(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
         String texto = leitor("database/motoboys.txt");
         limparArquivo("database/motoboys.txt");
@@ -220,7 +220,7 @@ public class ManipuladorArquivo {
             Motoboy currMotoboy = stringToMotoboy(linhas[i]);
 
             if (motoboy.getCodMotoboy() != currMotoboy.getCodMotoboy()) // se for igual, ignora
-                armazenarMotoboy(currMotoboy);
+                ManipuladorArquivo.armazenar(currMotoboy);
         }
     }
 
@@ -241,7 +241,7 @@ public class ManipuladorArquivo {
     }
     
     // armazena um produto no banco de dados
-    public static void armazenarProduto(Produto produto) throws IOException {
+    public static void armazenar(Produto produto) throws IOException {
         escritor("database/produtos.txt", produto.toString());
     }
     
@@ -262,7 +262,7 @@ public class ManipuladorArquivo {
     }
     
     // edita um produto no banco de dados
-    public static void editarProduto(Produto produto) throws IOException {
+    public static void editar(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
         limparArquivo("database/produtos.txt");
@@ -276,14 +276,14 @@ public class ManipuladorArquivo {
             Produto currProduto = stringToProduto(linhas[i]);
 
             if (produto.getCodProduto() == currProduto.getCodProduto())
-                armazenarProduto(produto); // o código é imutável, então sobscreve
+                armazenar(produto); // o código é imutável, então sobscreve
             else
-                armazenarProduto(currProduto);
+                armazenar(currProduto);
         }
     }
     
     // exclui um produto do banco de dados
-    public static void excluirProduto(Produto produto) throws IOException {
+    public static void excluir(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
         String texto = leitor("database/produtos.txt");
         limparArquivo("database/produtos.txt");
@@ -297,7 +297,7 @@ public class ManipuladorArquivo {
             Produto currProduto = stringToProduto(linhas[i]);
 
             if (produto.getCodProduto() != currProduto.getCodProduto()) // se for igual, ignora
-                armazenarProduto(currProduto);
+                armazenar(currProduto);
         }
     }
 }

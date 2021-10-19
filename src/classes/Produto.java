@@ -39,7 +39,7 @@ public class Produto {
         }
         
         this.setCodProduto(curr_id);
-        ManipuladorArquivo.armazenarProduto(this);
+        ManipuladorArquivo.armazenar(this);
     }
 
     public float getValorAtual() {

@@ -152,7 +152,7 @@ public class ExcluirProduto extends javax.swing.JFrame {
         Produto produto = produtos.get(indice_produto);
 
             try {
-            ManipuladorArquivo.excluirProduto(produto);
+            ManipuladorArquivo.excluir(produto);
             JOptionPane.showMessageDialog(null, "Produto excluído com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             
             carregarProdutos();

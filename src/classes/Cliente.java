@@ -33,7 +33,7 @@ public class Cliente extends Usuario {
         }
         
         this.setCodCliente(curr_id);
-        ManipuladorArquivo.armazenarCliente(this);
+        ManipuladorArquivo.armazenar(this);
     }
     
     @Override

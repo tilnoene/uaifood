@@ -142,7 +142,7 @@ public class ExcluirCliente extends javax.swing.JFrame {
         Cliente cliente = clientes.get(indice_motoboy);
 
             try {
-            ManipuladorArquivo.excluirCliente(cliente);
+            ManipuladorArquivo.excluir(cliente);
             JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso.", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
             
             carregarClientes();
