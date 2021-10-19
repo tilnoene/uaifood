@@ -2,14 +2,13 @@ package classes;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import jdk.jfr.Timestamp;
 
 /* subclasse da superclasse usuario.
 // dados especificos: codigo do motoboy, inico e fim de expediente, 
 comissao, disponibilidade;
 */
 
-public class Motoboy extends Usuario{
+public class Motoboy extends Usuario {
     private int codMotoboy;
     private String inicioExpediente;
     private String finalExpediente;
@@ -29,7 +28,9 @@ public class Motoboy extends Usuario{
         this.finalExpediente = finalExpediente;
     }
 
+    @Override
     public void init() throws IOException {
+        // decidi o id (único) do motoboy e o salva no banco de dados
         int curr_id = 0;
         
         try {
@@ -43,6 +44,21 @@ public class Motoboy extends Usuario{
         
         this.setCodMotoboy(curr_id);
         ManipuladorArquivo.armazenarMotoboy(this);
+    }
+    
+    @Override
+    public String toString() {
+        return String.valueOf(this.codMotoboy) + ";"
+                + String.valueOf(this.comissao) + ";"
+                + String.valueOf(this.disponibilidade) + ";"
+                + this.cpf + ";"
+                + this.nome + ";"
+                + this.email + ";"
+                + this.senha + ";"
+                + this.dataDeNascimento + ";"
+                + this.telefone + ";"
+                + this.inicioExpediente + ";"
+                + this.finalExpediente;
     }
     
     // converte uma string no formato HH:mm em um inteiro com os minutos
@@ -62,21 +78,6 @@ public class Motoboy extends Usuario{
         
         // se não estiver disponível ou não estiver no horário de expediente retorna false
         return this.disponibilidade && tempoAtual >= tempoInicial && tempoAtual <= tempoFinal;
-    }
-    
-    @Override
-    public String toString() {
-        return String.valueOf(this.codMotoboy) + ";"
-                + String.valueOf(this.comissao) + ";"
-                + String.valueOf(this.disponibilidade) + ";"
-                + this.cpf + ";"
-                + this.nome + ";"
-                + this.email + ";"
-                + this.senha + ";"
-                + this.dataDeNascimento + ";"
-                + this.telefone + ";"
-                + this.inicioExpediente + ";"
-                + this.finalExpediente;
     }
     
     public int getCodMotoboy() {
@@ -119,66 +120,4 @@ public class Motoboy extends Usuario{
         this.disponibilidade = disponibilidade;
     }
 
-    @Override
-    public String getCpf() {
-        return cpf;
-    }
-
-    @Override
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String getSenha() {
-        return senha;
-    }
-
-    @Override
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    @Override
-    public String getDataDeNascimento() {
-        return dataDeNascimento;
-    }
-
-    @Override
-    public void setDataDeNascimento(String dataDeNascimento) {
-        this.dataDeNascimento = dataDeNascimento;
-    }
-
-    @Override
-    public String getTelefone() {
-        return telefone;
-    }
-
-    @Override
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-    
-    
-    
 }

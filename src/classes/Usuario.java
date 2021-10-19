@@ -3,9 +3,9 @@ package classes;
 // Classe do usuario
 // Superclasse das subclasses Cliente e Motoboy
 
-import java.util.Date;
+import java.io.IOException;
 
-public class Usuario {
+public abstract class Usuario {
     protected String cpf;
     protected String nome;
     protected String email;
@@ -22,6 +22,9 @@ public class Usuario {
         this.dataDeNascimento = dataDeNascimento;
         this.telefone = telefone;
     }
+    
+    // função responsável por salvar a classe no banco de dados e decidir seu id
+    public abstract void init() throws IOException;
    
     public String getCpf() {
         return cpf;
