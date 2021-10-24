@@ -2,7 +2,6 @@
     <img alt="uaiFood" src="./assets/uaifood_banner.jpg" />
 </h1>
 <p align="center">Gerenciador de um restaurante virtual inspirado no <a href='https://www.ifood.com.br/' target='_blank'>iFood</a>.</p>
-<p align="center"><b>🚧 Em construção 🚧</b></p>
 
 <div align="center">
     <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" />
@@ -26,7 +25,8 @@
 
 <p>Consiste em um sistema de gerenciamento de restaurantes com foco inteiramente didático, utilizado como projeto final da disciplina de Técnicas de Programação 1 da <a href="https://www.unb.br/" target="_blank">Universidade de Brasília</a>.</p>
 
-colocar aqui o diagrama de classes.
+<p>Diagrama de classes:</p>
+<img alt="Diagrama de Classes" src="./assets/diagrama_de_classes.jpg" />
 
 ---
 
@@ -46,7 +46,27 @@ colocar aqui o diagrama de classes.
 
 <h2>🌭 Funcionalidades</h2>
 
-Produtos, clientes, motoboys, etc.
+Ao abrir o aplicativo o usuário verá a tela abaixo, onde ele pode escolher entre gerenciar o restaurante ou realizar um pedido.
+
+<img alt="Tela Inicial" src="./assets/screenshots/tela_inicial_centralizado.png" />
+
+Ao pressionar o botão "Pedido", as seguintes telas serão apresentadas para o usuário, onde ele deverá entrar com suas credenciais, selecionar os produtos, confirmar os dados e então realizar o pedido.
+
+<img alt="Gerenciar Produtos" src="./assets/screenshots/telas_pedido.png" />
+
+Cada produto pode possuir um "dia de promoção", onde seu preço é reduzido em 10% caso o usuário faça um pedido no dia em questão.
+
+Ao pressionar o botão "Gerenciar" novas opções serão apresentadas para o usuário:
+
+<img alt="Gerenciamento" src="./assets/screenshots/gerenciamento_centralizado.png" />
+
+Aqui é possível criar, editar ou excluir um objeto. As seguintes telas aparecerão, respectivamente, para cada classe:
+
+<img alt="Gerenciar Produtos" src="./assets/screenshots/telas_produto.png" />
+
+<img alt="Gerenciar Clientes" src="./assets/screenshots/telas_cliente.png" />
+
+<img alt="Gerenciar Motoboys" src="./assets/screenshots/telas_motoboy.png" />
 
 ---
 
