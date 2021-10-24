@@ -14,7 +14,7 @@ public class Produto {
     private String descricao;
     private int diaDaPromocao;
     
-    public static String[] categorias = { "Carnes", "Japonesa", "Lanches", "Marmita", "Padarias", "Pizza", "Salgados", "Saudável", "Sorvetes" };
+    public static String[] categorias = { "Carnes", "Japonesa", "Lanches", "Marmita", "Padarias", "Pizza", "Salgados", "Saudável", "Sorvetes", "Bebidas" };
 
     public Produto(int codProduto, String nome, float valor, boolean alcoolico, String categoria, String descricao, int diaDaPromocao) {
         this.codProduto = codProduto;

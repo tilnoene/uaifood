@@ -2,11 +2,7 @@
 
 
 
-
-
-0;Pizza de calabresa;25.0;false;Pizza;pizza boa;6
-1;Ratatouille;16.25;false;Carnes;Ratão borrachudo que não serve pra funcionar em todas as telas que Deus quis.;0
-2;teste;123.5;false;Marmita;dsgdsg;0
-3;ed;3434.0;false;Carnes;trg;2
-4;ed;111.11;true;Lanches;dfef;1
-5;x-ratão;1000.99;false;Lanches;the best of the city leptospirose incluída;2
+0;Pizza de Mussarela;22.35;false;Pizza;Pizza sabor mussarela.;0
+1;Refrigerante de Cola;7.32;false;Bebidas;Refrigerante sabor cola.;6
+2;Pão de Queijo;0.5;false;Padarias;Pão de queijo mineiro.;1
+3;Royal Salute;899.0;true;Bebidas;Uísque escocês.;5
