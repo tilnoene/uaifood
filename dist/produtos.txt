@@ -1,0 +1,8 @@
+
+
+
+
+0;Pizza de Mussarela;22.35;false;Pizza;Pizza sabor mussarela.;0
+1;Refrigerante de Cola;7.32;false;Bebidas;Refrigerante sabor cola.;6
+2;Pão de Queijo;0.5;false;Padarias;Pão de queijo mineiro.;1
+3;Royal Salute;899.0;true;Bebidas;Uísque escocês.;5
