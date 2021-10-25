@@ -83,12 +83,12 @@ public class ManipuladorArquivo {
     
     // armazena um cliente no banco de dados
     public static void armazenar(Cliente cliente) throws IOException {
-        escritor("database/clientes.txt", cliente.toString());
+        escritor("clientes.txt", cliente.toString());
     }
     
     // carrega os clientes do banco de dados
     public static ArrayList<Cliente> carregarClientes() throws IOException {
-        String texto = leitor("database/clientes.txt");
+        String texto = leitor("clientes.txt");
 
         String[] linhas = texto.split("\n");
         ArrayList<Cliente> clientes = new ArrayList();
@@ -105,8 +105,8 @@ public class ManipuladorArquivo {
     // edita um cliente no banco de dados
     public static void editar(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
-        String texto = leitor("database/clientes.txt");
-        limparArquivo("database/clientes.txt");
+        String texto = leitor("clientes.txt");
+        limparArquivo("clientes.txt");
         
         String[] linhas = texto.split("\n");
 
@@ -126,8 +126,8 @@ public class ManipuladorArquivo {
     // exclui um cliente do banco de dados
     public static void excluir(Cliente cliente) throws IOException {
         // carrega os clientes do banco de dados
-        String texto = leitor("database/clientes.txt");
-        limparArquivo("database/clientes.txt");
+        String texto = leitor("clientes.txt");
+        limparArquivo("clientes.txt");
 
         String[] linhas = texto.split("\n");
 
@@ -164,13 +164,13 @@ public class ManipuladorArquivo {
     
     // armazena um motoboy no banco de dados
     public static void armazenar(Motoboy motoboy) throws IOException {
-        escritor("database/motoboys.txt", motoboy.toString());
+        escritor("motoboys.txt", motoboy.toString());
     }
     
     // carrega os motoboys do banco de dados
     public static ArrayList<Motoboy> carregarMotoboys() throws IOException {
         // carrega os motoboys do banco de dados
-        String texto = leitor("database/motoboys.txt");
+        String texto = leitor("motoboys.txt");
 
         String[] linhas = texto.split("\n");
         ArrayList<Motoboy> motoboys = new ArrayList();
@@ -187,8 +187,8 @@ public class ManipuladorArquivo {
     // edita um motoboy no banco de dados
     public static void editar(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
-        String texto = leitor("database/motoboys.txt");
-        limparArquivo("database/motoboys.txt");
+        String texto = leitor("motoboys.txt");
+        limparArquivo("motoboys.txt");
         
         String[] linhas = texto.split("\n");
 
@@ -208,8 +208,8 @@ public class ManipuladorArquivo {
     // exclui um motoboy do banco de dados
     public static void excluir(Motoboy motoboy) throws IOException {
         // carrega os motoboys do banco de dados
-        String texto = leitor("database/motoboys.txt");
-        limparArquivo("database/motoboys.txt");
+        String texto = leitor("motoboys.txt");
+        limparArquivo("motoboys.txt");
 
         String[] linhas = texto.split("\n");
 
@@ -242,12 +242,12 @@ public class ManipuladorArquivo {
     
     // armazena um produto no banco de dados
     public static void armazenar(Produto produto) throws IOException {
-        escritor("database/produtos.txt", produto.toString());
+        escritor("produtos.txt", produto.toString());
     }
     
     // carrega os produtos do banco de dados
     public static ArrayList<Produto> carregarProdutos() throws IOException {
-        String texto = leitor("database/produtos.txt");
+        String texto = leitor("produtos.txt");
 
         String[] linhas = texto.split("\n");
         ArrayList<Produto> produtos = new ArrayList();
@@ -264,8 +264,8 @@ public class ManipuladorArquivo {
     // edita um produto no banco de dados
     public static void editar(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
-        String texto = leitor("database/produtos.txt");
-        limparArquivo("database/produtos.txt");
+        String texto = leitor("produtos.txt");
+        limparArquivo("produtos.txt");
         
         String[] linhas = texto.split("\n");
 
@@ -285,8 +285,8 @@ public class ManipuladorArquivo {
     // exclui um produto do banco de dados
     public static void excluir(Produto produto) throws IOException {
         // carrega os produtos do banco de dados
-        String texto = leitor("database/produtos.txt");
-        limparArquivo("database/produtos.txt");
+        String texto = leitor("produtos.txt");
+        limparArquivo("produtos.txt");
 
         String[] linhas = texto.split("\n");
 
