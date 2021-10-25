@@ -68,8 +68,6 @@ Aqui é possível criar, editar ou excluir um objeto. As seguintes telas aparece
 
 <img alt="Gerenciar Motoboys" src="./assets/screenshots/telas_motoboy.png" />
 
-<p>Para iniciar o programa é necessário ter uma pasta chamada database no mesmo diretório do executável.</p>
-
 ---
 
 <h2>💻 Autores</h2>
